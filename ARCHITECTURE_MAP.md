@@ -27,6 +27,7 @@
 | `components/NewsGrid.tsx` | Tarjetas de novedades con galería interactiva 3D | `framer-motion`, `lucide-react`, `SectionTitle`, `CircularGallery`, `data/content` |
 | `components/CircularGallery/` | Componente interactivo WebGL para galería de fotos | `ogl`, `next/dynamic` |
 | `components/Donations.tsx` | Insumos urgentes + datos bancarios con copiar al portapapeles | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
+| `components/BlurText.tsx` | Animación de texto difuminado por palabras/letras | `framer-motion` |
 
 ## 🧪 Registro de Pruebas y Verificaciones
 *(El agente registrará cada build/test ejecutado)*
