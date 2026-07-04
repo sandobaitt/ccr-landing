@@ -1,0 +1,177 @@
+'use client';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { SectionTitle } from '@/components/SectionTitle';
+import { supplyItems, donationInfo } from '@/data/content';
+import {
+  UtensilsCrossed,
+  Shirt,
+  BookOpen,
+  Droplets,
+  Copy,
+  Check,
+  AlertTriangle,
+  Banknote,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
+const iconMap: Record<string, LucideIcon> = {
+  UtensilsCrossed,
+  Shirt,
+  BookOpen,
+  Droplets,
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.1 * i,
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
+  }),
+};
+
+function CopyButton({ label, value }: { label: string; value: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback para navegadores sin clipboard API
+      const textarea = document.createElement('textarea');
+      textarea.value = value;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+        {label}
+      </span>
+      <button
+        onClick={handleCopy}
+        className={`group flex items-center justify-between gap-3 w-full px-4 py-3 rounded-xl border text-left text-sm font-mono transition-all duration-300 cursor-pointer ${
+          copied
+            ? 'bg-emerald-50 border-emerald-300 text-emerald-700'
+            : 'bg-zinc-50 border-zinc-200 text-zinc-800 hover:border-zinc-400 hover:bg-white'
+        }`}
+      >
+        <span className="truncate">{value}</span>
+        {copied ? (
+          <span className="flex items-center gap-1 text-emerald-600 text-xs font-bold shrink-0">
+            <Check className="w-4 h-4" />
+            ¡Copiado!
+          </span>
+        ) : (
+          <Copy className="w-4 h-4 text-zinc-400 group-hover:text-zinc-700 transition-colors shrink-0" />
+        )}
+      </button>
+    </div>
+  );
+}
+
+export function Donations() {
+  return (
+    <section id="ayudar" className="relative w-full py-24 px-6 bg-white">
+      <div className="max-w-5xl mx-auto">
+        <SectionTitle
+          title="Cómo Ayudar"
+          subtitle="Tu aporte, grande o pequeño, transforma vidas en cada recorrida."
+        />
+
+        {/* Grid de Insumos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
+          {supplyItems.map((item, i) => {
+            const Icon = iconMap[item.icon] || Droplets;
+
+            return (
+              <motion.div
+                key={item.id}
+                className={`relative flex items-start gap-4 p-5 rounded-2xl border transition-shadow duration-300 ${
+                  item.urgent
+                    ? 'border-red-200 bg-red-50/50 hover:shadow-lg hover:shadow-red-100/60'
+                    : 'border-zinc-200 bg-zinc-50 hover:shadow-lg hover:shadow-zinc-200/60'
+                }`}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                custom={i}
+              >
+                {/* Icono */}
+                <div
+                  className={`flex items-center justify-center w-11 h-11 rounded-xl shrink-0 ${
+                    item.urgent
+                      ? 'bg-red-100 text-red-700'
+                      : 'bg-zinc-200 text-zinc-600'
+                  }`}
+                >
+                  <Icon className="w-5 h-5" strokeWidth={1.8} />
+                </div>
+
+                {/* Contenido */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-base font-bold text-zinc-900 tracking-tight">
+                      {item.name}
+                    </h3>
+                    {item.urgent && (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-red-700 bg-red-100 px-2 py-0.5 rounded-full">
+                        <AlertTriangle className="w-3 h-3" />
+                        Urgente
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-zinc-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Bloque de Donación Monetaria */}
+        <motion.div
+          className="mt-12 p-6 sm:p-8 rounded-2xl border border-zinc-200 bg-zinc-50"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-900 text-white">
+              <Banknote className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-zinc-900 tracking-tight">
+                Donación Monetaria
+              </h3>
+              <p className="text-sm text-zinc-500">
+                {donationInfo.bankName} · {donationInfo.accountHolder}
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <CopyButton label="CBU" value={donationInfo.cbu} />
+            <CopyButton label="Alias" value={donationInfo.alias} />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
