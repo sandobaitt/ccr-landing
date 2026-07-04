@@ -1,9 +1,16 @@
 'use client';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { SectionTitle } from '@/components/SectionTitle';
 import { newsItems } from '@/data/content';
 import type { NewsCategory } from '@/types/content';
 import { Calendar, Cross, MapPin, Megaphone, Tag } from 'lucide-react';
+
+// Carga dinámica sin SSR (WebGL requiere el DOM del navegador)
+const CircularGallery = dynamic(
+  () => import('@/components/CircularGallery/CircularGallery'),
+  { ssr: false }
+);
 
 const categoryConfig: Record<NewsCategory, { label: string; color: string; icon: typeof Cross }> = {
   retiro: { label: 'Retiro', color: 'bg-amber-100 text-amber-800', icon: Cross },
@@ -34,16 +41,43 @@ const cardVariants = {
   }),
 };
 
+// Imágenes representativas para la galería circular
+const galleryItems = [
+  { image: 'https://picsum.photos/seed/retiro1/800/600', text: 'Retiro Espiritual' },
+  { image: 'https://picsum.photos/seed/recorrida1/800/600', text: 'Recorrida Solidaria' },
+  { image: 'https://picsum.photos/seed/comunidad1/800/600', text: 'Comunidad' },
+  { image: 'https://picsum.photos/seed/oracion1/800/600', text: 'Oración' },
+  { image: 'https://picsum.photos/seed/jovenes1/800/600', text: 'Jóvenes' },
+  { image: 'https://picsum.photos/seed/mision1/800/600', text: 'Misión' },
+  { image: 'https://picsum.photos/seed/parroquia1/800/600', text: 'Parroquia' },
+  { image: 'https://picsum.photos/seed/encuentro1/800/600', text: 'Encuentro' },
+];
+
 export function NewsGrid() {
   return (
-    <section id="novedades" className="relative w-full py-24 px-6 bg-zinc-50">
+    <section id="novedades" className="relative w-full py-24 px-6 bg-zinc-950 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Novedades"
           subtitle="Entérate de los próximos retiros, recorridas y eventos del movimiento."
+          className="[&_h2]:text-white [&_p]:text-zinc-400"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+        {/* Galería Circular WebGL */}
+        <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] -mx-6 sm:mx-0 mt-2 mb-12" style={{ width: 'calc(100% + 3rem)' }}>
+          <CircularGallery
+            items={galleryItems}
+            bend={3}
+            textColor="#ffffff"
+            borderRadius={0.05}
+            scrollEase={0.03}
+            font="bold 24px sans-serif"
+            fontUrl=""
+          />
+        </div>
+
+        {/* Tarjetas de novedades */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {newsItems.map((item, i) => {
             const cat = categoryConfig[item.category];
             const CatIcon = cat.icon;
@@ -51,7 +85,7 @@ export function NewsGrid() {
             return (
               <motion.article
                 key={item.id}
-                className="group relative flex flex-col justify-between p-6 rounded-2xl border border-zinc-200 bg-white hover:shadow-xl hover:shadow-zinc-200/60 transition-shadow duration-300"
+                className="group relative flex flex-col justify-between p-6 rounded-2xl border border-zinc-800 bg-zinc-900 hover:shadow-xl hover:shadow-zinc-800/40 transition-shadow duration-300"
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -67,15 +101,15 @@ export function NewsGrid() {
                 </div>
 
                 {/* Contenido */}
-                <h3 className="text-lg font-bold text-zinc-900 mb-2 tracking-tight group-hover:text-red-700 transition-colors duration-200">
+                <h3 className="text-lg font-bold text-zinc-100 mb-2 tracking-tight group-hover:text-red-400 transition-colors duration-200">
                   {item.title}
                 </h3>
-                <p className="text-sm text-zinc-600 leading-relaxed mb-4 flex-1">
+                <p className="text-sm text-zinc-400 leading-relaxed mb-4 flex-1">
                   {item.summary}
                 </p>
 
                 {/* Fecha */}
-                <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium pt-3 border-t border-zinc-100">
+                <div className="flex items-center gap-2 text-xs text-zinc-500 font-medium pt-3 border-t border-zinc-800">
                   <Calendar className="w-3.5 h-3.5" />
                   {formatDate(item.date)}
                 </div>
