@@ -38,6 +38,7 @@ export function Hero() {
             <BlurText
               text="Crecer con"
               delay={150}
+              initialDelay={4.8}
               animateBy="words"
               direction="top"
               className="inline-block"
@@ -45,6 +46,7 @@ export function Hero() {
             <BlurText
               text="Cristo Redentor"
               delay={250}
+              initialDelay={4.8}
               animateBy="words"
               direction="top"
               className="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-500 inline-block pb-2"
