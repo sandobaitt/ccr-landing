@@ -4,6 +4,7 @@ import { Button } from '@/components/Button';
 import { Heart, Megaphone } from 'lucide-react';
 import Link from 'next/link';
 // import Image from 'next/image'; // Descomentar si se habilita la imagen de fondo
+import BlurText from '@/components/BlurText';
 
 export function Hero() {
   return (
@@ -29,21 +30,27 @@ export function Hero() {
 
       <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-8">
         
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        >
-          <span className="inline-block py-1.5 px-4 rounded-full bg-red-100 text-red-700 text-xs sm:text-sm font-bold tracking-widest uppercase mb-6 shadow-sm">
+        <div className="flex flex-col items-center justify-center space-y-4">
+          <span className="inline-block py-1.5 px-4 rounded-full bg-red-100 text-red-700 text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 shadow-sm">
             Parroquia Asunción · Resistencia
           </span>
-          <h1 className="text-5xl sm:text-6xl md:text-[5.5rem] font-black text-zinc-900 tracking-tighter leading-[1.05]">
-            Crecer con <br className="hidden sm:block" /> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-500">
-              Cristo Redentor
-            </span>
-          </h1>
-        </motion.div>
+          <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-black text-zinc-900 tracking-tighter leading-[1.05] flex flex-col items-center">
+            <BlurText
+              text="Crecer con"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="inline-block"
+            />
+            <BlurText
+              text="Cristo Redentor"
+              delay={250}
+              animateBy="words"
+              direction="top"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-500 inline-block pb-2"
+            />
+          </div>
+        </div>
 
         <motion.p 
           className="max-w-2xl text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed font-medium"
