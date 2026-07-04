@@ -24,7 +24,8 @@
 | `components/Pillars.tsx` | Grid de 3 pilares: Espiritualidad, Comunidad, Acción Social | `framer-motion`, `lucide-react`, `SectionTitle` |
 | `types/content.ts` | Interfaces TypeScript: `NewsItem`, `SupplyItem`, `DonationInfo` | - |
 | `data/content.ts` | Mock data tipada: novedades, insumos, datos bancarios | `types/content` |
-| `components/NewsGrid.tsx` | Tarjetas de novedades con categoría, fecha y animaciones | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
+| `components/NewsGrid.tsx` | Tarjetas de novedades con galería interactiva 3D | `framer-motion`, `lucide-react`, `SectionTitle`, `CircularGallery`, `data/content` |
+| `components/CircularGallery/` | Componente interactivo WebGL para galería de fotos | `ogl`, `next/dynamic` |
 | `components/Donations.tsx` | Insumos urgentes + datos bancarios con copiar al portapapeles | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
 
 ## 🧪 Registro de Pruebas y Verificaciones
