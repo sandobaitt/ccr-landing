@@ -13,7 +13,7 @@ export function Hero() {
       {/* Fondo estético - Imagen (Activada) */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <Image
-          src="/hero-bg.png"
+          src="/hero-bg.jpeg"
           alt="Fondo Cristo Redentor"
           fill
           priority

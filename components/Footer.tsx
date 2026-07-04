@@ -11,7 +11,7 @@ export function Footer() {
         <div>
           <h4 className="font-semibold text-zinc-900 mb-2">Contacto</h4>
           <p className="text-zinc-600 text-sm">Parroquia Ntra. Sra. de la Asunción</p>
-          <p className="text-zinc-600 text-sm">Buenos Aires, Argentina</p>
+          <p className="text-zinc-600 text-sm">Chaco, Argentina</p>
         </div>
       </div>
       <div className="container mx-auto px-4 mt-8 pt-8 border-t border-zinc-200 text-center text-sm text-zinc-500">
