@@ -33,20 +33,18 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
               </motion.div>
 
               {/* Contenedor Principal: CRIS + [+] + O */}
-              {/* Se añade un translate-x-3 sm:translate-x-4 para balancear ópticamente el texto hacia la derecha */}
-              <div className="flex items-center justify-center w-full max-w-full translate-x-3 sm:translate-x-4 md:translate-x-5">
+              {/* Le damos el tamaño de fuente al contenedor para usar 'em' en el espaciador */}
+              <div className="flex items-center justify-center w-full max-w-full text-4xl sm:text-5xl md:text-[56px]">
                 
                 {/* Texto CRIS */}
-                <div className="flex-1 flex justify-end">
-                  <motion.span
-                    className="text-4xl sm:text-5xl md:text-[56px] font-black tracking-widest text-zinc-50 leading-none z-20"
-                    initial={{ opacity: 0, filter: 'blur(8px)', x: -20 }}
-                    animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
-                    transition={{ delay: 2.3, duration: 0.8, ease: 'easeOut' }}
-                  >
-                    CRIS
-                  </motion.span>
-                </div>
+                <motion.span
+                  className="font-black tracking-widest text-zinc-50 leading-none z-20"
+                  initial={{ opacity: 0, filter: 'blur(8px)', x: -20 }}
+                  animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
+                  transition={{ delay: 2.3, duration: 0.8, ease: 'easeOut' }}
+                >
+                  CRIS
+                </motion.span>
 
                 {/* Contenedor de la Cruz Animada */}
                 <motion.div
@@ -149,16 +147,23 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                   </svg>
                 </motion.div>
 
-                {/* Texto O */}
-                <div className="flex-1 flex justify-start">
+                {/* Texto O con Espaciador de Balance */}
+                <div className="flex items-center">
                   <motion.span
-                    className="text-4xl sm:text-5xl md:text-[56px] font-black tracking-widest text-zinc-50 leading-none z-20"
+                    className="font-black tracking-widest text-zinc-50 leading-none z-20"
                     initial={{ opacity: 0, filter: 'blur(8px)', x: 20 }}
                     animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
                     transition={{ delay: 2.3, duration: 0.8, ease: 'easeOut' }}
                   >
                     O
                   </motion.span>
+                  
+                  {/* Espaciador dinámico: empieza en 1.8em para balancear el ancho de "CRIS", luego colapsa a 0 para centrar la palabra */}
+                  <motion.div
+                    initial={{ width: "1.8em" }}
+                    animate={{ width: 0 }}
+                    transition={{ delay: 2.3, duration: 0.8, ease: 'easeOut' }}
+                  />
                 </div>
               </div>
 
