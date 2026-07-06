@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Flame, Landmark, Footprints, BookOpen, Megaphone, HeartHandshake } from 'lucide-react';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,12 +16,12 @@ export function Navbar() {
   }, [isOpen]);
 
   const links = [
-    { name: 'Próximo Retiro', href: '#retiro' },
-    { name: 'Nuestros Pilares', href: '#pilares' },
-    { name: 'El Camino CCR', href: '#comunidades' },
-    { name: 'Patronos', href: '#santos' },
-    { name: 'Novedades', href: '#novedades' },
-    { name: 'Cómo Ayudar', href: '#ayudar' },
+    { name: 'Próximo Retiro', href: '#retiro', icon: Flame },
+    { name: 'Nuestros Pilares', href: '#pilares', icon: Landmark },
+    { name: 'El Camino CCR', href: '#comunidades', icon: Footprints },
+    { name: 'Patronos', href: '#santos', icon: BookOpen },
+    { name: 'Novedades', href: '#novedades', icon: Megaphone },
+    { name: 'Cómo Ayudar', href: '#ayudar', icon: HeartHandshake },
   ];
 
   return (
@@ -67,17 +67,23 @@ export function Navbar() {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto py-6 px-4 flex flex-col space-y-1">
-          {links.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href} 
-              className="px-4 py-3 text-base font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800/50 rounded-xl transition-all duration-200"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <div className="flex-1 overflow-y-auto py-6 px-4 flex flex-col space-y-2">
+          {links.map((link) => {
+            const Icon = link.icon;
+            return (
+              <Link 
+                key={link.name} 
+                href={link.href} 
+                className="px-4 py-3 text-base font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800/50 rounded-xl transition-all duration-200 flex items-center group"
+                onClick={() => setIsOpen(false)}
+              >
+                <div className="mr-4 p-2 rounded-lg border border-red-900/50 bg-zinc-900 text-red-500 group-hover:border-red-500/50 group-hover:text-red-400 group-hover:bg-red-950/20 transition-all duration-300 shadow-[0_0_10px_rgba(220,38,38,0.05)]">
+                  <Icon size={18} strokeWidth={2.5} />
+                </div>
+                {link.name}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </>

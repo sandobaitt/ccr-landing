@@ -52,7 +52,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-500 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p>© {new Date().getFullYear()} Movimiento CCR. Todos los derechos reservados. By Sando</p>
+        <p>© {new Date().getFullYear()} CCR. Todos los derechos reservados. By Sando</p>
         <p className="text-xs font-semibold uppercase tracking-widest text-zinc-600">Parroquia Nuestra Señora de la Asunción</p>
       </div>
     </footer>
