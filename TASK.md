@@ -55,6 +55,10 @@
   - Verificar que el botón de **"Copiar CBU/Alias"** mantenga un feedback visual instantáneo (*"¡Copiado!"*).
 - [x] **Tarea 14: Actualización del Footer Institucional**
   - Asegurar que `Footer.tsx` contenga la dirección y horarios exactos de secretaría de la Parroquia Nuestra Señora de la Asunción y enlaces directos al Instagram oficial.
+- [x] **Tarea 14.5: Ocultar Donaciones Monetarias y Añadir Contactos de Coordinadores**
+  - Comentar por seguridad toda lógica de `DonationInfo` (Alias/CBU) en `/data/content.ts` y `/types/content.ts`.
+  - Ocultar bloque monetario en `Donations.tsx`.
+  - Crear estructura `CoordinatorInfo` e integrar listado visual de coordinadores con enlaces directos de WhatsApp a modo de reemplazo.
 
 ## Fase 6: Identidad Carismática y Comunidades Post-Retiro (Prioridad 2)
 - [ ] **Tarea 15: Datos y Estructura para Santos Redentoristas y Comunidades**

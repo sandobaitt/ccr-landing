@@ -30,22 +30,22 @@ export function Footer() {
           <h4 className="font-bold text-lg text-zinc-900 mb-6 uppercase tracking-wider text-sm">Secretaría Parroquial</h4>
 
           <div className="space-y-6">
-            <div className="flex items-start gap-3 justify-center md:justify-end text-zinc-600">
-              <div className="text-right">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 justify-center md:justify-end text-zinc-600">
+              <div className="text-center md:text-right order-2 md:order-1">
                 <p className="font-bold text-zinc-800">Dirección</p>
                 <p className="text-sm mt-1">Asunción 55</p>
                 <p className="text-sm text-zinc-500">Resistencia, Chaco</p>
               </div>
-              <MapPin className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+              <MapPin className="w-5 h-5 text-red-600 shrink-0 mt-0 md:mt-0.5 order-1 md:order-2" />
             </div>
 
-            <div className="flex items-start gap-3 justify-center md:justify-end text-zinc-600">
-              <div className="text-right">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 justify-center md:justify-end text-zinc-600">
+              <div className="text-center md:text-right order-2 md:order-1">
                 <p className="font-bold text-zinc-800">Horarios de Atención</p>
                 <p className="text-sm mt-1">Lunes a Viernes</p>
                 <p className="text-sm text-zinc-500">08:30 a 12:00 hs · 16:30 a 20:00 hs</p>
               </div>
-              <Clock className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+              <Clock className="w-5 h-5 text-red-600 shrink-0 mt-0 md:mt-0.5 order-1 md:order-2" />
             </div>
           </div>
         </div>

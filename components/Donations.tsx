@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SectionTitle } from '@/components/SectionTitle';
-import { supplyItems, donationInfo } from '@/data/content';
+import { supplyItems, coordinators } from '@/data/content';
 import {
   UtensilsCrossed,
   Shirt,
@@ -13,7 +13,8 @@ import {
   AlertTriangle,
   Banknote,
   HeartHandshake,
-  MapPin
+  MapPin,
+  MessageCircle
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -165,7 +166,52 @@ export function Donations() {
           })}
         </div>
 
-        {/* Bloque de Donación Monetaria */}
+        {/* Bloque de Contacto a Coordinadores */}
+        <motion.div
+          className="mt-12 p-6 sm:p-8 rounded-2xl border border-zinc-200 bg-zinc-50"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-900 text-white">
+              <MessageCircle className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-zinc-900 tracking-tight">
+                Contactar a los Coordinadores
+              </h3>
+              <p className="text-sm text-zinc-500">
+                Escribinos por WhatsApp para sumarte o hacer una consulta.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {coordinators.map((coord) => (
+              <div key={coord.id} className="flex flex-col gap-1.5">
+                <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                  {coord.role}
+                </span>
+                <a
+                  href={`https://wa.me/${coord.phone.replace('+', '')}?text=${encodeURIComponent(coord.whatsappMsg)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between gap-3 w-full px-4 py-3 rounded-xl border border-zinc-200 bg-white text-left text-sm transition-all duration-300 hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-700 cursor-pointer"
+                >
+                  <div className="flex flex-col">
+                    <span className="font-bold">{coord.name}</span>
+                    <span className="text-zinc-500 text-xs font-mono group-hover:text-emerald-600 transition-colors">{coord.phone}</span>
+                  </div>
+                  <MessageCircle className="w-5 h-5 text-zinc-400 group-hover:text-emerald-600 transition-colors shrink-0" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Bloque de Donación Monetaria (Oculto temporalmente por posibles problemas)
         <motion.div
           className="mt-12 p-6 sm:p-8 rounded-2xl border border-zinc-200 bg-zinc-50"
           initial={{ opacity: 0, y: 24 }}
@@ -182,16 +228,17 @@ export function Donations() {
                 Donación Monetaria
               </h3>
               <p className="text-sm text-zinc-500">
-                {donationInfo.bankName} · {donationInfo.accountHolder}
+                Banco Nación · Parroquia Ntra. Sra. de la Asunción
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <CopyButton label="CBU" value={donationInfo.cbu} />
-            <CopyButton label="Alias" value={donationInfo.alias} />
+            <CopyButton label="CBU" value="0110012340012345678901" />
+            <CopyButton label="Alias" value="CRECER.CCR.REDENTOR" />
           </div>
         </motion.div>
+        */}
       </div>
     </section>
   );

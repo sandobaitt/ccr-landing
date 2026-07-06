@@ -1,4 +1,5 @@
-import type { NewsItem, SupplyItem, DonationInfo, RetreatInfo } from '@/types/content';
+// import type { NewsItem, SupplyItem, DonationInfo, RetreatInfo } from '@/types/content';
+import type { NewsItem, SupplyItem, RetreatInfo, CoordinatorInfo } from '@/types/content';
 
 /** Novedades del movimiento */
 export const newsItems: NewsItem[] = [
@@ -68,13 +69,33 @@ export const supplyItems: SupplyItem[] = [
   },
 ];
 
-/** Información bancaria para donaciones monetarias */
-export const donationInfo: DonationInfo = {
+/* Oculto temporalmente
+/** Información bancaria para donaciones monetarias * /
+export const donationInfo = {
   bankName: 'Banco Nación',
   accountHolder: 'Parroquia Ntra. Sra. de la Asunción',
   cbu: '0110012340012345678901',
   alias: 'CRECER.CCR.REDENTOR',
 };
+*/
+
+/** Contactos de coordinadores generales */
+export const coordinators: CoordinatorInfo[] = [
+  {
+    id: 'coord-1',
+    name: 'Mateo Gallardo',
+    role: 'Coordinador General',
+    phone: '+5493624238806',
+    whatsappMsg: '¡Hola Mateo! Quería consultarte sobre el movimiento CCR.',
+  },
+  {
+    id: 'coord-2',
+    name: 'Santino Diaz Oddone',
+    role: 'Coordinador',
+    phone: '+5493624894521',
+    whatsappMsg: '¡Hola Santino! Quería consultarte sobre el movimiento CCR.',
+  },
+];
 
 /** Información del próximo retiro */
 export const nextRetreat: RetreatInfo = {

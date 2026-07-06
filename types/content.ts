@@ -20,14 +20,24 @@ export interface SupplyItem {
   icon: string; // nombre del icono de lucide-react
 }
 
-/** Datos bancarios para donaciones */
+/* Oculto temporalmente por seguridad / problemas
+/** Datos bancarios para donaciones * /
 export interface DonationInfo {
   bankName: string;
   accountHolder: string;
   cbu: string;
   alias: string;
 }
+*/
 
+/** Información de contacto de los coordinadores */
+export interface CoordinatorInfo {
+  id: string;
+  name: string;
+  role: string;
+  phone: string;
+  whatsappMsg: string;
+}
 /** Información del próximo retiro */
 export interface RetreatInfo {
   id: string;
