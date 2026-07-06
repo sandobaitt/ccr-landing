@@ -22,32 +22,52 @@
   - Crear `Footer.tsx` con información institucional de la Parroquia Nuestra Señora de la Asunción.
 - [x] **Tarea 3.5: Splash Screen Animado (Cruz Redentorista -> "T")**
   - Crear componente `BrandLoader.tsx` usando `framer-motion`.
-  - **Especificación visual:** Dibujar en vectores (SVG o bloques con CSS) la silueta geométrica de la **Cruz Redentorista** (líneas sobrias, proporciones firmes).
-  - **Animación secuencial:** 
-    1. Entrada suave de la Cruz Redentorista en el centro de la pantalla.
-    2. Transformación fluida donde el travesaño horizontal se desplaza y reposiciona para formar la letra **"T"**.
-    3. Fade-in sincronizado del texto restante: **"CRIS[T]O REDENTOR"** (fundiendo la "T" animada con el resto de la tipografía moderna).
-  - Integrar en `app/layout.tsx` con lógica de auto-desmontaje tras completar la carga/animación (aprox. 2.5 a 3 segundos).
+  - Integrar en `app/layout.tsx` con lógica de auto-desmontaje tras completar la carga/animación.
 - [x] **Tarea 4: Hero Section**
   - Maquetar sección principal de alto impacto visual.
-  - Integrar botones de acción (*Call to Action*): "Ver Novedades" y "Cómo Ayudar".
 - [x] **Tarea 5: Sección de Objetivos y Pilares**
   - Maquetar grid responsive de 3 columnas (Espiritualidad, Comunidad, Acción Social).
-  - Integrar iconos representativos de `lucide-react`.
 
-## Fase 3: Módulos Dinámicos y Datos
+## Fase 3: Módulos Dinámicos y Datos Base
 - [x] **Tarea 6: Estructura de Datos Centralizada**
   - Crear interfaces TypeScript en `/types/content.ts`.
-  - Crear mock data tipada en `/data/content.ts` (Novedades de retiros e Insumos para recorridas).
+  - Crear mock data tipada en `/data/content.ts`.
 - [x] **Tarea 7: Módulo de Novedades**
   - Crear componente `NewsGrid.tsx` que consuma `/data/content.ts`.
-  - Diseñar tarjetas limpias con etiquetas de categoría y fecha.
 - [x] **Tarea 8: Módulo de Ayuda y Donaciones**
   - Crear componente `Donations.tsx` con listado visual de insumos urgentes.
-  - Implementar lógica interactiva para copiar CBU/Alias al portapapeles con cambio de estado visual (feedback "¡Copiado!").
 
-## Fase 4: Auditoría y Cierre
-- [x] **Tarea 9: Revisión Final de UI/UX, Tipado y Despliegue**
-  - Ejecutar `npm run lint` y solucionar cualquier warning/error de TypeScript.
-  - Verificar espaciado (padding/margin) en vistas móviles (360px).
+## Fase 4: Auditoría Base
+- [x] **Tarea 9: Revisión Final de UI/UX, Tipado y Despliegue Inicial**
   - Confirmar build final exitoso con `npm run build`.
+
+## Fase 5: Expansión del Núcleo Operativo (Prioridad 1)
+- [x] **Tarea 10: Actualización del Modelo de Datos para Inscripciones y Retiros**
+  - Modificar `/types/content.ts` y `/data/content.ts` para agregar la estructura del próximo retiro (ej. `CCR 32`), incluyendo: estado de inscripción (`open: boolean`), fecha objetivo para el contador, enlace de Google Forms, requisitos y edad mínima.
+- [x] **Tarea 11: Actualización del Hero Section con Lógica Condicional**
+  - Modificar la `Hero Section` para que el botón directo de **"Inscribirse al próximo retiro"** evalúe el estado `open`. Si está en `false`, debe renderizarse visualmente deshabilitado con un tooltip o texto aclaratorio (ej. *"Inscripciones próximamente"*).
+- [x] **Tarea 12: Módulo del Próximo Retiro (CCR 32) y Cuenta Regresiva**
+  - Crear componente `NextRetreat.tsx` con un temporizador (`Countdown`) elegante que muestre días, horas y minutos restantes para el retiro.
+  - Renderizar los datos clave del CCR 32 y el botón de Google Forms con la misma lógica de deshabilitado condicional.
+- [x] **Tarea 13: Refactorización y Mejora UI del Módulo de Acción Social (Recorridas Nocturnas)**
+  - Optimizar el componente existente de recorridas de los miércoles en plazas, Hospital Perrando y Pediátrico.
+  - Diseñar un listado interactivo e intuitivo de insumos urgentes con iconos de `lucide-react` muy reconocibles para cada ítem (abrigo, café, mantas, alimentos).
+  - Verificar que el botón de **"Copiar CBU/Alias"** mantenga un feedback visual instantáneo (*"¡Copiado!"*).
+- [x] **Tarea 14: Actualización del Footer Institucional**
+  - Asegurar que `Footer.tsx` contenga la dirección y horarios exactos de secretaría de la Parroquia Nuestra Señora de la Asunción y enlaces directos al Instagram oficial.
+
+## Fase 6: Identidad Carismática y Comunidades Post-Retiro (Prioridad 2)
+- [ ] **Tarea 15: Datos y Estructura para Santos Redentoristas y Comunidades**
+  - Ampliar `/types/content.ts` y `/data/content.ts` sumando biografías de Santos Redentoristas y la estructura de comunidades de perseverancia.
+- [ ] **Tarea 16: Sección "Nuestras Raíces: Santos Redentoristas" con Modal Interactivo**
+  - Crear componente `SaintsGrid.tsx` con tarjetas para San Alfonso María de Ligorio, San Gerardo Majella, San Clemente Hofbauer y Beato Pedro Donders.
+  - Implementar un **Modal flotante** (usando `framer-motion`) que se abra al hacer clic en un santo, mostrando su biografía completa y su conexión con el carisma del retiro y las recorridas.
+- [ ] **Tarea 17: Expansión del Módulo "Pilares del CCR y Post-Retiro"**
+  - Actualizar la sección de pilares integrando las etapas: Pre-retiro, Retiro y Post-retiro.
+  - Agregar dentro de Post-retiro las comunidades de perseverancia: **Ministerio de Música Shesma**, las **3 Comisiones juveniles de servicio** y un bloque extensible para futuras actividades parroquiales.
+
+## Fase 7: Auditoría Final de Expansión
+- [ ] **Tarea 18: Verificación General, Accesibilidad y Build de Expansión**
+  - Ejecutar `npm run lint` resolviendo cualquier error estricto de TypeScript en los nuevos modales y temporizadores.
+  - Probar vistas en dispositivos móviles (360px).
+  - Confirmar build de producción exitoso con `npm run build`.

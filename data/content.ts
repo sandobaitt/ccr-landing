@@ -1,4 +1,4 @@
-import type { NewsItem, SupplyItem, DonationInfo } from '@/types/content';
+import type { NewsItem, SupplyItem, DonationInfo, RetreatInfo } from '@/types/content';
 
 /** Novedades del movimiento */
 export const newsItems: NewsItem[] = [
@@ -39,30 +39,30 @@ export const newsItems: NewsItem[] = [
 /** Insumos necesarios para las recorridas */
 export const supplyItems: SupplyItem[] = [
   {
-    id: 'alimentos-no-perecederos',
-    name: 'Alimentos No Perecederos',
-    description: 'Arroz, fideos, harina, aceite, leche en polvo, conservas.',
+    id: 'alimentos',
+    name: 'Alimentos',
+    description: 'Comida preparada, viandas, pan o alimentos no perecederos.',
     urgent: true,
     icon: 'UtensilsCrossed',
   },
   {
-    id: 'ropa-abrigo',
-    name: 'Ropa de Abrigo',
-    description: 'Camperas, buzos, mantas y frazadas en buen estado.',
+    id: 'abrigo',
+    name: 'Abrigo y Mantas',
+    description: 'Camperas, buzos, mantas y frazadas para combatir el frío.',
     urgent: true,
     icon: 'Shirt',
   },
   {
-    id: 'utiles-escolares',
-    name: 'Útiles Escolares',
-    description: 'Cuadernos, lápices, mochilas y material didáctico.',
-    urgent: false,
-    icon: 'BookOpen',
+    id: 'cafe',
+    name: 'Bebidas Calientes',
+    description: 'Café, mate cocido, té, azúcar y vasos térmicos descartables.',
+    urgent: true,
+    icon: 'Coffee',
   },
   {
-    id: 'higiene-personal',
+    id: 'higiene',
     name: 'Artículos de Higiene',
-    description: 'Jabón, dentífrico, toallas, pañales descartables.',
+    description: 'Jabón, toallas, alcohol en gel y pañales.',
     urgent: false,
     icon: 'Droplets',
   },
@@ -74,4 +74,21 @@ export const donationInfo: DonationInfo = {
   accountHolder: 'Parroquia Ntra. Sra. de la Asunción',
   cbu: '0110012340012345678901',
   alias: 'CRECER.CCR.REDENTOR',
+};
+
+/** Información del próximo retiro */
+export const nextRetreat: RetreatInfo = {
+  id: 'ccr-32',
+  name: 'CCR 32',
+  open: false,
+  targetDate: '2026-10-15T18:00:00-03:00',
+  formsLink: 'https://docs.google.com/forms/d/e/ejemplo/viewform',
+  requirements: [
+    'Ropa cómoda (buzo y zapatillas)',
+    'Biblia, cuaderno y lapicera',
+    'Aislante y bolsa de dormir (o sábanas)',
+    'Elementos de higiene personal'
+  ],
+  minAge: 18,
+  maxAge: 30,
 };

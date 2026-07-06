@@ -22,9 +22,19 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
           >
             <div className="relative flex flex-col items-center justify-center w-full max-w-xl px-4 mx-auto">
 
-              {/* Contenedor Principal: CRIS + [T] + O */}
-              <div className="flex items-center justify-center relative w-full h-32 sm:h-40 gap-1 sm:gap-3">
+              {/* Texto Superior: CRECER CON */}
+              <motion.div
+                className="text-sm sm:text-base md:text-lg font-bold tracking-[0.3em] text-zinc-400 mb-2 sm:mb-4 uppercase"
+                initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{ delay: 2.8, duration: 0.9, ease: 'easeOut' }}
+              >
+                Crecer con
+              </motion.div>
 
+              {/* Contenedor Principal: CRIS + [+] + O */}
+              <div className="flex items-center justify-center w-full">
+                
                 {/* Texto CRIS */}
                 <motion.span
                   className="text-4xl sm:text-5xl md:text-[56px] font-black tracking-widest text-zinc-50 leading-none z-20"
@@ -37,7 +47,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
 
                 {/* Contenedor de la Cruz Animada */}
                 <motion.div
-                  className="relative z-10 flex justify-center items-center w-12 sm:w-16 h-full"
+                  className="relative z-10 flex justify-center items-center w-12 sm:w-16 h-32 sm:h-40 mx-1 sm:mx-2"
                   initial={{ scale: 1.3, y: -10 }}
                   animate={{ scale: 0.55, y: 4 }}
                   transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 2.3 }}
@@ -50,7 +60,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                     xmlns="http://www.w3.org/2000/svg"
                     className="overflow-visible absolute"
                   >
-                    {/* --- ELEMENTOS SÍMBOLOS (SINCRONIZACIÓN MILIMÉTRICA EN OPACIDAD 3.1s) --- */}
+                    {/* --- ELEMENTOS SÍMBOLOS --- */}
 
                     {/* Espíritu Santo (Aureola y Paloma) */}
                     <motion.circle
@@ -94,7 +104,6 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         opacity: { duration: 3.1, times: [0, 0.7, 1], ease: 'easeInOut', delay: 0.2 }
                       }}
                     />
-                    {/* Opacidad aislada exactamente al mismo tiempo y curva que los demás */}
                     <motion.path
                       d="M 44 54 C 38 58, 30 52, 32 44 C 34 36, 42 34, 48 40 C 54 46, 50 50, 44 54 Z M 38 46 A 1 1 0 1 1 38 46.1 Z M 44 48 A 1.5 1.5 0 1 1 44 48.1 Z"
                       stroke="#a1a1aa" strokeWidth="2.5" strokeLinejoin="round" fill="#27272a"
@@ -118,7 +127,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                       }}
                     />
 
-                    {/* --- CRUZ CENTRAL (TRANSFORMACIÓN A T) --- */}
+                    {/* --- CRUZ CENTRAL (SE MANTIENE COMO CRUZ) --- */}
                     <motion.path
                       d="M 70 40 L 70 130"
                       stroke="#fafafa" strokeWidth="14" strokeLinecap="square"
@@ -130,15 +139,9 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                     <motion.line
                       x1="30" y1="70" x2="110" y2="70"
                       stroke="#fafafa" strokeWidth="14" strokeLinecap="square"
-                      initial={{ pathLength: 0, y: 0 }}
-                      animate={{
-                        pathLength: 1,
-                        y: [0, -30],
-                      }}
-                      transition={{
-                        pathLength: { duration: 0.8, ease: 'easeInOut', delay: 1.1 },
-                        y: { duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 2.3 },
-                      }}
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 0.8, ease: 'easeInOut', delay: 1.1 }}
                     />
                   </svg>
                 </motion.div>
@@ -152,17 +155,26 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                 >
                   O
                 </motion.span>
-
               </div>
 
-              {/* Subtítulo REDENTOR */}
+              {/* Texto Inferior: REDENTOR */}
               <motion.div
-                className="text-lg sm:text-xl md:text-2xl font-bold tracking-[0.4em] sm:tracking-[0.5em] text-red-600 mt-1 sm:mt-2 text-center ml-2"
-                initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+                className="text-lg sm:text-xl md:text-2xl font-bold tracking-[0.4em] sm:tracking-[0.5em] text-red-600 mt-0 sm:mt-2 text-center uppercase ml-2"
+                initial={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{ delay: 2.8, duration: 0.9, ease: 'easeOut' }}
               >
-                REDENTOR
+                Redentor
+              </motion.div>
+
+              {/* Pilares de la Comunidad */}
+              <motion.div
+                className="absolute bottom-[-50px] sm:bottom-[-60px] text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] text-zinc-500 text-center uppercase w-full"
+                initial={{ opacity: 0, filter: 'blur(4px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{ delay: 3.2, duration: 0.9, ease: 'easeOut' }}
+              >
+                Comunidad • Espiritualidad • Servicio
               </motion.div>
 
             </div>

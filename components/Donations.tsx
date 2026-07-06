@@ -6,19 +6,21 @@ import { supplyItems, donationInfo } from '@/data/content';
 import {
   UtensilsCrossed,
   Shirt,
-  BookOpen,
+  Coffee,
   Droplets,
   Copy,
   Check,
   AlertTriangle,
   Banknote,
+  HeartHandshake,
+  MapPin
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 const iconMap: Record<string, LucideIcon> = {
   UtensilsCrossed,
   Shirt,
-  BookOpen,
+  Coffee,
   Droplets,
 };
 
@@ -88,9 +90,28 @@ export function Donations() {
     <section id="ayudar" className="relative w-full py-24 px-6 bg-white">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
-          title="Cómo Ayudar"
-          subtitle="Tu aporte, grande o pequeño, transforma vidas en cada recorrida."
+          title="Acción Social: Recorridas Nocturnas"
+          subtitle="Tu aporte transforma vidas. Salimos al encuentro de Cristo en el hermano que más nos necesita."
         />
+
+        {/* Banner Informativo Recorridas */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-10 bg-red-50 border border-red-100 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6"
+        >
+          <div className="flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-full shrink-0">
+            <HeartHandshake className="w-8 h-8" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-red-950 mb-2">Todos los Miércoles a las 20:30hs</h3>
+            <p className="text-red-900/80 leading-relaxed flex items-center gap-2">
+              <MapPin className="w-4 h-4 shrink-0" />
+              Visitamos plazas del centro, el Hospital Perrando y el Pediátrico acercando alimento, abrigo y contención.
+            </p>
+          </div>
+        </motion.div>
 
         {/* Grid de Insumos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">

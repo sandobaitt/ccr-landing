@@ -1,10 +1,11 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/Button';
-import { Heart, Megaphone } from 'lucide-react';
+import { Heart, Megaphone, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image'; // Descomentar si se habilita la imagen de fondo
 import BlurText from '@/components/BlurText';
+import { nextRetreat } from '@/data/content';
 
 export function Hero() {
   return (
@@ -59,15 +60,31 @@ export function Hero() {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row w-full sm:w-auto items-center justify-center gap-4 pt-6"
+          className="flex flex-col sm:flex-row flex-wrap w-full sm:w-auto items-center justify-center gap-4 pt-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
         >
+          {nextRetreat.open ? (
+            <Link href={nextRetreat.formsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto group shadow-lg shadow-zinc-900/10 text-base">
+                <Calendar className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Inscribirse al {nextRetreat.name}
+              </Button>
+            </Link>
+          ) : (
+            <div title="Inscripciones próximamente" className="w-full sm:w-auto">
+              <Button size="lg" disabled className="w-full sm:w-auto group shadow-lg shadow-zinc-900/10 text-base opacity-70 cursor-not-allowed">
+                <Calendar className="w-5 h-5 mr-2" />
+                Inscripciones próximamente
+              </Button>
+            </div>
+          )}
+
           <Link href="#novedades" className="w-full sm:w-auto">
-            <Button size="lg" className="w-full sm:w-auto group shadow-lg shadow-zinc-900/10 text-base">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto group bg-white hover:bg-zinc-50 border-zinc-300 text-base">
               <Megaphone className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-              Ver Novedades
+              Novedades
             </Button>
           </Link>
           <Link href="#ayudar" className="w-full sm:w-auto">

@@ -27,3 +27,15 @@ export interface DonationInfo {
   cbu: string;
   alias: string;
 }
+
+/** Información del próximo retiro */
+export interface RetreatInfo {
+  id: string;
+  name: string;
+  open: boolean;
+  targetDate: string;
+  formsLink: string;
+  requirements: string[];
+  minAge: number;
+  maxAge: number;
+}
