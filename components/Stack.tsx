@@ -110,7 +110,7 @@ export default function Stack({
       onMouseEnter={() => pauseOnHover && setIsPaused(true)}
       onMouseLeave={() => pauseOnHover && setIsPaused(false)}
     >
-      {stack.map((card, index) => {
+      {stack.map((card: any, index: number) => {
         // Usamos una fórmula determinista basada en el ID en lugar de Math.random() 
         // para evitar el error de hidratación entre el Servidor y el Cliente (SSR mismatch).
         const randomRotate = randomRotation ? ((card.id * 7) % 10) - 5 : 0;
