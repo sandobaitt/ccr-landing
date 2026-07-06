@@ -5,7 +5,7 @@
 ## 🏗️ Stack y Dependencias Instaladas
 * **Base:** Next.js (App Router), TypeScript, Tailwind CSS.
 * **Iconos:** lucide-react.
-* **Animaciones:** framer-motion.
+* **Animaciones:** framer-motion, gsap.
 
 ## 🧩 Mapa de Componentes y Archivos Clave
 *(El agente completará esta tabla a medida que crea archivos)*
@@ -16,12 +16,13 @@
 | `app/page.tsx` | Landing page limpia con título inicial | - |
 | `app/globals.css` | Sistema de Diseño Base y Variables | Tailwind CSS |
 | `components/Button.tsx` | Componente botón modular y accesible | `variant`, `size`, `children` |
-| `components/SectionTitle.tsx` | Título modular para separar secciones | `title`, `subtitle`, `align` |
-| `components/Navbar.tsx` | Navegación responsive con menú móvil | `lucide-react`, `Button` |
+| `components/SectionTitle.tsx` | Título modular animado con ScrollFloat | `title`, `subtitle`, `align`, `ScrollFloat` |
+| `components/ScrollFloat/` | Componente de animación de texto al scroll (React Bits) | `gsap`, `ScrollTrigger` |
+| `components/Navbar.tsx` | Navegación con menú tipo Sidebar deslizante desde la derecha | `lucide-react` |
 | `components/Footer.tsx` | Pie de página institucional Parroquia Asunción | - |
 | `components/BrandLoader.tsx` | Splash Screen Animado (Cruz Redentorista -> "T") | `framer-motion` |
 | `components/Hero.tsx` | Sección principal inicial con Call to Actions | `framer-motion`, `lucide-react` |
-| `components/Pillars.tsx` | Grid de 3 pilares: Espiritualidad, Comunidad, Acción Social | `framer-motion`, `lucide-react`, `SectionTitle` |
+| `components/Pillars.tsx` | Lista compacta de 3 pilares para mejor espacio vertical en móviles | `framer-motion`, `lucide-react`, `SectionTitle` |
 | `types/content.ts` | Interfaces TypeScript: `NewsItem`, `SupplyItem`, `DonationInfo` | - |
 | `data/content.ts` | Mock data tipada: novedades, insumos, datos bancarios | `types/content` |
 | `components/NewsGrid.tsx` | Tarjetas de novedades con galería interactiva 3D | `framer-motion`, `lucide-react`, `SectionTitle`, `CircularGallery`, `data/content` |
@@ -31,6 +32,7 @@
 | `components/NextRetreat.tsx` | Sección informativa y cuenta regresiva del próximo retiro | `framer-motion`, `lucide-react`, `SectionTitle`, `Button`, `data/content` |
 | `components/BlurText.tsx` | Animación de texto difuminado por palabras/letras | `framer-motion` |
 | `components/SaintsGrid.tsx` | Sección interactiva de Santos con modal flotante | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
+| `components/Communities.tsx` | Carrusel interactivo (horizontal-scroll/swipe) del Camino CCR | `framer-motion`, `lucide-react`, `SectionTitle` |
 
 ## 🧪 Registro de Pruebas y Verificaciones
 *(El agente registrará cada build/test ejecutado)*
@@ -56,3 +58,8 @@
 * **[Tarea 14.5 - Exitosa]**: `npm run build` exitoso. Donaciones monetarias comentadas por seguridad. Añadida la interfaz `CoordinatorInfo` y datos de coordinadores en `/data/content.ts`. UI de `Donations.tsx` actualizada con listado dinámico de coordinadores y enlaces directos a WhatsApp.
 * **[Tarea 15 - Exitosa]**: `npm run build` exitoso. Estructuras `SaintInfo` y `CommunityInfo` agregadas a `types/content.ts`. Mock data de los 4 santos y 4 comisiones agregada en `data/content.ts`.
 * **[Tarea 16 - Exitosa]**: `npm run build` exitoso. Componente `SaintsGrid.tsx` creado usando `AnimatePresence` y `layoutId` de framer-motion para el Modal interactivo de biografía. Integrado correctamente en `app/page.tsx`.
+* **[Ajustes de UI y Menú - Exitosa]**: `npm run build` exitoso.
+  - Se modificó `Pillars.tsx` a un formato de lista en fila para optimizar el espacio vertical en móviles.
+  - Se implementó carrusel horizontal táctil (`overflow-x-auto` con `snap-center`) en las etapas de `Communities.tsx`.
+  - Se integró el componente `ScrollFloat` de React Bits en todos los títulos de sección (`SectionTitle.tsx`) instalando `gsap`.
+  - Se rediseñó el `Navbar.tsx` para usar un menú lateral deslizante (Sidebar) desde la derecha, con enlaces ordenados según el flujo de la página y efectos visuales al hacer hover.

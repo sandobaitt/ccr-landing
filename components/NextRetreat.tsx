@@ -5,7 +5,7 @@ import { SectionTitle } from '@/components/SectionTitle';
 import { Button } from '@/components/Button';
 import BorderGlow from '@/components/BorderGlow/BorderGlow';
 import { Calendar, Clock, MapPin, Users, Ticket, Info } from 'lucide-react';
-import Link from 'next/link';
+
 import { nextRetreat } from '@/data/content';
 
 export function NextRetreat() {
@@ -18,7 +18,11 @@ export function NextRetreat() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsClient(true);
+  }, []);
+
+  useEffect(() => {
     const targetDate = new Date(nextRetreat.targetDate).getTime();
 
     const interval = setInterval(() => {

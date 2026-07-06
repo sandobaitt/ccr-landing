@@ -45,6 +45,7 @@ export function SaintsGrid() {
                   setSelectedSaint(saint);
                 }}
               >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src={saint.imageUrl} 
                   alt={saint.name} 

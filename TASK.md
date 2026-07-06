@@ -66,12 +66,12 @@
 - [x] **Tarea 16: Sección "Nuestras Raíces: Santos Redentoristas" con Modal Interactivo**
   - Crear componente `SaintsGrid.tsx` con tarjetas para San Alfonso María de Ligorio, San Gerardo Majella, San Clemente Hofbauer y Beato Pedro Donders.
   - Implementar un **Modal flotante** (usando `framer-motion`) que se abra al hacer clic en un santo, mostrando su biografía completa y su conexión con el carisma del retiro y las recorridas.
-- [ ] **Tarea 17: Expansión del Módulo "Pilares del CCR y Post-Retiro"**
+- [x] **Tarea 17: Expansión del Módulo "Pilares del CCR y Post-Retiro"**
   - Actualizar la sección de pilares integrando las etapas: Pre-retiro, Retiro y Post-retiro.
   - Agregar dentro de Post-retiro las comunidades de perseverancia: **Ministerio de Música Shesma**, las **3 Comisiones juveniles de servicio** y un bloque extensible para futuras actividades parroquiales.
 
 ## Fase 7: Auditoría Final de Expansión
-- [ ] **Tarea 18: Verificación General, Accesibilidad y Build de Expansión**
+- [x] **Tarea 18: Verificación General, Accesibilidad y Build de Expansión**
   - Ejecutar `npm run lint` resolviendo cualquier error estricto de TypeScript en los nuevos modales y temporizadores.
   - Probar vistas en dispositivos móviles (360px).
   - Confirmar build de producción exitoso con `npm run build`.

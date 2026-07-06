@@ -1,15 +1,21 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
-function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }: any) {
+interface CardRotateProps {
+  children: ReactNode;
+  onSendToBack: () => void;
+  sensitivity: number;
+  disableDrag?: boolean;
+}
+
+function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }: CardRotateProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [60, -60]);
   const rotateY = useTransform(x, [-100, 100], [-60, 60]);
 
-  function handleDragEnd(_: any, info: any) {
+  function handleDragEnd(_: unknown, info: { offset: { x: number; y: number } }) {
     if (Math.abs(info.offset.x) > sensitivity || Math.abs(info.offset.y) > sensitivity) {
       onSendToBack();
     } else {
@@ -41,6 +47,19 @@ function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }
   );
 }
 
+interface StackProps {
+  randomRotation?: boolean;
+  sensitivity?: number;
+  cards?: ReactNode[];
+  animationConfig?: { stiffness: number; damping: number };
+  sendToBackOnClick?: boolean;
+  autoplay?: boolean;
+  autoplayDelay?: number;
+  pauseOnHover?: boolean;
+  mobileClickOnly?: boolean;
+  mobileBreakpoint?: number;
+}
+
 export default function Stack({
   randomRotation = false,
   sensitivity = 200,
@@ -52,7 +71,7 @@ export default function Stack({
   pauseOnHover = false,
   mobileClickOnly = false,
   mobileBreakpoint = 768
-}: any) {
+}: StackProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -71,7 +90,7 @@ export default function Stack({
 
   const [stack, setStack] = useState(() => {
     if (cards.length) {
-      return cards.map((content: any, index: number) => ({ id: index + 1, content }));
+      return cards.map((content: ReactNode, index: number) => ({ id: index + 1, content }));
     } else {
       return [];
     }
@@ -79,12 +98,13 @@ export default function Stack({
 
   useEffect(() => {
     if (cards.length) {
-      setStack(cards.map((content: any, index: number) => ({ id: index + 1, content })));
+      // eslint-disable-next-line
+      setStack(cards.map((content: ReactNode, index: number) => ({ id: index + 1, content })));
     }
   }, [cards]);
 
   const sendToBack = (id: number) => {
-    setStack((prev: any[]) => {
+    setStack((prev: { id: number; content: ReactNode }[]) => {
       const newStack = [...prev];
       const index = newStack.findIndex(card => card.id === id);
       const [card] = newStack.splice(index, 1);
@@ -111,7 +131,7 @@ export default function Stack({
       onMouseEnter={() => pauseOnHover && setIsPaused(true)}
       onMouseLeave={() => pauseOnHover && setIsPaused(false)}
     >
-      {stack.map((card: any, index: number) => {
+      {stack.map((card: { id: number; content: ReactNode }, index: number) => {
         // Usamos una fórmula determinista basada en el ID en lugar de Math.random() 
         // para evitar el error de hidratación entre el Servidor y el Cliente (SSR mismatch).
         const randomRotate = randomRotation ? ((card.id * 7) % 10) - 5 : 0;

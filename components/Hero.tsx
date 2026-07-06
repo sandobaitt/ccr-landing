@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/Button';
-import { Heart, Megaphone, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import BlurText from '@/components/BlurText';
@@ -81,18 +81,7 @@ export function Hero() {
             </div>
           )}
 
-          <Link href="#novedades" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto group text-base">
-              <Megaphone className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-              Novedades
-            </Button>
-          </Link>
-          <Link href="#ayudar" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto group text-base">
-              <Heart className="w-5 h-5 mr-2 text-red-500 group-hover:scale-110 transition-transform" />
-              Cómo Ayudar
-            </Button>
-          </Link>
+
         </motion.div>
 
       </div>

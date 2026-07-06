@@ -4,7 +4,7 @@ import { SectionTitle } from './SectionTitle';
 import { communities } from '@/data/content';
 import { Music, CalendarDays, HeartHandshake, BookOpenText, UserPlus, Flame, Users, ArrowRight } from 'lucide-react';
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, React.ElementType> = {
   Music,
   CalendarDays,
   HeartHandshake,
@@ -105,13 +105,27 @@ export function Communities() {
               );
             })}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.4 }}
+            className="mt-8 bg-zinc-800/30 border border-dashed border-zinc-700 rounded-2xl p-8 text-center flex flex-col items-center justify-center hover:bg-zinc-800/50 transition-colors cursor-default"
+          >
+            <ArrowRight className="w-8 h-8 text-zinc-500 mb-4" />
+            <h4 className="text-lg font-bold text-zinc-300 mb-2">Futuras Actividades Parroquiales</h4>
+            <p className="text-sm text-zinc-500 max-w-lg">
+              El post-retiro es solo el comienzo. Continuamente abrimos nuevos espacios de servicio y formación dentro de la Parroquia para que cada joven encuentre su lugar según su carisma.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
 
-function ClockIcon(props: any) {
+function ClockIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

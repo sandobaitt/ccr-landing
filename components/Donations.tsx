@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+
 import { motion } from 'framer-motion';
 import { SectionTitle } from '@/components/SectionTitle';
 import { supplyItems, coordinators } from '@/data/content';
@@ -8,10 +8,8 @@ import {
   Shirt,
   Coffee,
   Droplets,
-  Copy,
-  Check,
   AlertTriangle,
-  Banknote,
+  // Banknote,
   HeartHandshake,
   MapPin,
   MessageCircle
@@ -38,6 +36,7 @@ const cardVariants = {
   }),
 };
 
+/*
 function CopyButton({ label, value }: { label: string; value: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -85,6 +84,7 @@ function CopyButton({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+*/
 
 export function Donations() {
   return (

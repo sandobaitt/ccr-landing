@@ -45,7 +45,7 @@ const ScrollFloat = ({
     const el = containerRef.current;
     if (!el) return;
 
-    // @ts-ignore
+
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
 
     const charElements = el.querySelectorAll('.char');

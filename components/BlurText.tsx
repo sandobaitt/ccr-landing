@@ -2,9 +2,11 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const buildKeyframes = (from: any, steps: any[]) => {
   const keys = new Set([...Object.keys(from), ...steps.flatMap(s => Object.keys(s))]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const keyframes: Record<string, any[]> = {};
   keys.forEach(k => {
     keyframes[k] = [from[k], ...steps.map(s => s[k])];
@@ -20,7 +22,9 @@ interface BlurTextProps {
   direction?: 'top' | 'bottom';
   threshold?: number;
   rootMargin?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   animationFrom?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   animationTo?: any[];
   easing?: (t: number) => number | string;
   onAnimationComplete?: () => void;
@@ -92,6 +96,7 @@ const BlurText = ({
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const spanTransition: any = {
           duration: totalDuration,
           times,
@@ -103,8 +108,10 @@ const BlurText = ({
           <motion.span
             className="inline-block will-change-[transform,filter,opacity]"
             key={index}
-            initial={fromSnapshot}
-            animate={inView ? animateKeyframes : fromSnapshot}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            initial={fromSnapshot as any}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            animate={(inView ? animateKeyframes : fromSnapshot) as any}
             transition={spanTransition}
             onAnimationComplete={index === elements.length - 1 ? onAnimationComplete : undefined}
           >
