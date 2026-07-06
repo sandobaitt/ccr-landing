@@ -88,7 +88,7 @@ function CopyButton({ label, value }: { label: string; value: string }) {
 
 export function Donations() {
   return (
-    <section id="ayudar" className="relative w-full py-24 px-6 bg-zinc-900">
+    <section id="ayudar" className="relative w-full py-24 px-6 bg-zinc-950">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Acción Social: Recorridas Nocturnas"
