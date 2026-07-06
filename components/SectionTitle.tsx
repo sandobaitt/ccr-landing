@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import ScrollFloat from './ScrollFloat/ScrollFloat';
 
 interface SectionTitleProps {
   title: string;
@@ -28,9 +29,16 @@ export function SectionTitle({
 
   return (
     <div className={`flex flex-col space-y-4 mb-10 ${alignmentClasses[align]} ${className}`}>
-      <h2 className={`text-3xl md:text-4xl font-bold tracking-tight ${titleColor}`}>
+      <ScrollFloat
+        animationDuration={1}
+        ease="back.inOut(2)"
+        scrollStart="center bottom+=50%"
+        scrollEnd="bottom bottom-=40%"
+        stagger={0.03}
+        containerClassName={`text-3xl md:text-4xl font-bold tracking-tight ${titleColor}`}
+      >
         {title}
-      </h2>
+      </ScrollFloat>
       {subtitle && (
         <p className={`text-lg max-w-2xl ${subtitleColor}`}>
           {subtitle}

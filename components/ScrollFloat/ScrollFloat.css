@@ -1,0 +1,15 @@
+.scroll-float {
+  overflow: hidden;
+  display: flex;
+  justify-content: inherit;
+  align-items: inherit;
+}
+
+.scroll-float-text {
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.char {
+  display: inline-block;
+}
