@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { SectionTitle } from '@/components/SectionTitle';
 import { Button } from '@/components/Button';
 import BorderGlow from '@/components/BorderGlow/BorderGlow';
-import { Calendar, Clock, MapPin, CheckCircle2, Ticket } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, Ticket, Info } from 'lucide-react';
 import Link from 'next/link';
 import { nextRetreat } from '@/data/content';
 
@@ -51,22 +51,22 @@ export function NextRetreat() {
   return (
     <section id="retiro" className="py-24 bg-zinc-900 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-950/30 via-transparent to-transparent opacity-60"></div>
-      
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <SectionTitle 
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <SectionTitle
           title={`Próximo Retiro: ${nextRetreat.name}`}
           subtitle="Animate a vivir un fin de semana distinto, de encuentro con Cristo y con vos mismo."
           align="center"
           theme="dark"
         />
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+        <div className="mt-16 flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col space-y-8"
+            className="flex flex-col space-y-8 w-full max-w-2xl mx-auto"
           >
             <BorderGlow
               edgeSensitivity={30}
@@ -80,13 +80,13 @@ export function NextRetreat() {
               colors={['#ef4444', '#f87171', '#dc2626']}
               className="w-full shadow-sm"
             >
-              <div className="p-8">
-                <h3 className="text-xl font-bold text-zinc-100 mb-6 flex items-center">
+              <div className="p-8 flex flex-col items-center text-center">
+                <h3 className="text-xl font-bold text-zinc-100 mb-6 flex items-center justify-center">
                   <Clock className="w-5 h-5 text-red-500 mr-2" />
                   Falta cada vez menos...
                 </h3>
-                
-                <div className="flex gap-4 sm:gap-6 justify-center sm:justify-start">
+
+                <div className="flex gap-4 sm:gap-6 justify-center">
                   {isClient ? timeBlocks.map((block, idx) => (
                     <div key={idx} className="flex flex-col items-center">
                       <div className="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-800 rounded-2xl shadow-sm border border-zinc-700 flex items-center justify-center text-2xl sm:text-3xl font-black text-zinc-100">
@@ -97,68 +97,53 @@ export function NextRetreat() {
                       </span>
                     </div>
                   )) : (
-                    <div className="h-[104px] sm:h-[120px] flex items-center text-zinc-500">
+                    <div className="h-[104px] sm:h-[120px] flex items-center justify-center text-zinc-500 w-full">
                       Cargando temporizador...
                     </div>
                   )}
                 </div>
+
+                <div className="mt-8 pt-6 border-t border-zinc-800 w-full flex items-center justify-center text-zinc-300">
+                  <Users className="w-5 h-5 text-red-500 mr-2" />
+                  <span className="font-medium">Para jóvenes de entre {nextRetreat.minAge} a {nextRetreat.maxAge} años.</span>
+                </div>
               </div>
             </BorderGlow>
 
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-start">
-                <Calendar className="w-5 h-5 text-red-500 mt-1 mr-3 flex-shrink-0" />
-                <div>
-                  <h4 className="font-bold text-zinc-100">Fecha del Retiro</h4>
-                  <p className="text-zinc-400">Comienza el viernes por la tarde y finaliza el domingo.</p>
+            <div className="bg-zinc-800/50 rounded-3xl p-8 shadow-xl shadow-zinc-950/50 border border-zinc-700/50 flex flex-col space-y-6">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <Calendar className="w-5 h-5 text-red-500 mt-1 mr-3 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-bold text-zinc-100">Fecha del Retiro</h4>
+                    <p className="text-zinc-400 text-sm mt-1">{nextRetreat.dateDescription}</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <MapPin className="w-5 h-5 text-red-500 mt-1 mr-3 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-bold text-zinc-100">Lugar</h4>
+                    <p className="text-zinc-400 text-sm mt-1">{nextRetreat.locationDescription}</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start">
-                <MapPin className="w-5 h-5 text-red-500 mt-1 mr-3 flex-shrink-0" />
-                <div>
-                  <h4 className="font-bold text-zinc-100">Lugar</h4>
-                  <p className="text-zinc-400">Casa de Retiros (Se informará a los inscriptos).</p>
-                </div>
+
+              <div className="flex items-start bg-zinc-900/50 p-4 rounded-xl border border-zinc-800">
+                <Info className="w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" />
+                <p className="text-sm text-zinc-400">
+                  Para más información, dudas o consultas, podés comunicarte a los números de los <span className="text-zinc-200 font-semibold">coordinadores</span> que se encuentran al final de la página.
+                </p>
               </div>
-            </div>
-          </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-zinc-800/50 rounded-3xl p-8 shadow-xl shadow-zinc-950/50 border border-zinc-700/50"
-          >
-            <h3 className="text-2xl font-black text-zinc-100 mb-2">Requisitos y Detalles</h3>
-            <p className="text-zinc-400 mb-6">
-              Para jóvenes entre {nextRetreat.minAge} y {nextRetreat.maxAge} años.
-            </p>
-
-            <ul className="space-y-3 mb-8">
-              {nextRetreat.requirements.map((req, idx) => (
-                <li key={idx} className="flex items-start">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-zinc-300 font-medium">{req}</span>
-                </li>
-              ))}
-            </ul>
-
-            {nextRetreat.open ? (
-              <Link href={nextRetreat.formsLink} target="_blank" rel="noopener noreferrer" className="block w-full">
-                <Button size="lg" className="w-full shadow-lg shadow-red-900/20 group text-base">
-                  <Ticket className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  Quiero Inscribirme
-                </Button>
-              </Link>
-            ) : (
-              <div title="Inscripciones próximamente" className="w-full">
+              <div className="pt-2">
                 <Button size="lg" disabled className="w-full text-base opacity-70 cursor-not-allowed">
                   <Ticket className="w-5 h-5 mr-2" />
                   Inscripciones Próximamente
                 </Button>
               </div>
-            )}
+
+            </div>
           </motion.div>
         </div>
       </div>

@@ -7,7 +7,7 @@ export const newsItems: NewsItem[] = [
     id: 'retiro-julio-2025',
     title: 'Retiro Espiritual de Julio',
     summary:
-      'Un fin de semana de silencio, oración y encuentro personal con Cristo. Cupos limitados para jóvenes de 16 a 30 años.',
+      'Un fin de semana de silencio, oración y encuentro personal con Cristo. Cupos limitados para jóvenes de 18 a 30 años.',
     category: 'retiro',
     date: '2025-07-19',
   },
@@ -86,14 +86,14 @@ export const coordinators: CoordinatorInfo[] = [
     name: 'Mateo Gallardo',
     role: 'Coordinador General',
     phone: '+5493624238806',
-    whatsappMsg: '¡Hola Mateo! Quería consultarte sobre el movimiento CCR.',
+    whatsappMsg: '¡Hola Mateo! Quería consultarte sobre el grupo de jovenes redentoristas CCR.',
   },
   {
     id: 'coord-2',
     name: 'Santino Diaz Oddone',
     role: 'Coordinador',
     phone: '+5493624894521',
-    whatsappMsg: '¡Hola Santino! Quería consultarte sobre el movimiento CCR.',
+    whatsappMsg: '¡Hola Santino! Quería consultarte sobre el grupo de jovenes redentoristas CCR.',
   },
 ];
 
@@ -104,12 +104,8 @@ export const nextRetreat: RetreatInfo = {
   open: false,
   targetDate: '2026-10-15T18:00:00-03:00',
   formsLink: 'https://docs.google.com/forms/d/e/ejemplo/viewform',
-  requirements: [
-    'Ropa cómoda (buzo y zapatillas)',
-    'Biblia, cuaderno y lapicera',
-    'Aislante y bolsa de dormir (o sábanas)',
-    'Elementos de higiene personal'
-  ],
+  dateDescription: 'Comienza el viernes por la tarde y finaliza el domingo.',
+  locationDescription: 'Casa de Retiros (Se informará a los inscriptos).',
   minAge: 18,
   maxAge: 30,
 };

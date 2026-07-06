@@ -45,7 +45,8 @@ export interface RetreatInfo {
   open: boolean;
   targetDate: string;
   formsLink: string;
-  requirements: string[];
+  dateDescription: string;
+  locationDescription: string;
   minAge: number;
   maxAge: number;
 }

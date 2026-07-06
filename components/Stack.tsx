@@ -28,12 +28,13 @@ function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }
 
   return (
     <motion.div
-      className="absolute w-full h-full cursor-grab active:cursor-grabbing"
+      className="absolute w-full h-full cursor-grab active:cursor-grabbing select-none"
       style={{ x, rotateY }}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       dragElastic={0.6}
       onDragEnd={handleDragEnd}
+      draggable={false}
     >
       {children}
     </motion.div>

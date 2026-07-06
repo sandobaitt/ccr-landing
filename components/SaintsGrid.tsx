@@ -38,7 +38,8 @@ export function SaintsGrid() {
             cards={saints.map((saint) => (
               <div 
                 key={saint.id} 
-                className="w-full h-full relative group cursor-pointer"
+                className="w-full h-full relative group cursor-pointer select-none"
+                draggable={false}
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedSaint(saint);
