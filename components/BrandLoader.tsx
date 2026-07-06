@@ -33,7 +33,8 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
               </motion.div>
 
               {/* Contenedor Principal: CRIS + [+] + O */}
-              <div className="flex items-center justify-center w-full max-w-full overflow-hidden">
+              {/* Se añade un translate-x-3 sm:translate-x-4 para balancear ópticamente el texto hacia la derecha */}
+              <div className="flex items-center justify-center w-full max-w-full translate-x-3 sm:translate-x-4 md:translate-x-5">
                 
                 {/* Texto CRIS */}
                 <div className="flex-1 flex justify-end">
