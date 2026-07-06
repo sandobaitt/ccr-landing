@@ -60,7 +60,7 @@ export function NewsGrid() {
         <SectionTitle
           title="Novedades"
           subtitle="Entérate de los próximos retiros, recorridas y eventos del movimiento."
-          className="[&_h2]:text-white [&_p]:text-zinc-400"
+          theme="dark"
         />
 
         {/* Galería Circular WebGL */}

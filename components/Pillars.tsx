@@ -39,18 +39,19 @@ const cardVariants = {
 
 export function Pillars() {
   return (
-    <section id="pilares" className="relative w-full py-24 px-6 bg-white">
+    <section id="pilares" className="relative w-full py-24 px-6 bg-zinc-950">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Nuestros Pilares"
           subtitle="Tres ejes que guían nuestra misión como movimiento dentro de la Parroquia Asunción."
+          theme="dark"
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
           {pillars.map((pillar, i) => (
             <motion.div
               key={pillar.title}
-              className="group relative flex flex-col items-center text-center p-8 rounded-2xl border border-zinc-200 bg-zinc-50 hover:bg-white hover:shadow-xl hover:shadow-zinc-200/60 transition-all duration-300"
+              className="group relative flex flex-col items-center text-center p-8 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800/50 hover:shadow-xl hover:shadow-zinc-950/60 transition-all duration-300"
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
@@ -58,17 +59,17 @@ export function Pillars() {
               custom={i}
             >
               {/* Icono */}
-              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-red-100 text-red-700 mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-red-950/50 text-red-400 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <pillar.icon className="w-7 h-7" strokeWidth={1.8} />
               </div>
 
               {/* Título */}
-              <h3 className="text-xl font-bold text-zinc-900 mb-3 tracking-tight">
+              <h3 className="text-xl font-bold text-zinc-100 mb-3 tracking-tight">
                 {pillar.title}
               </h3>
 
               {/* Descripción */}
-              <p className="text-base text-zinc-600 leading-relaxed">
+              <p className="text-base text-zinc-400 leading-relaxed">
                 {pillar.description}
               </p>
             </motion.div>

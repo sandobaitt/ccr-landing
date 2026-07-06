@@ -30,6 +30,7 @@
 | `components/Donations.tsx` | Insumos urgentes + datos bancarios con copiar al portapapeles | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
 | `components/NextRetreat.tsx` | Sección informativa y cuenta regresiva del próximo retiro | `framer-motion`, `lucide-react`, `SectionTitle`, `Button`, `data/content` |
 | `components/BlurText.tsx` | Animación de texto difuminado por palabras/letras | `framer-motion` |
+| `components/SaintsGrid.tsx` | Sección interactiva de Santos con modal flotante | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
 
 ## 🧪 Registro de Pruebas y Verificaciones
 *(El agente registrará cada build/test ejecutado)*
@@ -53,3 +54,5 @@
 * **[Tarea 13 - Exitosa]**: `npm run build` exitoso. Módulo de Acción Social (`Donations.tsx`) refactorizado. Título modificado, banner informativo de recorridas añadido y datos de insumos actualizados (`data/content.ts`). Feedback visual del CopyButton mantenido.
 * **[Tarea 14 - Exitosa]**: `npm run build` exitoso. `Footer.tsx` actualizado con estructura robusta a 2 columnas con iconos (`lucide-react`) de dirección, horarios de secretaría e Instagram. Error de importación de `Instagram` corregido con `AtSign`.
 * **[Tarea 14.5 - Exitosa]**: `npm run build` exitoso. Donaciones monetarias comentadas por seguridad. Añadida la interfaz `CoordinatorInfo` y datos de coordinadores en `/data/content.ts`. UI de `Donations.tsx` actualizada con listado dinámico de coordinadores y enlaces directos a WhatsApp.
+* **[Tarea 15 - Exitosa]**: `npm run build` exitoso. Estructuras `SaintInfo` y `CommunityInfo` agregadas a `types/content.ts`. Mock data de los 4 santos y 4 comisiones agregada en `data/content.ts`.
+* **[Tarea 16 - Exitosa]**: `npm run build` exitoso. Componente `SaintsGrid.tsx` creado usando `AnimatePresence` y `layoutId` de framer-motion para el Modal interactivo de biografía. Integrado correctamente en `app/page.tsx`.

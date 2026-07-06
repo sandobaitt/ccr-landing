@@ -49,14 +49,15 @@ export function NextRetreat() {
   ];
 
   return (
-    <section id="retiro" className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-50 via-transparent to-transparent opacity-60"></div>
+    <section id="retiro" className="py-24 bg-zinc-900 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-950/30 via-transparent to-transparent opacity-60"></div>
       
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <SectionTitle 
           title={`Próximo Retiro: ${nextRetreat.name}`}
           subtitle="Animate a vivir un fin de semana distinto, de encuentro con Cristo y con vos mismo."
           align="center"
+          theme="dark"
         />
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -70,7 +71,7 @@ export function NextRetreat() {
             <BorderGlow
               edgeSensitivity={30}
               glowColor="0 100 50"
-              backgroundColor="#fcfcfc"
+              backgroundColor="#18181b"
               borderRadius={24}
               glowRadius={40}
               glowIntensity={0.8}
@@ -80,15 +81,15 @@ export function NextRetreat() {
               className="w-full shadow-sm"
             >
               <div className="p-8">
-                <h3 className="text-xl font-bold text-zinc-900 mb-6 flex items-center">
-                  <Clock className="w-5 h-5 text-red-600 mr-2" />
+                <h3 className="text-xl font-bold text-zinc-100 mb-6 flex items-center">
+                  <Clock className="w-5 h-5 text-red-500 mr-2" />
                   Falta cada vez menos...
                 </h3>
                 
                 <div className="flex gap-4 sm:gap-6 justify-center sm:justify-start">
                   {isClient ? timeBlocks.map((block, idx) => (
                     <div key={idx} className="flex flex-col items-center">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl shadow-sm border border-zinc-100 flex items-center justify-center text-2xl sm:text-3xl font-black text-zinc-800">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-800 rounded-2xl shadow-sm border border-zinc-700 flex items-center justify-center text-2xl sm:text-3xl font-black text-zinc-100">
                         {block.value.toString().padStart(2, '0')}
                       </div>
                       <span className="text-xs sm:text-sm font-semibold text-zinc-500 mt-3 uppercase tracking-wider">
@@ -96,7 +97,7 @@ export function NextRetreat() {
                       </span>
                     </div>
                   )) : (
-                    <div className="h-[104px] sm:h-[120px] flex items-center text-zinc-400">
+                    <div className="h-[104px] sm:h-[120px] flex items-center text-zinc-500">
                       Cargando temporizador...
                     </div>
                   )}
@@ -106,17 +107,17 @@ export function NextRetreat() {
 
             <div className="flex flex-col space-y-4">
               <div className="flex items-start">
-                <Calendar className="w-5 h-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+                <Calendar className="w-5 h-5 text-red-500 mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-bold text-zinc-900">Fecha del Retiro</h4>
-                  <p className="text-zinc-600">Comienza el viernes por la tarde y finaliza el domingo.</p>
+                  <h4 className="font-bold text-zinc-100">Fecha del Retiro</h4>
+                  <p className="text-zinc-400">Comienza el viernes por la tarde y finaliza el domingo.</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <MapPin className="w-5 h-5 text-red-600 mt-1 mr-3 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-red-500 mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-bold text-zinc-900">Lugar</h4>
-                  <p className="text-zinc-600">Casa de Retiros (Se informará a los inscriptos).</p>
+                  <h4 className="font-bold text-zinc-100">Lugar</h4>
+                  <p className="text-zinc-400">Casa de Retiros (Se informará a los inscriptos).</p>
                 </div>
               </div>
             </div>
@@ -127,18 +128,18 @@ export function NextRetreat() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-3xl p-8 shadow-xl shadow-zinc-200/50 border border-zinc-100"
+            className="bg-zinc-800/50 rounded-3xl p-8 shadow-xl shadow-zinc-950/50 border border-zinc-700/50"
           >
-            <h3 className="text-2xl font-black text-zinc-900 mb-2">Requisitos y Detalles</h3>
-            <p className="text-zinc-600 mb-6">
+            <h3 className="text-2xl font-black text-zinc-100 mb-2">Requisitos y Detalles</h3>
+            <p className="text-zinc-400 mb-6">
               Para jóvenes entre {nextRetreat.minAge} y {nextRetreat.maxAge} años.
             </p>
 
             <ul className="space-y-3 mb-8">
               {nextRetreat.requirements.map((req, idx) => (
                 <li key={idx} className="flex items-start">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-zinc-700 font-medium">{req}</span>
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-zinc-300 font-medium">{req}</span>
                 </li>
               ))}
             </ul>
@@ -152,7 +153,7 @@ export function NextRetreat() {
               </Link>
             ) : (
               <div title="Inscripciones próximamente" className="w-full">
-                <Button size="lg" disabled className="w-full shadow-sm text-base opacity-70 cursor-not-allowed">
+                <Button size="lg" disabled className="w-full text-base opacity-70 cursor-not-allowed">
                   <Ticket className="w-5 h-5 mr-2" />
                   Inscripciones Próximamente
                 </Button>

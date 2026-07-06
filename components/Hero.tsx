@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/Button';
 import { Heart, Megaphone, Calendar } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image'; // Descomentar si se habilita la imagen de fondo
+import Image from 'next/image';
 import BlurText from '@/components/BlurText';
 import { nextRetreat } from '@/data/content';
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-6 py-20 bg-zinc-50">
+    <section className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-6 py-20 bg-zinc-950">
 
       {/* Fondo estético - Imagen (Activada) */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
@@ -18,19 +18,19 @@ export function Hero() {
           alt="Fondo Cristo Redentor"
           fill
           priority
-          className="object-cover object-center opacity-100 mix-blend-multiply"
+          className="object-cover object-center opacity-100"
         />
-        {/* Un gradiente para asegurar que el texto sea legible */}
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-50 via-zinc-50/70 to-zinc-50/30" />
+        {/* Un gradiente oscuro para asegurar que el texto sea legible pero dejando ver la foto */}
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/30" />
       </div>
 
       <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-8">
 
         <div className="flex flex-col items-center justify-center space-y-4">
-          <span className="inline-block py-1.5 px-4 rounded-full bg-red-100 text-red-700 text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 shadow-sm">
+          <span className="inline-block py-1.5 px-4 rounded-full bg-red-950/50 text-red-400 text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 border border-red-800/30">
             Parroquia Asunción · Resistencia
           </span>
-          <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-black text-zinc-900 tracking-tighter leading-[1.05] flex flex-col items-center">
+          <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-black text-zinc-50 tracking-tighter leading-[1.05] flex flex-col items-center">
             <BlurText
               text="Crecer con"
               delay={150}
@@ -45,13 +45,13 @@ export function Hero() {
               initialDelay={4.8}
               animateBy="words"
               direction="top"
-              className="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-500 inline-block pb-2"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-400 inline-block pb-2"
             />
           </div>
         </div>
 
         <motion.p
-          className="max-w-2xl text-lg sm:text-xl md:text-2xl text-zinc-600 leading-relaxed font-medium"
+          className="max-w-2xl text-lg sm:text-xl md:text-2xl text-zinc-400 leading-relaxed font-medium"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
@@ -67,14 +67,14 @@ export function Hero() {
         >
           {nextRetreat.open ? (
             <Link href={nextRetreat.formsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto group shadow-lg shadow-zinc-900/10 text-base">
+              <Button size="lg" className="w-full sm:w-auto group shadow-lg shadow-red-900/20 text-base">
                 <Calendar className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Inscribirse al {nextRetreat.name}
               </Button>
             </Link>
           ) : (
             <div title="Inscripciones próximamente" className="w-full sm:w-auto">
-              <Button size="lg" disabled className="w-full sm:w-auto group shadow-lg shadow-zinc-900/10 text-base opacity-70 cursor-not-allowed">
+              <Button size="lg" disabled className="w-full sm:w-auto group text-base opacity-70 cursor-not-allowed">
                 <Calendar className="w-5 h-5 mr-2" />
                 Inscripciones próximamente
               </Button>
@@ -82,14 +82,14 @@ export function Hero() {
           )}
 
           <Link href="#novedades" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto group bg-white hover:bg-zinc-50 border-zinc-300 text-base">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto group text-base">
               <Megaphone className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
               Novedades
             </Button>
           </Link>
           <Link href="#ayudar" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto group bg-white hover:bg-zinc-50 border-zinc-300 text-base">
-              <Heart className="w-5 h-5 mr-2 text-red-600 group-hover:scale-110 transition-transform" />
+            <Button variant="outline" size="lg" className="w-full sm:w-auto group text-base">
+              <Heart className="w-5 h-5 mr-2 text-red-500 group-hover:scale-110 transition-transform" />
               Cómo Ayudar
             </Button>
           </Link>

@@ -49,3 +49,23 @@ export interface RetreatInfo {
   minAge: number;
   maxAge: number;
 }
+
+/** Información sobre Santos Redentoristas */
+export interface SaintInfo {
+  id: string;
+  name: string;
+  title: string;
+  shortDescription: string;
+  fullBiography: string;
+  connectionToCharism: string;
+  imageUrl?: string;
+}
+
+/** Información sobre Comunidades Post-Retiro */
+export interface CommunityInfo {
+  id: string;
+  name: string;
+  description: string;
+  meetings: string;
+  icon: string;
+}

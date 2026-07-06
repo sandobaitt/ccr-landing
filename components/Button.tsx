@@ -13,13 +13,13 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-md';
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:opacity-50 disabled:pointer-events-none rounded-md';
   
   const variants = {
-    primary: 'bg-zinc-900 text-white hover:bg-zinc-800 focus-visible:ring-zinc-900',
-    secondary: 'bg-zinc-100 text-zinc-900 hover:bg-zinc-200 focus-visible:ring-zinc-500',
-    outline: 'border border-zinc-200 text-zinc-900 hover:bg-zinc-100 focus-visible:ring-zinc-500',
-    ghost: 'text-zinc-900 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:ring-zinc-500',
+    primary: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600',
+    secondary: 'bg-zinc-800 text-zinc-100 hover:bg-zinc-700 focus-visible:ring-zinc-500',
+    outline: 'border border-zinc-700 text-zinc-200 hover:bg-zinc-800 hover:text-zinc-50 focus-visible:ring-zinc-500',
+    ghost: 'text-zinc-300 hover:bg-zinc-800 hover:text-zinc-50 focus-visible:ring-zinc-500',
   };
 
   const sizes = {

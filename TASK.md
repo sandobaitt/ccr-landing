@@ -61,9 +61,9 @@
   - Crear estructura `CoordinatorInfo` e integrar listado visual de coordinadores con enlaces directos de WhatsApp a modo de reemplazo.
 
 ## Fase 6: Identidad Carismática y Comunidades Post-Retiro (Prioridad 2)
-- [ ] **Tarea 15: Datos y Estructura para Santos Redentoristas y Comunidades**
+- [x] **Tarea 15: Datos y Estructura para Santos Redentoristas y Comunidades**
   - Ampliar `/types/content.ts` y `/data/content.ts` sumando biografías de Santos Redentoristas y la estructura de comunidades de perseverancia.
-- [ ] **Tarea 16: Sección "Nuestras Raíces: Santos Redentoristas" con Modal Interactivo**
+- [x] **Tarea 16: Sección "Nuestras Raíces: Santos Redentoristas" con Modal Interactivo**
   - Crear componente `SaintsGrid.tsx` con tarjetas para San Alfonso María de Ligorio, San Gerardo Majella, San Clemente Hofbauer y Beato Pedro Donders.
   - Implementar un **Modal flotante** (usando `framer-motion`) que se abra al hacer clic en un santo, mostrando su biografía completa y su conexión con el carisma del retiro y las recorridas.
 - [ ] **Tarea 17: Expansión del Módulo "Pilares del CCR y Post-Retiro"**
