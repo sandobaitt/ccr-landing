@@ -45,7 +45,7 @@ const cardVariants = {
 
 export function Pillars() {
   return (
-    <section id="pilares" className="relative w-full py-24 px-6 bg-transparent">
+    <section id="pilares" className="relative w-full py-16 md:py-24 px-6 bg-transparent">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Nuestros Pilares"

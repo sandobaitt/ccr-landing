@@ -11,7 +11,7 @@ export function SaintsGrid() {
   const [selectedSaint, setSelectedSaint] = useState<SaintInfo | null>(null);
 
   return (
-    <section className="py-24 bg-transparent text-zinc-900 relative overflow-hidden" id="santos">
+    <section className="py-16 md:py-24 bg-transparent text-zinc-900 relative overflow-hidden" id="santos">
       {/* Background Decorativo */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none flex justify-center items-center">
         <div className="w-[800px] h-[800px] bg-red-600 rounded-full blur-[150px] mix-blend-screen" />

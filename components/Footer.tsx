@@ -52,7 +52,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-zinc-200 text-center text-sm text-zinc-500 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="flex items-center space-x-1">
+        <div className="flex flex-wrap justify-center items-center gap-1">
           <span>© {new Date().getFullYear()} CCR. Todos los derechos reservados. By</span>
           <Link 
             href="https://github.com/sandobaitt" 

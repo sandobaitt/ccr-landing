@@ -26,7 +26,7 @@ export function SectionTitle({
   const subtitleColor = 'text-zinc-600 font-medium';
 
   return (
-    <div className={`flex flex-col space-y-4 mb-10 ${alignmentClasses[align]} ${className}`}>
+    <div className={`flex flex-col space-y-4 mb-6 md:mb-10 ${alignmentClasses[align]} ${className}`}>
       <ScrollFloat
         animationDuration={1}
         ease="back.inOut(2)"

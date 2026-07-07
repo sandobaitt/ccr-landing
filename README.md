@@ -24,7 +24,7 @@ Este proyecto fue desarrollado en modalidad de *Pair Programming* junto a **Anti
 
 ## ✨ Características Principales
 
-- **Estética "Dopamina" & Glassmorphism:** Interfaz vibrante con fondos borrosos (backdrop blur), mallas de gradientes animados (gradient meshes) y colores pastel de alto contraste.
+- **Estética "Vibrante" & Glassmorphism:** Interfaz vibrante con fondos borrosos (backdrop blur), mallas de gradientes animados (gradient meshes) y colores pastel de alto contraste.
 - **Micro-Interacciones:** Componentes como `ScheduleTicker` (cinta infinita de horarios), `CircularGallery` (galería WebGL rotativa en 3D), y tarjetas interactivas que reaccionan al scroll y al cursor del usuario.
 - **Rendimiento Óptimo:** Construido sobre **Next.js 16.2** (App Router) y Turbopack, garantizando tiempos de carga ultrarrápidos y una optimización SEO sobresaliente.
 - **Arquitectura Escalable:** Toda la información dinámica (fechas de retiros, cronogramas, datos bancarios y versículos bíblicos) está centralizada en `/data/content.ts` bajo tipado estricto, facilitando futuras actualizaciones por cualquier administrador.

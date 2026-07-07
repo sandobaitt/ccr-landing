@@ -41,7 +41,7 @@ export function Hero() {
               initialDelay={4.8}
               animateBy="words"
               direction="top"
-              className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 pb-2 pr-2"
+              className="flex justify-center text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 pb-2 pr-2"
             />
             <BlurText
               text="CRISTO REDENTOR"
@@ -49,7 +49,7 @@ export function Hero() {
               initialDelay={4.8}
               animateBy="words"
               direction="top"
-              className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-red-500 to-orange-500 inline-block pb-2 pr-2"
+              className="flex justify-center text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-red-500 to-orange-500 pb-2 pr-2"
             />
           </div>
         </div>

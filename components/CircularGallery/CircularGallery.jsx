@@ -406,15 +406,30 @@ class App {
     this.isDown = true;
     this.scroll.position = this.scroll.current;
     this.start = e.touches ? e.touches[0].clientX : e.clientX;
+    this.startY = e.touches ? e.touches[0].clientY : e.clientY;
+    this.isScrollingVertical = null;
   }
   onTouchMove(e) {
     if (!this.isDown) return;
     const x = e.touches ? e.touches[0].clientX : e.clientX;
+    const y = e.touches ? e.touches[0].clientY : e.clientY;
+    
+    if (this.isScrollingVertical === null) {
+      this.isScrollingVertical = Math.abs(y - this.startY) > Math.abs(x - this.start);
+    }
+    
+    if (this.isScrollingVertical) return;
+
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+
     const distance = (this.start - x) * (this.scrollSpeed * 0.025);
     this.scroll.target = this.scroll.position + distance;
   }
   onTouchUp() {
     this.isDown = false;
+    this.isScrollingVertical = null;
     this.onCheck();
   }
   onWheel(e) {
@@ -485,8 +500,8 @@ class App {
     window.addEventListener('mousedown', this.boundOnTouchDown);
     window.addEventListener('mousemove', this.boundOnTouchMove);
     window.addEventListener('mouseup', this.boundOnTouchUp);
-    window.addEventListener('touchstart', this.boundOnTouchDown);
-    window.addEventListener('touchmove', this.boundOnTouchMove);
+    window.addEventListener('touchstart', this.boundOnTouchDown, { passive: false });
+    window.addEventListener('touchmove', this.boundOnTouchMove, { passive: false });
     window.addEventListener('touchend', this.boundOnTouchUp);
     this.container?.addEventListener('keydown', this.boundOnKeyDown);
   }
