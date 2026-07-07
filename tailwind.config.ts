@@ -12,14 +12,38 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         ccr: {
-          primary: "#18181b", // zinc-900
-          secondary: "#f4f4f5", // zinc-100
-          accent: "#b91c1c", // red-700
+          primary: "#fff9f2", // Warm pastel base
+          secondary: "#fef08a", // Joyful yellow
+          accent: "#ef4444", // Vibrant red
+          foreground: "#1f2937", // text-gray-800 for better contrast on light
+          pastel: {
+            mint: "#d1fae5", // emerald-100
+            peach: "#ffedd5", // orange-100
+            lavender: "#e0e7ff", // indigo-100
+            rose: "#ffe4e6", // rose-100
+            blue: "#dbeafe", // blue-100
+          }
         }
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'serif'],
+        sans: ['var(--font-dm-sans)', 'sans-serif'],
+        display: ['var(--font-outfit)', 'sans-serif'],
+        serif: ['var(--font-outfit)', 'serif'], // Fallback for components using font-serif
+      },
+      animation: {
+        'gradient': 'gradient 4s ease infinite',
+      },
+      keyframes: {
+        gradient: {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          },
+        },
       },
     },
   },

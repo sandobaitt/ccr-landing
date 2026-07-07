@@ -26,14 +26,14 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+      <header className="sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/90 backdrop-blur-md">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-xl tracking-tight text-zinc-50" onClick={() => setIsOpen(false)}>
+          <Link href="/" className="font-bold text-xl tracking-tight text-zinc-900" onClick={() => setIsOpen(false)}>
             CCR
           </Link>
           
           <button 
-            className="p-2 text-zinc-400 hover:text-zinc-50 transition-colors"
+            className="p-2 text-zinc-600 hover:text-zinc-900 transition-colors"
             onClick={() => setIsOpen(true)}
             aria-label="Open menu"
           >
@@ -52,14 +52,14 @@ export function Navbar() {
 
       {/* Sidebar Menu (Right side) */}
       <div 
-        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-zinc-950 border-l border-zinc-800 z-50 transform transition-transform duration-300 ease-in-out shadow-2xl flex flex-col ${
+        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white border-l border-zinc-200 z-50 transform transition-transform duration-300 ease-in-out shadow-2xl flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="h-16 flex items-center justify-between px-4 border-b border-zinc-800/50">
-          <span className="font-bold text-lg text-zinc-100 ml-4">Navegación</span>
+        <div className="h-16 flex items-center justify-between px-4 border-b border-zinc-200">
+          <span className="font-bold text-lg text-zinc-900 ml-4">Navegación</span>
           <button 
-            className="p-2 text-zinc-400 hover:text-zinc-50 transition-colors bg-zinc-900 rounded-lg hover:bg-zinc-800 mr-2"
+            className="p-2 text-zinc-600 hover:text-zinc-900 transition-colors bg-zinc-100 rounded-lg hover:bg-zinc-200 mr-2"
             onClick={() => setIsOpen(false)}
             aria-label="Close menu"
           >
@@ -74,10 +74,10 @@ export function Navbar() {
               <Link 
                 key={link.name} 
                 href={link.href} 
-                className="px-4 py-3 text-base font-medium text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800/50 rounded-xl transition-all duration-200 flex items-center group"
+                className="px-4 py-3 text-base font-medium text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 rounded-xl transition-all duration-200 flex items-center group"
                 onClick={() => setIsOpen(false)}
               >
-                <div className="mr-4 p-2 rounded-lg border border-red-900/50 bg-zinc-900 text-red-500 group-hover:border-red-500/50 group-hover:text-red-400 group-hover:bg-red-950/20 transition-all duration-300 shadow-[0_0_10px_rgba(220,38,38,0.05)]">
+                <div className="mr-4 p-2 rounded-lg border border-zinc-200 bg-zinc-50 text-ccr-accent group-hover:border-red-200 group-hover:text-red-600 group-hover:bg-red-50 transition-all duration-300 shadow-sm">
                   <Icon size={18} strokeWidth={2.5} />
                 </div>
                 {link.name}

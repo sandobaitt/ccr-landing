@@ -59,7 +59,7 @@ export function NextRetreat() {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <SectionTitle
           title={`Próximo Retiro: ${nextRetreat.name}`}
-          subtitle="Animate a vivir un fin de semana distinto, de encuentro con Cristo y con vos mismo."
+          subtitle="¡Animate a vivir un finde distinto! Un encuentro único con Cristo, con vos mismo y con otros jóvenes."
           align="center"
           theme="dark"
         />
@@ -75,7 +75,7 @@ export function NextRetreat() {
             <BorderGlow
               edgeSensitivity={30}
               glowColor="0 100 50"
-              backgroundColor="#18181b"
+              backgroundColor="#ffffff"
               borderRadius={24}
               glowRadius={40}
               glowIntensity={0.8}
@@ -85,21 +85,28 @@ export function NextRetreat() {
               className="w-full shadow-sm"
             >
               <div className="p-8 flex flex-col items-center text-center">
-                <h3 className="text-xl font-bold text-zinc-100 mb-6 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-red-500 mr-2" />
-                  Falta cada vez menos...
+                <h3 className="text-xl font-bold mb-6 flex items-center justify-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-orange-500 animate-gradient bg-[length:200%_auto]">
+                  <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+                    <Clock className="w-6 h-6 text-red-500 mr-2 drop-shadow-sm" />
+                  </motion.div>
+                  ¡Falta cada vez menos, prepará el corazón!
                 </h3>
 
                 <div className="flex gap-4 sm:gap-6 justify-center">
                   {isClient ? timeBlocks.map((block, idx) => (
-                    <div key={idx} className="flex flex-col items-center">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-800 rounded-2xl shadow-sm border border-zinc-700 flex items-center justify-center text-2xl sm:text-3xl font-black text-zinc-100">
+                    <motion.div 
+                      key={idx} 
+                      className="flex flex-col items-center"
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
+                    >
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-white to-red-50 rounded-2xl shadow-[0_8px_16px_rgba(244,63,94,0.15)] border border-red-100 flex items-center justify-center text-2xl sm:text-3xl font-black text-red-600">
                         {block.value.toString().padStart(2, '0')}
                       </div>
-                      <span className="text-xs sm:text-sm font-semibold text-zinc-500 mt-3 uppercase tracking-wider">
+                      <span className="text-xs sm:text-sm font-black text-red-400 mt-3 uppercase tracking-widest drop-shadow-sm">
                         {block.label}
                       </span>
-                    </div>
+                    </motion.div>
                   )) : (
                     <div className="h-[104px] sm:h-[120px] flex items-center justify-center text-zinc-500 w-full">
                       Cargando temporizador...
@@ -107,47 +114,50 @@ export function NextRetreat() {
                   )}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-zinc-800 w-full flex items-center justify-center text-zinc-300">
-                  <Users className="w-5 h-5 text-red-500 mr-2" />
-                  <span className="font-medium">Para jóvenes de entre {nextRetreat.minAge} a {nextRetreat.maxAge} años.</span>
+                <div className="mt-8 pt-6 border-t border-zinc-200 w-full flex items-center justify-center text-zinc-600">
+                  <Users className="w-5 h-5 text-ccr-accent mr-2" />
+                  <span className="font-medium">¡Si tenés entre {nextRetreat.minAge} y {nextRetreat.maxAge} años, este retiro es para vos!</span>
                 </div>
               </div>
             </BorderGlow>
 
-            <div className="bg-zinc-800/50 rounded-3xl p-8 shadow-xl shadow-zinc-950/50 border border-zinc-700/50 flex flex-col space-y-6">
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-gradient-to-br from-white via-rose-50/50 to-orange-50/30 rounded-3xl p-8 shadow-[0_20px_40px_rgba(244,63,94,0.1)] border border-rose-100 flex flex-col space-y-6"
+            >
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex items-start">
-                  <Calendar className="w-5 h-5 text-red-500 mt-1 mr-3 flex-shrink-0" />
+                  <Calendar className="w-5 h-5 text-ccr-accent mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-zinc-100">Fecha del Retiro</h4>
-                    <p className="text-zinc-400 text-sm mt-1">{nextRetreat.dateDescription}</p>
+                    <h4 className="font-bold text-zinc-900">¿Cuándo es?</h4>
+                    <p className="text-zinc-600 text-sm mt-1">{nextRetreat.dateDescription}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 text-red-500 mt-1 mr-3 flex-shrink-0" />
+                  <MapPin className="w-5 h-5 text-ccr-accent mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-zinc-100">Lugar</h4>
-                    <p className="text-zinc-400 text-sm mt-1">{nextRetreat.locationDescription}</p>
+                    <h4 className="font-bold text-zinc-900">¿Dónde?</h4>
+                    <p className="text-zinc-600 text-sm mt-1">{nextRetreat.locationDescription}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-start bg-zinc-900/50 p-4 rounded-xl border border-zinc-800">
-                <Info className="w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" />
-                <p className="text-sm text-zinc-400">
-                  Para más información, dudas o consultas, podés comunicarte a los números de los <span className="text-zinc-200 font-semibold">coordinadores</span> que se encuentran al final de la página.
+              <div className="flex items-start bg-ccr-pastel-lavender/50 p-4 rounded-xl border border-ccr-pastel-lavender">
+                <Info className="w-5 h-5 text-ccr-accent mt-0.5 mr-3 flex-shrink-0" />
+                <p className="text-sm text-zinc-700">
+                  ¿Tenés alguna duda o querés saber más? ¡No dudes en escribirles a los <span className="text-zinc-900 font-bold">coordinadores</span> al final de la página, te están esperando!
                 </p>
               </div>
 
               <div className="pt-2">
                 <Button size="lg" disabled className="w-full text-base opacity-70 cursor-not-allowed">
                   <Ticket className="w-5 h-5 mr-2" />
-                  Inscripciones Próximamente
+                  ¡Pronto abrimos inscripciones!
                 </Button>
               </div>
 
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export function SaintsGrid() {
   const [selectedSaint, setSelectedSaint] = useState<SaintInfo | null>(null);
 
   return (
-    <section className="py-24 bg-transparent text-zinc-50 relative overflow-hidden" id="santos">
+    <section className="py-24 bg-transparent text-zinc-900 relative overflow-hidden" id="santos">
       {/* Background Decorativo */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none flex justify-center items-center">
         <div className="w-[800px] h-[800px] bg-red-600 rounded-full blur-[150px] mix-blend-screen" />
@@ -22,10 +22,10 @@ export function SaintsGrid() {
           <SectionTitle 
             title="Nuestras Raíces" 
             subtitle="Santos Redentoristas" 
-            theme="dark" 
+            theme="light" 
           />
-          <p className="text-zinc-400 max-w-2xl mx-auto mt-4">
-            Nuestra espiritualidad y acción social se inspiran en la vida y obra de los grandes santos de la Congregación del Santísimo Redentor.
+          <p className="text-zinc-600 max-w-2xl mx-auto mt-4">
+            Nuestra espiritualidad y servicio se inspiran en la vida de los grandes santos redentoristas. ¡Conocé a los referentes que nos marcan el camino!
           </p>
         </div>
 
@@ -66,12 +66,12 @@ export function SaintsGrid() {
                   
                   <div className="mt-4 flex items-center justify-between opacity-80">
                     <span className="text-xs text-zinc-400 font-medium tracking-wider uppercase">
-                      Deslizar para descartar
+                      Deslizá para descartar
                     </span>
                     <span className="text-xs text-white bg-red-600/80 px-3 py-1.5 rounded-full font-bold backdrop-blur-sm shadow-lg pointer-events-auto cursor-pointer"
                           style={{ pointerEvents: 'auto' }} // Permitimos click directo aquí también
                     >
-                      Ver Bio →
+                      Conocelo →
                     </span>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export function SaintsGrid() {
             {/* Modal Content */}
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
               <motion.div
-                className="bg-zinc-900 border border-zinc-800 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl pointer-events-auto relative max-h-[90vh] flex flex-col"
+                className="bg-white border border-zinc-200 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl pointer-events-auto relative max-h-[90vh] flex flex-col"
                 layoutId={`saint-modal-${selectedSaint.id}`}
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -107,14 +107,14 @@ export function SaintsGrid() {
                 {/* Botón Cerrar */}
                 <button 
                   onClick={() => setSelectedSaint(null)}
-                  className="absolute top-4 right-4 p-2 bg-zinc-800/50 hover:bg-zinc-700 text-zinc-400 hover:text-white rounded-full transition-colors z-10"
+                  className="absolute top-4 right-4 p-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-500 hover:text-zinc-800 rounded-full transition-colors z-10"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
                 <div className="p-8 sm:p-10 overflow-y-auto custom-scrollbar">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-black text-white mb-2">
+                    <h2 className="text-3xl font-black text-zinc-900 mb-2">
                       {selectedSaint.name}
                     </h2>
                     <p className="text-red-500 font-bold uppercase tracking-wider text-sm">
@@ -124,21 +124,21 @@ export function SaintsGrid() {
                   
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-white font-semibold mb-2 flex items-center">
+                      <h4 className="text-zinc-900 font-semibold mb-2 flex items-center">
                         <span className="w-8 h-[2px] bg-red-600 mr-3"></span>
-                        Biografía
+                        ¿Quién fue?
                       </h4>
-                      <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
+                      <p className="text-zinc-700 leading-relaxed text-sm sm:text-base">
                         {selectedSaint.fullBiography}
                       </p>
                     </div>
                     
-                    <div className="bg-zinc-800/50 p-6 rounded-2xl border border-zinc-700/50">
-                      <h4 className="text-white font-semibold mb-2 flex items-center">
+                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200">
+                      <h4 className="text-zinc-900 font-semibold mb-2 flex items-center">
                         <span className="w-2 h-2 rounded-full bg-red-600 mr-3"></span>
-                        Conexión con el CCR
+                        Su huella en el CCR
                       </h4>
-                      <p className="text-zinc-300 leading-relaxed text-sm sm:text-base">
+                      <p className="text-zinc-700 leading-relaxed text-sm sm:text-base">
                         {selectedSaint.connectionToCharism}
                       </p>
                     </div>
@@ -146,7 +146,7 @@ export function SaintsGrid() {
                 </div>
                 
                 {/* Bottom Gradient Fade for Scroll */}
-                <div className="h-8 bg-gradient-to-t from-zinc-900 to-transparent absolute bottom-0 left-0 w-full pointer-events-none" />
+                <div className="h-8 bg-gradient-to-t from-white to-transparent absolute bottom-0 left-0 w-full pointer-events-none" />
               </motion.div>
             </div>
           </>

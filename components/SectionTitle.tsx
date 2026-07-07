@@ -24,8 +24,8 @@ export function SectionTitle({
     right: 'text-right items-end',
   };
 
-  const titleColor = theme === 'dark' ? 'text-white' : 'text-zinc-900';
-  const subtitleColor = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600';
+  const titleColor = 'text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 bg-[length:200%_200%] animate-gradient';
+  const subtitleColor = 'text-zinc-600 font-medium';
 
   return (
     <div className={`flex flex-col space-y-4 mb-10 ${alignmentClasses[align]} ${className}`}>
@@ -35,7 +35,7 @@ export function SectionTitle({
         scrollStart="center bottom+=50%"
         scrollEnd="bottom bottom-=40%"
         stagger={0.03}
-        containerClassName={`text-3xl md:text-4xl font-bold font-serif tracking-tight ${titleColor}`}
+        containerClassName={`text-3xl md:text-5xl font-black tracking-tight ${titleColor} drop-shadow-sm`}
       >
         {title}
       </ScrollFloat>

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #09090b; /* zinc-950 */
-  --foreground: #fafafa; /* zinc-50 */
+  --background: #fdfbf7; /* Warm light pastel */
+  --foreground: #18181b; /* zinc-900 */
 }
 
 @theme inline {
@@ -11,10 +11,10 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   
-  /* Dark CCR Palette */
-  --color-ccr-primary: #18181b; /* zinc-900 */
-  --color-ccr-secondary: #27272a; /* zinc-800 */
-  --color-ccr-accent: #dc2626; /* red-600 */
+  /* Light Vibrant CCR Palette */
+  --color-ccr-primary: #fff9f2; /* Warm pastel */
+  --color-ccr-secondary: #fef08a; /* Joyful yellow-200 */
+  --color-ccr-accent: #ef4444; /* Vibrant red-500 */
 }
 
 body {

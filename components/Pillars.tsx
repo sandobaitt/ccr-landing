@@ -8,19 +8,25 @@ const pillars = [
     icon: Church,
     title: 'Espiritualidad',
     description:
-      'Profundizamos nuestra fe a través de retiros, oración comunitaria y formación espiritual redentorista.',
+      'Hacemos crecer nuestra fe con retiros, rezando juntos y formándonos con la chispa redentorista.',
+    gradient: 'from-rose-100 via-orange-100 to-rose-100',
+    iconBg: 'bg-rose-200 text-rose-700'
   },
   {
     icon: Users,
     title: 'Comunidad',
     description:
-      'Construimos lazos fraternos que nos sostienen y fortalecen como familia en Cristo.',
+      'Armamos lazos de amistad verdaderos. Nos bancamos mutuamente porque somos una gran familia en Cristo.',
+    gradient: 'from-fuchsia-100 via-purple-100 to-fuchsia-100',
+    iconBg: 'bg-fuchsia-200 text-fuchsia-700'
   },
   {
     icon: HandHeart,
     title: 'Acción Social',
     description:
-      'Llevamos el amor redentor a los barrios más vulnerables de Resistencia con recorridas y asistencia directa.',
+      'Salimos a la calle a llevar el amor de Jesús a los barrios de Resistencia que más nos necesitan. ¡Manos a la obra!',
+    gradient: 'from-blue-100 via-cyan-100 to-blue-100',
+    iconBg: 'bg-cyan-200 text-cyan-700'
   },
 ];
 
@@ -43,7 +49,7 @@ export function Pillars() {
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Nuestros Pilares"
-          subtitle="Tres ejes que guían nuestra misión como movimiento dentro de la Parroquia Asunción."
+          subtitle="Son los tres motores que nos mueven todos los días en la Parroquia Asunción."
           theme="dark"
         />
 
@@ -51,26 +57,31 @@ export function Pillars() {
           {pillars.map((pillar, i) => (
             <motion.div
               key={pillar.title}
-              className="group relative flex flex-row items-center text-left p-6 sm:p-8 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800/50 hover:shadow-xl hover:shadow-zinc-950/60 transition-all duration-300"
+              className={`group relative flex flex-row items-center text-left p-6 sm:p-8 rounded-3xl border-2 border-white/50 bg-gradient-to-r bg-[length:200%_200%] animate-gradient ${pillar.gradient} shadow-lg transition-all duration-300`}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
+              whileTap={{ scale: 0.95 }}
               viewport={{ once: true, amount: 0.3 }}
               custom={i}
             >
-              {/* Icono */}
-              <div className="flex-shrink-0 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-red-950/50 text-red-400 mr-6 sm:mr-8 group-hover:scale-110 transition-transform duration-300">
-                <pillar.icon className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={1.8} />
-              </div>
+              {/* Icono con animación infinita */}
+              <motion.div 
+                animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.1, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className={`flex-shrink-0 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${pillar.iconBg} mr-6 sm:mr-8 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300`}
+              >
+                <pillar.icon className="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm" strokeWidth={2.5} />
+              </motion.div>
 
               <div>
-                {/* Título */}
-                <h3 className="text-xl font-bold text-zinc-100 mb-2 tracking-tight">
+                {/* Título animado continuamente */}
+                <h3 className="text-xl sm:text-2xl font-black mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-violet-600 bg-[length:200%_200%] animate-gradient">
                   {pillar.title}
                 </h3>
 
                 {/* Descripción */}
-                <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
                   {pillar.description}
                 </p>
               </div>

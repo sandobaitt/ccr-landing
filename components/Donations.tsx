@@ -92,8 +92,8 @@ export function Donations() {
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Acción Social: Recorridas Nocturnas"
-          subtitle="Tu aporte transforma vidas. Salimos al encuentro de Cristo en el hermano que más nos necesita."
-          theme="dark"
+          subtitle="¡Tu aporte transforma realidades! Salimos a la calle al encuentro de Cristo en el hermano que más nos necesita. ¡Sumate a dar una mano!"
+          theme="light"
         />
 
         {/* Banner Informativo Recorridas */}
@@ -101,14 +101,14 @@ export function Donations() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 bg-red-950/40 border border-red-800/50 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6"
+          className="mb-10 bg-ccr-pastel-rose border border-red-200 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6"
         >
-          <div className="flex items-center justify-center w-16 h-16 bg-red-900/60 text-red-400 rounded-full shrink-0">
+          <div className="flex items-center justify-center w-16 h-16 bg-white text-ccr-accent rounded-full shrink-0 shadow-sm">
             <HeartHandshake className="w-8 h-8" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-red-200 mb-2">Todos los Miércoles a las 20:30hs</h3>
-            <p className="text-red-300/80 leading-relaxed flex items-center gap-2">
+            <h3 className="text-xl font-bold text-zinc-900 mb-2">Todos los Miércoles a las 20:30hs</h3>
+            <p className="text-zinc-700 leading-relaxed flex items-center gap-2">
               <MapPin className="w-4 h-4 shrink-0" />
               Visitamos plazas del centro, el Hospital Perrando y el Pediátrico acercando alimento, abrigo y contención.
             </p>
@@ -125,8 +125,8 @@ export function Donations() {
                 key={item.id}
                 className={`relative flex items-start gap-4 p-5 rounded-2xl border transition-shadow duration-300 ${
                   item.urgent
-                    ? 'border-red-800/50 bg-red-950/30 hover:shadow-lg hover:shadow-red-900/30'
-                    : 'border-zinc-700/50 bg-zinc-800/50 hover:shadow-lg hover:shadow-zinc-700/30'
+                    ? 'border-red-200 bg-red-50 hover:shadow-md'
+                    : 'border-zinc-200 bg-white hover:shadow-md'
                 }`}
                 variants={cardVariants}
                 initial="hidden"
@@ -138,8 +138,8 @@ export function Donations() {
                 <div
                   className={`flex items-center justify-center w-11 h-11 rounded-xl shrink-0 ${
                     item.urgent
-                      ? 'bg-red-900/60 text-red-400'
-                      : 'bg-zinc-700 text-zinc-300'
+                      ? 'bg-red-100 text-ccr-accent'
+                      : 'bg-zinc-100 text-zinc-600'
                   }`}
                 >
                   <Icon className="w-5 h-5" strokeWidth={1.8} />
@@ -148,17 +148,17 @@ export function Donations() {
                 {/* Contenido */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <h3 className="text-base font-bold text-zinc-100 tracking-tight">
+                    <h3 className="text-base font-bold text-zinc-900 tracking-tight">
                       {item.name}
                     </h3>
                     {item.urgent && (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-red-300 bg-red-900/50 px-2 py-0.5 rounded-full">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-red-700 bg-red-100 px-2 py-0.5 rounded-full">
                         <AlertTriangle className="w-3 h-3" />
                         Urgente
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
+                  <p className="text-sm text-zinc-600 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -169,22 +169,22 @@ export function Donations() {
 
         {/* Bloque de Contacto a Coordinadores */}
         <motion.div
-          className="mt-12 p-6 sm:p-8 rounded-2xl border border-zinc-700/50 bg-zinc-800/50"
+          className="mt-12 p-6 sm:p-8 rounded-2xl border border-zinc-200 bg-white shadow-sm"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-emerald-900/50 text-emerald-400">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-ccr-pastel-mint text-emerald-600">
               <MessageCircle className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-zinc-100 tracking-tight">
-                Contactar a los Coordinadores
+              <h3 className="text-lg font-bold text-zinc-900 tracking-tight">
+                ¡Escribile a los coordinadores!
               </h3>
-              <p className="text-sm text-zinc-400">
-                Escribinos por WhatsApp para sumarte o hacer una consulta.
+              <p className="text-sm text-zinc-600">
+                Mandales un WhatsApp para sumarte a las recorridas, hacer una consulta o coordinar donaciones.
               </p>
             </div>
           </div>
@@ -199,13 +199,13 @@ export function Donations() {
                   href={`https://wa.me/${coord.phone.replace('+', '')}?text=${encodeURIComponent(coord.whatsappMsg)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between gap-3 w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-800 text-left text-sm transition-all duration-300 hover:border-emerald-600 hover:bg-emerald-950/50 cursor-pointer"
+                  className="group flex items-center justify-between gap-3 w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-left text-sm transition-all duration-300 hover:border-emerald-300 hover:bg-emerald-50 cursor-pointer"
                 >
                   <div className="flex flex-col">
-                    <span className="font-bold text-zinc-100">{coord.name}</span>
-                    <span className="text-zinc-500 text-xs font-mono group-hover:text-emerald-400 transition-colors">{coord.phone}</span>
+                    <span className="font-bold text-zinc-900">{coord.name}</span>
+                    <span className="text-zinc-500 text-xs font-mono group-hover:text-emerald-600 transition-colors">{coord.phone}</span>
                   </div>
-                  <MessageCircle className="w-5 h-5 text-zinc-500 group-hover:text-emerald-400 transition-colors shrink-0" />
+                  <MessageCircle className="w-5 h-5 text-zinc-400 group-hover:text-emerald-500 transition-colors shrink-0" />
                 </a>
               </div>
             ))}

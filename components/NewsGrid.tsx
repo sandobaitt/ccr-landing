@@ -12,11 +12,11 @@ const CircularGallery = dynamic(
   { ssr: false }
 );
 
-const categoryConfig: Record<NewsCategory, { label: string; color: string; icon: typeof Cross }> = {
-  retiro: { label: 'Retiro', color: 'bg-amber-100 text-amber-800', icon: Cross },
-  recorrida: { label: 'Recorrida', color: 'bg-emerald-100 text-emerald-800', icon: MapPin },
-  evento: { label: 'Evento', color: 'bg-blue-100 text-blue-800', icon: Megaphone },
-  general: { label: 'General', color: 'bg-zinc-100 text-zinc-700', icon: Tag },
+const categoryConfig: Record<NewsCategory, { label: string; color: string; bgClass: string; icon: typeof Cross }> = {
+  retiro: { label: 'Retiro', color: 'text-amber-800', bgClass: 'bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-100 bg-[length:200%_200%] animate-gradient', icon: Cross },
+  recorrida: { label: 'Recorrida', color: 'text-emerald-800', bgClass: 'bg-gradient-to-r from-emerald-100 via-teal-100 to-emerald-100 bg-[length:200%_200%] animate-gradient', icon: MapPin },
+  evento: { label: 'Evento', color: 'text-blue-800', bgClass: 'bg-gradient-to-r from-blue-100 via-indigo-100 to-blue-100 bg-[length:200%_200%] animate-gradient', icon: Megaphone },
+  general: { label: 'General', color: 'text-zinc-700', bgClass: 'bg-gradient-to-r from-zinc-100 via-stone-200 to-zinc-100 bg-[length:200%_200%] animate-gradient', icon: Tag },
 };
 
 function formatDate(isoDate: string): string {
@@ -59,8 +59,8 @@ export function NewsGrid() {
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Novedades"
-          subtitle="Entérate de los próximos retiros, recorridas y eventos del movimiento."
-          theme="dark"
+          subtitle="¡No te pierdas de nada! Enterate de todos nuestros retiros, recorridas y eventos."
+          theme="light"
         />
 
         {/* Galería Circular WebGL */}
@@ -68,7 +68,7 @@ export function NewsGrid() {
           <CircularGallery
             items={galleryItems}
             bend={3}
-            textColor="#ffffff"
+            textColor="#1f2937"
             borderRadius={0.05}
             scrollEase={0.03}
             font="bold 24px sans-serif"
@@ -85,34 +85,39 @@ export function NewsGrid() {
             return (
               <motion.article
                 key={item.id}
-                className="group relative flex flex-col justify-between p-6 rounded-2xl border border-zinc-800 bg-zinc-900 hover:shadow-xl hover:shadow-zinc-800/40 transition-shadow duration-300"
+                className={`group relative flex flex-col justify-between p-6 rounded-3xl border-2 border-white/50 ${cat.bgClass} shadow-md transition-all duration-300`}
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
+                whileTap={{ scale: 0.95 }}
                 viewport={{ once: true, amount: 0.2 }}
                 custom={i}
               >
+                <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }} className="flex flex-col h-full">
                 {/* Etiqueta de categoría */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full ${cat.color}`}>
-                    <CatIcon className="w-3.5 h-3.5" />
+                  <span className={`inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/60 shadow-sm ${cat.color}`}>
+                    <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+                      <CatIcon className="w-3.5 h-3.5" />
+                    </motion.div>
                     {cat.label}
                   </span>
                 </div>
 
-                {/* Contenido */}
-                <h3 className="text-lg font-bold text-zinc-100 mb-2 tracking-tight group-hover:text-red-400 transition-colors duration-200">
+                {/* Contenido animado permanentemente */}
+                <h3 className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-violet-600 bg-[length:200%_200%] animate-gradient mb-2 tracking-tight transition-all duration-200">
                   {item.title}
                 </h3>
-                <p className="text-sm text-zinc-400 leading-relaxed mb-4 flex-1">
+                <p className="text-sm text-zinc-600 leading-relaxed mb-4 flex-1">
                   {item.summary}
                 </p>
 
                 {/* Fecha */}
-                <div className="flex items-center gap-2 text-xs text-zinc-500 font-medium pt-3 border-t border-zinc-800">
+                <div className="flex items-center gap-2 text-xs text-zinc-500 font-medium pt-3 border-t border-zinc-200">
                   <Calendar className="w-3.5 h-3.5" />
                   {formatDate(item.date)}
                 </div>
+                </motion.div>
               </motion.article>
             );
           })}

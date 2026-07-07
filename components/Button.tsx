@@ -13,13 +13,13 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:opacity-50 disabled:pointer-events-none rounded-md';
+  const baseStyles = 'inline-flex items-center justify-center font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:opacity-50 disabled:pointer-events-none rounded-full active:scale-95';
   
   const variants = {
-    primary: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600',
-    secondary: 'bg-zinc-800 text-zinc-100 hover:bg-zinc-700 focus-visible:ring-zinc-500',
-    outline: 'border border-zinc-700 text-zinc-200 hover:bg-zinc-800 hover:text-zinc-50 focus-visible:ring-zinc-500',
-    ghost: 'text-zinc-300 hover:bg-zinc-800 hover:text-zinc-50 focus-visible:ring-zinc-500',
+    primary: 'bg-gradient-to-r from-red-500 to-rose-500 text-white hover:from-red-600 hover:to-rose-600 shadow-lg shadow-red-200 hover:shadow-xl hover:shadow-red-300 hover:-translate-y-1 focus-visible:ring-red-600',
+    secondary: 'bg-gradient-to-r from-violet-100 to-fuchsia-100 text-fuchsia-900 hover:from-violet-200 hover:to-fuchsia-200 shadow-md hover:shadow-lg hover:-translate-y-1 focus-visible:ring-fuchsia-500 border border-fuchsia-200',
+    outline: 'border-2 border-zinc-200 text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900 focus-visible:ring-zinc-500 hover:border-zinc-300 hover:-translate-y-1',
+    ghost: 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:ring-zinc-500 hover:scale-105',
   };
 
   const sizes = {
