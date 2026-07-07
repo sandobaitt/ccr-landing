@@ -34,11 +34,16 @@ const ScrollFloat = ({
 
   const splitText = useMemo(() => {
     const text = typeof children === 'string' ? children : '';
-    return text.split('').map((char, index) => (
-      <span className="char" key={index}>
-        {char === ' ' ? '\u00A0' : char}
-      </span>
-    ));
+    return text.split('').map((char, index) => {
+      if (char === ' ') {
+        return <span key={index}> </span>;
+      }
+      return (
+        <span className="char" key={index}>
+          {char}
+        </span>
+      );
+    });
   }, [children]);
 
   useEffect(() => {

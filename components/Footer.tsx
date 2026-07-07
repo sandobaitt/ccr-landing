@@ -52,17 +52,20 @@ export function Footer() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-zinc-200 text-center text-sm text-zinc-500 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="flex flex-wrap justify-center items-center gap-1">
-          <span>© {new Date().getFullYear()} CCR. Todos los derechos reservados. By</span>
-          <Link 
-            href="https://github.com/sandobaitt" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center space-x-1 hover:text-zinc-800 transition-colors opacity-70 hover:opacity-100"
-          >
-            <Code2 className="w-3 h-3" />
-            <span>sandobaitt</span>
-          </Link>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-1">
+          <span>© {new Date().getFullYear()} CCR. Todos los derechos reservados.</span>
+          <div className="flex items-center gap-1">
+            <span className="md:ml-1">By</span>
+            <Link 
+              href="https://github.com/sandobaitt" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center space-x-1 hover:text-zinc-800 transition-colors opacity-70 hover:opacity-100"
+            >
+              <Code2 className="w-3 h-3" />
+              <span>sandobaitt</span>
+            </Link>
+          </div>
         </div>
         <p className="text-xs font-semibold uppercase tracking-widest text-zinc-600">Parroquia Nuestra Señora de la Asunción</p>
       </div>
