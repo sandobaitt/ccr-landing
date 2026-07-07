@@ -49,7 +49,7 @@ export function Pillars() {
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Nuestros Pilares"
-          subtitle="Nuestra espiritualidad se apoya en 4 columnas fundamentales que guían cada paso que damos:"
+          subtitle="Nuestra espiritualidad se apoya en 3 columnas fundamentales que guían cada paso que damos:"
         />
 
         <div className="flex flex-col gap-6 mt-8">
@@ -65,7 +65,7 @@ export function Pillars() {
               custom={i}
             >
               {/* Icono con animación infinita */}
-              <motion.div 
+              <motion.div
                 animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.1, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className={`flex-shrink-0 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${pillar.iconBg} mr-6 sm:mr-8 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300`}
