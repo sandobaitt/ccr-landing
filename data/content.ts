@@ -113,6 +113,15 @@ export const nextRetreat: RetreatInfo = {
 /** Información de los Santos Redentoristas (Nuestras Raíces) */
 export const saints: SaintInfo[] = [
   {
+    id: 'perpetuo-socorro',
+    name: 'Nuestra Señora del Perpetuo Socorro',
+    title: 'Patrona de los Misioneros Redentoristas',
+    shortDescription: 'La Virgen que nos acompaña siempre. Un ícono lleno de amor y protección.',
+    fullBiography: 'Este bellísimo ícono oriental nos muestra a María sosteniendo al Niño Jesús, quien asustado por los ángeles que le muestran los instrumentos de su futura pasión, se aferra a su Madre (hasta se le cae una sandalia). En 1866, el Papa Pío IX le entregó el ícono original a los Redentoristas con un encargo clarísimo: "¡Denla a conocer por todo el mundo!". Desde entonces, María del Perpetuo Socorro es nuestra madre, protectora y compañera de ruta.',
+    connectionToCharism: 'Ella es la primera misionera. Nos acompaña en cada recorrida, en cada retiro y nos recuerda que en el CCR nunca caminamos solos.',
+    imageUrl: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fef%2F6a%2F00%2Fef6a0062166d1d90ac1ce0b829ebad9a.jpg&f=1&nofb=1&ipt=b6b7aa66aedccc6c1356ef41b107987100738eb2eb2e1949570eb8ea19b91fc6'
+  },
+  {
     id: 'alfonso',
     name: 'San Alfonso María de Ligorio',
     title: 'Fundador y Doctor de la Iglesia',
@@ -147,6 +156,24 @@ export const saints: SaintInfo[] = [
     fullBiography: 'Este cura holandés se fue para Surinam y después se hizo Redentorista. ¡Se pasó 30 años viviendo en una colonia de leprosos! Fue enfermero, amigo y guía de los que nadie quería ver. Vivió entre ellos compartiendo sus dolores y alegrías, demostrando que el amor no tiene asco ni barreras.',
     connectionToCharism: 'Es el claro ejemplo de ensuciarse las manos por los demás. Nos desafía a salir a la calle y abrazar a los que más sufren hoy en nuestra ciudad, sin caretas.',
     imageUrl: 'http://3.bp.blogspot.com/-y7OTCGtsmRQ/UpP8Om_nNDI/AAAAAAAABzQ/ZcAaWE2JL9k/s1600/Beato+Pedro+Donders,+Presb%C3%ADtero+e+Mission%C3%A1rio+(foto).jpg'
+  },
+  {
+    id: 'gaspar',
+    name: 'Beato Gaspar Stanggassinger',
+    title: 'El Patrono de los Jóvenes',
+    shortDescription: 'Un joven que dio su vida por los jóvenes. Su lema: hacer lo extraordinario en lo ordinario.',
+    fullBiography: 'Gaspar era un alemán fanático de estar con los jóvenes. Entró a los Redentoristas con una sola idea: educar y acompañar a los pibes para que encuentren a Jesús. Aunque murió súper joven, a los 28 años, dejó una huella gigante por su alegría, su cercanía y su capacidad de escuchar. Él siempre decía que no hace falta hacer cosas raras para ser santo, sino ponerle amor a las cosas de todos los días.',
+    connectionToCharism: 'Es nuestro modelo para las comunidades y los coordinadores. Nos enseña que la mejor forma de cambiar el mundo es acompañando a los jóvenes con paciencia, empatía y mucha alegría.',
+    imageUrl: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.redentoristas.org%2Fwp-content%2Fuploads%2F2019%2F09%2Fstanggassinger.jpg&f=1&nofb=1&ipt=5bbc066ad02e298083cbe8c8ab581e770338b13758b688697aeffcb03c303cd8'
+  },
+  {
+    id: 'genaro',
+    name: 'Beato Genaro María Sarnelli',
+    title: 'Compañero de los Marginados',
+    shortDescription: 'Mano derecha de San Alfonso, se metió en los peores barrios de Nápoles para rescatar a los descartados.',
+    fullBiography: 'Abogado exitoso igual que San Alfonso, Genaro dejó todo para irse a trabajar a las calles más picantes de Nápoles. Se metió de lleno a rescatar niños huérfanos, visitar a los presos en las peores cárceles y ayudar a mujeres que eran explotadas. No le tenía miedo a nada cuando se trataba de defender la dignidad de los más rotos. Murió muy joven, consumido por su entrega total a los pobres.',
+    connectionToCharism: 'Es el santo patrono de nuestra Comisión de Acción Social. Su historia nos empuja a no mirar para otro lado y salir a las recorridas nocturnas con el corazón dispuesto a abrazar a los que más sufren.',
+    imageUrl: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.edy.com.mx%2Fwp-content%2Fuploads%2Fbeato_genaro_maria_sarnelli.jpg&f=1&nofb=1&ipt=8fc05d6f15986b518537061e08f432e29ffefbe1bdae6cf1077d226696486a07'
   },
 ];
 

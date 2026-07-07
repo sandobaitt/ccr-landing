@@ -80,33 +80,31 @@ export function NextRetreat() {
               glowRadius={40}
               glowIntensity={0.8}
               coneSpread={25}
-              animated={true}
+              animated={false}
               colors={['#ef4444', '#f87171', '#dc2626']}
               className="w-full shadow-sm"
             >
               <div className="p-8 flex flex-col items-center text-center">
                 <h3 className="text-xl font-bold mb-6 flex items-center justify-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-orange-500 animate-gradient bg-[length:200%_auto]">
-                  <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+                  <div>
                     <Clock className="w-6 h-6 text-red-500 mr-2 drop-shadow-sm" />
-                  </motion.div>
+                  </div>
                   ¡Falta cada vez menos, prepará el corazón!
                 </h3>
 
                 <div className="flex gap-4 sm:gap-6 justify-center">
                   {isClient ? timeBlocks.map((block, idx) => (
-                    <motion.div 
+                    <div 
                       key={idx} 
                       className="flex flex-col items-center"
-                      animate={{ y: [0, -8, 0] }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
                     >
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-white to-red-50 rounded-2xl shadow-[0_8px_16px_rgba(244,63,94,0.15)] border border-red-100 flex items-center justify-center text-2xl sm:text-3xl font-black text-red-600">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-sky-100 to-violet-100 rounded-2xl shadow-lg border-2 border-white/60 flex items-center justify-center text-2xl sm:text-3xl font-black text-violet-900">
                         {block.value.toString().padStart(2, '0')}
                       </div>
-                      <span className="text-xs sm:text-sm font-black text-red-400 mt-3 uppercase tracking-widest drop-shadow-sm">
+                      <span className="text-xs sm:text-sm font-black text-violet-600 mt-3 uppercase tracking-widest drop-shadow-sm">
                         {block.label}
                       </span>
-                    </motion.div>
+                    </div>
                   )) : (
                     <div className="h-[104px] sm:h-[120px] flex items-center justify-center text-zinc-500 w-full">
                       Cargando temporizador...

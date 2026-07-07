@@ -35,12 +35,12 @@ export function SectionTitle({
         scrollStart="center bottom+=50%"
         scrollEnd="bottom bottom-=40%"
         stagger={0.03}
-        containerClassName={`text-3xl md:text-5xl font-black tracking-tight ${titleColor} drop-shadow-sm`}
+        containerClassName={`text-2xl sm:text-3xl md:text-5xl font-black tracking-tight ${titleColor} drop-shadow-sm text-balance`}
       >
         {title}
       </ScrollFloat>
       {subtitle && (
-        <p className={`text-lg max-w-2xl ${subtitleColor}`}>
+        <p className={`text-base sm:text-lg max-w-2xl ${subtitleColor} text-balance`}>
           {subtitle}
         </p>
       )}

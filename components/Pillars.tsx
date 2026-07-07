@@ -76,7 +76,7 @@ export function Pillars() {
 
               <div>
                 {/* Título animado continuamente */}
-                <h3 className="text-xl sm:text-2xl font-black mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-violet-600 bg-[length:200%_200%] animate-gradient">
+                <h3 className="text-xl sm:text-2xl font-black mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-violet-600 bg-[length:200%_200%] animate-gradient text-balance">
                   {pillar.title}
                 </h3>
 

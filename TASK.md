@@ -75,3 +75,15 @@
   - Ejecutar `npm run lint` resolviendo cualquier error estricto de TypeScript en los nuevos modales y temporizadores.
   - Probar vistas en dispositivos móviles (360px).
   - Confirmar build de producción exitoso con `npm run build`.
+
+## Fase 8: Refinamiento UI y Expansión Carismática
+- [x] **Tarea 19: Ajuste de Layout en Hero Section**
+  - Eliminar el subtítulo, texto o badge que dice "Parroquia Asunción" al principio de la página.
+  - Ajustar el espaciado vertical (`margin-top` o `padding-top`) y los `gaps` en el contenedor principal del Hero para mover todo el texto restante más arriba, garantizando que quede centrado y balanceado visualmente.
+- [x] **Tarea 20: Corrección de Responsividad Tipográfica (Text Wrapping)**
+  - Revisar y corregir los tamaños de texto en la vista móvil (`sm` y base) para todos los títulos y subtítulos (especialmente en la sección de Pilares/Comunidades).
+  - Aplicar clases de Tailwind como `text-balance`, `break-words` o reducir el tamaño de fuente en pantallas pequeñas (ej. `text-2xl` en lugar de `text-4xl`) para evitar que palabras largas como "perseverancia" se corten y pasen a la siguiente línea por la mitad.
+- [x] **Tarea 21: Expansión de "Nuestras Raíces" (María del Perpetuo Socorro)**
+  - Agregar a **Nuestra Señora del Perpetuo Socorro** (y otros beatos/santos si corresponde) en `/data/content.ts`.
+  - Asegurar que el componente `SaintsGrid.tsx` o el contenedor de tarjetas se adapte correctamente al nuevo número de elementos (ajustando el grid o layout para que no se desestabilice visualmente).
+  - Incluir su descripción, iconografía/imagen y su relevancia para la congregación en el Modal.

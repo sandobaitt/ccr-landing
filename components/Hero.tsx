@@ -9,7 +9,7 @@ import { nextRetreat } from '@/data/content';
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-6 py-20 bg-transparent">
+    <section className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-6 pt-10 pb-32 bg-transparent">
 
       {/* Fondo estético - Removido completamente para evitar cortes en el fondo fijo */}
 
@@ -35,13 +35,6 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-8">
 
         <div className="flex flex-col items-center justify-center space-y-4">
-          <motion.span 
-            animate={{ y: [0, -5, 0], scale: [1, 1.02, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="inline-block py-1.5 px-4 rounded-full bg-gradient-to-r from-red-200 to-orange-200 text-red-700 text-xs sm:text-sm font-black tracking-widest uppercase mb-2 border border-red-300 shadow-md"
-          >
-            Parroquia Asunción · Resistencia
-          </motion.span>
           <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-black font-display tracking-tighter leading-[1.05] flex flex-col items-center drop-shadow-sm">
             <BlurText
               text="Crecer con"
