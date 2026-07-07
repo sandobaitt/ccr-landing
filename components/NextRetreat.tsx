@@ -53,7 +53,7 @@ export function NextRetreat() {
   ];
 
   return (
-    <section id="retiro" className="py-24 bg-zinc-900 relative overflow-hidden">
+    <section id="retiro" className="py-24 bg-transparent relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-950/30 via-transparent to-transparent opacity-60"></div>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">

@@ -17,6 +17,10 @@ const config: Config = {
           accent: "#b91c1c", // red-700
         }
       },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'serif'],
+      },
     },
   },
   plugins: [],

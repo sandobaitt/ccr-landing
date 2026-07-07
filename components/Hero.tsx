@@ -9,7 +9,7 @@ import { nextRetreat } from '@/data/content';
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-6 py-20 bg-zinc-950">
+    <section className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-6 py-20 bg-transparent">
 
       {/* Fondo estético - Imagen (Activada) */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
@@ -30,7 +30,7 @@ export function Hero() {
           <span className="inline-block py-1.5 px-4 rounded-full bg-red-950/50 text-red-400 text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 border border-red-800/30">
             Parroquia Asunción · Resistencia
           </span>
-          <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-black text-zinc-50 tracking-tighter leading-[1.05] flex flex-col items-center">
+          <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-black font-serif text-zinc-50 tracking-tighter leading-[1.05] flex flex-col items-center">
             <BlurText
               text="Crecer con"
               delay={150}

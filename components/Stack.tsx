@@ -35,12 +35,13 @@ function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }
   return (
     <motion.div
       className="absolute w-full h-full cursor-grab active:cursor-grabbing select-none"
-      style={{ x, rotateY }}
+      style={{ x, rotateY, WebkitUserDrag: 'none', userSelect: 'none' } as any}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       dragElastic={0.6}
       onDragEnd={handleDragEnd}
       draggable={false}
+      onDragStart={(e) => e.preventDefault()}
     >
       {children}
     </motion.div>
@@ -146,6 +147,7 @@ export default function Stack({
             <motion.div
               className="rounded-2xl overflow-hidden w-full h-full flex flex-col items-center justify-center bg-zinc-800 border border-zinc-700/50 shadow-xl"
               onClick={() => shouldEnableClick && sendToBack(card.id)}
+              style={{ WebkitUserDrag: 'none', userSelect: 'none' } as any}
               animate={{
                 rotateZ: (stack.length - index - 1) * 4 + randomRotate,
                 scale: 1 + index * 0.06 - stack.length * 0.06,

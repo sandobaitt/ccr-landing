@@ -11,7 +11,7 @@ export function SaintsGrid() {
   const [selectedSaint, setSelectedSaint] = useState<SaintInfo | null>(null);
 
   return (
-    <section className="py-24 bg-zinc-950 text-zinc-50 relative overflow-hidden" id="santos">
+    <section className="py-24 bg-transparent text-zinc-50 relative overflow-hidden" id="santos">
       {/* Background Decorativo */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none flex justify-center items-center">
         <div className="w-[800px] h-[800px] bg-red-600 rounded-full blur-[150px] mix-blend-screen" />
@@ -40,10 +40,12 @@ export function SaintsGrid() {
                 key={saint.id} 
                 className="w-full h-full relative group cursor-pointer select-none"
                 draggable={false}
+                style={{ WebkitUserDrag: 'none', userSelect: 'none' } as any}
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedSaint(saint);
                 }}
+                onDragStart={(e) => e.preventDefault()}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
@@ -51,6 +53,8 @@ export function SaintsGrid() {
                   alt={saint.name} 
                   className="w-full h-full object-cover pointer-events-none select-none"
                   draggable={false}
+                  style={{ WebkitUserDrag: 'none', userSelect: 'none' } as any}
+                  onDragStart={(e) => e.preventDefault()}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/40 to-transparent flex flex-col justify-end p-6 pointer-events-none">
                   <h3 className="font-bold text-2xl text-white mb-1 shadow-black drop-shadow-md">

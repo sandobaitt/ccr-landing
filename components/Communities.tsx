@@ -37,7 +37,7 @@ const stages = [
 
 export function Communities() {
   return (
-    <section id="comunidades" className="py-24 bg-zinc-900 relative overflow-hidden">
+    <section id="comunidades" className="py-24 bg-transparent relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <SectionTitle 
           title="El Camino CCR" 

@@ -32,8 +32,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                 Crecer con
               </motion.div>
 
-              {/* Contenedor Principal: CRIS + [+] + O */}
-              {/* Le damos el tamaño de fuente al contenedor para usar 'em' en el espaciador */}
+              {/* Contenedor Principal: CRIS + [Cruz] + O */}
               <div className="flex items-center justify-center w-full max-w-full text-4xl sm:text-5xl md:text-[56px]">
                 
                 {/* Texto CRIS */}
@@ -55,94 +54,203 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                 >
                   <svg
                     width="140"
-                    height="160"
-                    viewBox="0 0 140 160"
+                    height="200"
+                    viewBox="0 0 140 200"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     className="overflow-visible absolute"
                   >
-                    {/* --- ELEMENTOS SÍMBOLOS --- */}
-
-                    {/* Espíritu Santo (Aureola y Paloma) */}
+                    {/* ============================================= */}
+                    {/* PALOMA (arriba, mirando a la izquierda)       */}
+                    {/* Cuerpo principal de la paloma                  */}
+                    {/* ============================================= */}
+                    <motion.path
+                      d="M 70 8 C 60 8, 52 12, 50 17 C 48 12, 52 6, 60 5 C 66 4, 72 6, 76 10 C 82 8, 90 8, 96 12 C 88 10, 82 12, 78 16 C 76 12, 73 9, 70 8 Z"
+                      fill="#fafafa"
+                      stroke="#fafafa" strokeWidth="1" strokeLinejoin="round"
+                      initial={{ opacity: 0, scale: 0.5, y: -5 }}
+                      animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 1] }}
+                      transition={{ duration: 3.1, times: [0, 0.15, 0.7, 1], ease: 'easeInOut', delay: 0.1 }}
+                    />
+                    {/* Cabeza de la paloma */}
                     <motion.circle
-                      cx="70" cy="18" r="14"
-                      stroke="#71717a" strokeWidth="2" strokeDasharray="3 3"
-                      initial={{ opacity: 0, rotate: -45 }}
-                      animate={{ opacity: [0, 0.8, 0], rotate: 0 }}
-                      transition={{ duration: 3.1, times: [0, 0.7, 1], ease: 'easeInOut', delay: 0.2 }}
+                      cx="50" cy="16" r="5"
+                      fill="#fafafa"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 1] }}
+                      transition={{ duration: 3.1, times: [0, 0.15, 0.7, 1], ease: 'easeInOut', delay: 0.1 }}
                     />
-                    <motion.path
-                      d="M 70 32 C 65 24, 55 20, 45 15 C 58 15, 64 18, 68 22 C 68 15, 72 15, 72 22 C 76 18, 82 15, 95 15 C 85 20, 75 24, 70 32 Z"
-                      stroke="#fafafa" strokeWidth="2" strokeLinejoin="round" fill="none"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: [0, 1, 0] }}
-                      transition={{
-                        pathLength: { duration: 1.0, ease: 'easeOut', delay: 0.2 },
-                        opacity: { duration: 3.1, times: [0, 0.7, 1], ease: 'easeInOut', delay: 0.2 }
-                      }}
+                    {/* Ojo de la paloma */}
+                    <motion.circle
+                      cx="47" cy="14" r="1.2"
+                      fill="#18181b"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 1, 1, 0] }}
+                      transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeInOut', delay: 0.2 }}
                     />
-
-                    {/* --- LANZA ROMANA (DERECHA) --- */}
+                    {/* Pico de la paloma */}
                     <motion.path
-                      d="M 28 135 L 90 53 L 94 56 L 108 31 L 86 46 L 90 53"
-                      stroke="#a1a1aa" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" fill="#3f3f46"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: [0, 1, 0] }}
-                      transition={{
-                        pathLength: { duration: 0.8, ease: 'easeInOut', delay: 0.2 },
-                        opacity: { duration: 3.1, times: [0, 0.7, 1], ease: 'easeInOut', delay: 0.2 }
-                      }}
+                      d="M 44 16 L 40 17 L 44 18 Z"
+                      fill="#fafafa"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 1, 1, 0] }}
+                      transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeInOut', delay: 0.2 }}
                     />
-
-                    {/* --- CAÑA Y ESPONJA (IZQUIERDA) --- */}
+                    {/* Ala extendida hacia arriba */}
                     <motion.path
-                      d="M 112 135 L 48 50"
-                      stroke="#71717a" strokeWidth="3.5" strokeLinecap="round"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: [0, 1, 0] }}
-                      transition={{
-                        pathLength: { duration: 0.8, ease: 'easeInOut', delay: 0.2 },
-                        opacity: { duration: 3.1, times: [0, 0.7, 1], ease: 'easeInOut', delay: 0.2 }
-                      }}
+                      d="M 58 10 C 64 2, 80 0, 95 4 C 82 3, 70 6, 65 12 Z"
+                      fill="#fafafa"
+                      stroke="#fafafa" strokeWidth="0.5"
+                      initial={{ opacity: 0, rotate: -10, originX: '58px', originY: '10px' }}
+                      animate={{ opacity: [0, 1, 1, 0], rotate: [-10, 0, 0, 0] }}
+                      transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeOut', delay: 0.15 }}
                     />
+                    {/* Cola de la paloma */}
                     <motion.path
-                      d="M 44 54 C 38 58, 30 52, 32 44 C 34 36, 42 34, 48 40 C 54 46, 50 50, 44 54 Z M 38 46 A 1 1 0 1 1 38 46.1 Z M 44 48 A 1.5 1.5 0 1 1 44 48.1 Z"
-                      stroke="#a1a1aa" strokeWidth="2.5" strokeLinejoin="round" fill="#27272a"
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: [0, 1, 1], opacity: [0, 1, 0] }}
-                      transition={{
-                        scale: { duration: 1.7, times: [0, 0.3, 1], ease: 'easeOut', delay: 0.4 },
-                        opacity: { duration: 3.1, times: [0, 0.7, 1], ease: 'easeInOut', delay: 0.2 }
-                      }}
+                      d="M 76 16 L 84 10 L 82 16 L 88 12 L 84 18 Z"
+                      fill="#fafafa"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 1, 1, 0] }}
+                      transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeInOut', delay: 0.15 }}
                     />
 
-                    {/* Monte Calvario */}
+                    {/* ============================================= */}
+                    {/* LANZA (izquierda) — forma "A" más cerrada */}
+                    {/* ============================================= */}
                     <motion.path
-                      d="M 40 150 L 100 150 M 50 140 L 90 140 M 60 130 L 80 130"
-                      stroke="#71717a" strokeWidth="4" strokeLinecap="round"
+                      d="M 40 165 L 48 90"
+                      stroke="#fafafa" strokeWidth="3" strokeLinecap="round"
                       initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: [0, 1, 0] }}
+                      animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
+                      transition={{
+                        pathLength: { duration: 0.7, ease: 'easeInOut', delay: 0.2 },
+                        opacity: { duration: 3.1, times: [0, 0.15, 0.7, 1], ease: 'easeInOut', delay: 0.2 }
+                      }}
+                    />
+                    {/* Punta de lanza izquierda (flecha hacia arriba) */}
+                    <motion.path
+                      d="M 43 90 L 50 74 L 53 91 Z"
+                      fill="#fafafa" stroke="#fafafa" strokeWidth="1" strokeLinejoin="round"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: [0, 1, 1, 0], scale: [0, 1, 1, 1] }}
+                      transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeOut', delay: 0.3 }}
+                    />
+
+                    {/* ============================================= */}
+                    {/* CAÑA con ESPONJA (derecha) — forma "A" más cerrada */}
+                    {/* ============================================= */}
+                    <motion.path
+                      d="M 100 165 L 92 90"
+                      stroke="#fafafa" strokeWidth="3" strokeLinecap="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
+                      transition={{
+                        pathLength: { duration: 0.7, ease: 'easeInOut', delay: 0.2 },
+                        opacity: { duration: 3.1, times: [0, 0.15, 0.7, 1], ease: 'easeInOut', delay: 0.2 }
+                      }}
+                    />
+                    {/* Esponja (pequeño rectángulo vacío en la punta derecha) */}
+                    <motion.rect
+                      x="84" y="76" width="16" height="14" rx="3"
+                      fill="transparent" stroke="#fafafa" strokeWidth="2.5"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: [0, 1, 1, 0], scale: [0, 1, 1, 1] }}
+                      transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeOut', delay: 0.35 }}
+                    />
+
+                    {/* ============================================= */}
+                    {/* LETRAS ΙΣ (izquierda) y ΧΣ (derecha) — todo blanco */}
+                    {/* ============================================= */}
+                    {/* IS - izquierda */}
+                    <motion.text
+                      x="8" y="118"
+                      fontSize="14" fontFamily="serif" fill="#fafafa"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 1, 1, 0] }}
+                      transition={{ duration: 3.1, times: [0, 0.3, 0.7, 1], ease: 'easeInOut', delay: 0.4 }}
+                    >
+                      ΙΣ
+                    </motion.text>
+                    {/* Barra sobre IS */}
+                    <motion.line
+                      x1="6" y1="103" x2="28" y2="103"
+                      stroke="#fafafa" strokeWidth="1.5" strokeLinecap="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
+                      transition={{ duration: 3.1, times: [0, 0.3, 0.7, 1], ease: 'easeInOut', delay: 0.45 }}
+                    />
+
+                    {/* XC - derecha */}
+                    <motion.text
+                      x="104" y="118"
+                      fontSize="14" fontFamily="serif" fill="#fafafa"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 1, 1, 0] }}
+                      transition={{ duration: 3.1, times: [0, 0.3, 0.7, 1], ease: 'easeInOut', delay: 0.4 }}
+                    >
+                      ΧΣ
+                    </motion.text>
+                    {/* Barra sobre XC */}
+                    <motion.line
+                      x1="102" y1="103" x2="126" y2="103"
+                      stroke="#fafafa" strokeWidth="1.5" strokeLinecap="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
+                      transition={{ duration: 3.1, times: [0, 0.3, 0.7, 1], ease: 'easeInOut', delay: 0.45 }}
+                    />
+
+                    {/* ============================================= */}
+                    {/* MONTE CALVARIO (tres líneas en la base)       */}
+                    {/* ============================================= */}
+                    <motion.path
+                      d="M 38 178 L 102 178 M 46 170 L 94 170 M 55 162 L 85 162"
+                      stroke="#fafafa" strokeWidth="4" strokeLinecap="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
                       transition={{
                         pathLength: { duration: 0.9, ease: 'easeInOut', delay: 0.5 },
-                        opacity: { duration: 3.1, times: [0, 0.7, 1], ease: 'easeInOut', delay: 0.2 }
+                        opacity: { duration: 3.1, times: [0, 0.25, 0.7, 1], ease: 'easeInOut', delay: 0.3 }
                       }}
                     />
 
-                    {/* --- CRUZ CENTRAL (SE MANTIENE COMO CRUZ) --- */}
+                    {/* ============================================= */}
+                    {/* CRUZ REDENTORISTA (3 brazos: INRI, central, diagonal inf.) */}
+                    {/* ============================================= */}
+
+                    {/* Barra diagonal inferior (apoyo del pie) */}
+                    <motion.line
+                      x1="50" y1="150" x2="90" y2="138"
+                      stroke="#fafafa" strokeWidth="10" strokeLinecap="square"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.65 }}
+                    />
+
+                    {/* Palo vertical principal */}
                     <motion.path
-                      d="M 70 40 L 70 130"
+                      d="M 70 30 L 70 160"
                       stroke="#fafafa" strokeWidth="14" strokeLinecap="square"
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
                       transition={{ duration: 1.0, ease: 'easeInOut', delay: 0.7 }}
                     />
 
+                    {/* Brazo horizontal principal (central) */}
                     <motion.line
-                      x1="30" y1="70" x2="110" y2="70"
+                      x1="28" y1="75" x2="112" y2="75"
                       stroke="#fafafa" strokeWidth="14" strokeLinecap="square"
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
                       transition={{ duration: 0.8, ease: 'easeInOut', delay: 1.1 }}
+                    />
+
+                    {/* Brazo horizontal superior (del título INRI) */}
+                    <motion.line
+                      x1="46" y1="47" x2="94" y2="47"
+                      stroke="#fafafa" strokeWidth="9" strokeLinecap="square"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 0.6, ease: 'easeInOut', delay: 1.3 }}
                     />
                   </svg>
                 </motion.div>
@@ -158,7 +266,6 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                     O
                   </motion.span>
                   
-                  {/* Espaciador dinámico: empieza en 1.8em para balancear el ancho de "CRIS", luego colapsa a 0 para centrar la palabra */}
                   <motion.div
                     initial={{ width: "1.8em" }}
                     animate={{ width: 0 }}

@@ -55,7 +55,7 @@ const galleryItems = [
 
 export function NewsGrid() {
   return (
-    <section id="novedades" className="relative w-full py-24 px-6 bg-zinc-900 overflow-hidden">
+    <section id="novedades" className="relative w-full py-24 px-6 bg-transparent overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Novedades"

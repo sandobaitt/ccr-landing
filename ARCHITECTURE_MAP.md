@@ -33,6 +33,7 @@
 | `components/BlurText.tsx` | Animación de texto difuminado por palabras/letras | `framer-motion` |
 | `components/SaintsGrid.tsx` | Sección interactiva de Santos con modal flotante | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
 | `components/Communities.tsx` | Carrusel interactivo (horizontal-scroll/swipe) del Camino CCR | `framer-motion`, `lucide-react`, `SectionTitle` |
+| `components/StarryBackground.tsx` | Fondo global estrellado renderizado con HTML5 Canvas e interactividad | - |
 
 ## 🧪 Registro de Pruebas y Verificaciones
 *(El agente registrará cada build/test ejecutado)*
