@@ -43,14 +43,14 @@ const cardVariants = {
 
 // Imágenes representativas para la galería circular
 const galleryItems = [
-  { image: 'https://picsum.photos/seed/retiro1/800/600', text: 'Retiro Espiritual' },
-  { image: 'https://picsum.photos/seed/recorrida1/800/600', text: 'Recorrida Solidaria' },
-  { image: 'https://picsum.photos/seed/comunidad1/800/600', text: 'Comunidad' },
-  { image: 'https://picsum.photos/seed/oracion1/800/600', text: 'Oración' },
-  { image: 'https://picsum.photos/seed/jovenes1/800/600', text: 'Jóvenes' },
-  { image: 'https://picsum.photos/seed/mision1/800/600', text: 'Misión' },
-  { image: 'https://picsum.photos/seed/parroquia1/800/600', text: 'Parroquia' },
-  { image: 'https://picsum.photos/seed/encuentro1/800/600', text: 'Encuentro' },
+  { image: '/gallery/campamento.JPG', text: 'Campamento' },
+  { image: '/gallery/encuentro.jpg', text: 'Encuentro' },
+  { image: '/gallery/mision.jpg', text: 'Misión' },
+  { image: '/gallery/oracion.jpeg', text: 'Oración' },
+  { image: '/gallery/jovenes1.jpeg', text: 'Jóvenes' },
+  { image: '/gallery/retiro.jpeg', text: 'Retiro Espiritual' },
+  { image: '/gallery/parroquia.png', text: 'Parroquia' },
+  { image: '/gallery/salida-solidaria2.jpeg', text: 'Recorrida Solidaria' },
 ];
 
 export function NewsGrid() {
