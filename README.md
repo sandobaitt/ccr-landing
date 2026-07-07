@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-f040b8?logo=framer)](https://www.framer.com/motion/)
 
-> Una experiencia web inmersiva, de alto rendimiento y estilo "dopamina", diseñada para la comunidad juvenil de la Parroquia Asunción.
+> Una experiencia web inmersiva, de alto rendimiento y estilo vibrante, diseñada para la comunidad juvenil de la Parroquia Asunción.
 
 ---
 
