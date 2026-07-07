@@ -7,6 +7,8 @@ import { BrandLoader } from "@/components/BrandLoader";
 import { ScheduleTicker } from "@/components/ScheduleTicker";
 import Image from "next/image";
 
+import { Analytics } from "@vercel/analytics/react";
+
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
@@ -18,8 +20,23 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "CCR Landing - Parroquia Asunción",
-  description: "Movimiento Crecer con Cristo Redentor",
+  title: "Crecer con Cristo Redentor | Parroquia Asunción",
+  description: "Movimiento juvenil católico de la Parroquia Nuestra Señora de la Asunción, Resistencia, Chaco. Sumate a vivir la fe, hacer amigos y ayudar a los demás.",
+  openGraph: {
+    title: "Crecer con Cristo Redentor",
+    description: "Movimiento juvenil de la Parroquia Asunción. ¡Sumate a vivir la fe, hacer amigos y ayudar a los demás!",
+    siteName: "Crecer con Cristo Redentor",
+    images: [
+      {
+        url: "/Gemini_Generated_Image_fyu530fyu530fyu5.png", // Fallback to logo for now
+        width: 800,
+        height: 800,
+        alt: "Logo Crecer con Cristo Redentor",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -48,6 +65,7 @@ export default function RootLayout({
           <main className="flex-1 flex flex-col overflow-x-hidden">{children}</main>
           <Footer />
         </BrandLoader>
+        <Analytics />
       </body>
     </html>
   );
