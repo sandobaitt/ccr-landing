@@ -48,12 +48,8 @@ export function Communities() {
         <div className="mt-16 relative w-full">
           <div className="flex flex-row md:justify-between items-start overflow-x-auto snap-x snap-mandatory py-8 gap-6 md:gap-0 px-4 md:px-0 -mx-4 md:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {stages.map((stage, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.2, duration: 0.6 }}
                 className="relative z-10 flex flex-col items-center text-center w-[85vw] max-w-[280px] min-w-[280px] md:w-auto flex-shrink-0 snap-center mx-auto"
               >
                 <motion.div
@@ -65,7 +61,7 @@ export function Communities() {
                 </motion.div>
                 <h3 className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500 mb-3 text-balance">{stage.title}</h3>
                 <p className="text-sm text-zinc-600 leading-relaxed px-4 md:px-0">{stage.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
