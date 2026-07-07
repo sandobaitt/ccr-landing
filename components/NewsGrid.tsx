@@ -60,7 +60,6 @@ export function NewsGrid() {
         <SectionTitle
           title="Novedades"
           subtitle="¡No te pierdas de nada! Enterate de todos nuestros retiros, recorridas y eventos."
-          theme="light"
         />
 
         {/* Galería Circular WebGL */}

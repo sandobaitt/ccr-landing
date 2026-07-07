@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI & Project Tracking Files
+TASK*.md
+ARCHITECTURE_MAP.md
+AGENTS.md
+CLAUDE.md
+lint_output.txt

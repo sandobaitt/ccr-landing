@@ -105,7 +105,7 @@ export const nextRetreat: RetreatInfo = {
   targetDate: '2026-10-15T18:00:00-03:00',
   formsLink: 'https://docs.google.com/forms/d/e/ejemplo/viewform',
   dateDescription: 'Arrancamos el viernes a la tarde y le damos hasta el domingo.',
-  locationDescription: 'En la Casa de Retiros (te pasamos la dire exacta cuando te anotes).',
+  locationDescription: 'En la Casa de Retiros, Parroquia Nuestra Señora de la Asunción.',
   minAge: 18,
   maxAge: 30,
 };
@@ -206,5 +206,34 @@ export const communities: CommunityInfo[] = [
     description: 'Preparamos los momentos más grosos de oración, misas y adoraciones para conectar posta.',
     meetings: 'Sábados 18:00 hs',
     icon: 'BookOpenText',
+  }
+];
+
+/** Versículos o frases diarias */
+export const verses = [
+  {
+    id: 'v1',
+    text: '"Todo lo puedo en Cristo que me fortalece."',
+    reference: 'Filipenses 4:13'
+  },
+  {
+    id: 'v2',
+    text: '"Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas."',
+    reference: 'Josué 1:9'
+  },
+  {
+    id: 'v3',
+    text: '"No se inquieten por nada; más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias."',
+    reference: 'Filipenses 4:6'
+  },
+  {
+    id: 'v4',
+    text: '"Confiad en el Señor de todo corazón, y no en vuestra propia inteligencia."',
+    reference: 'Proverbios 3:5'
+  },
+  {
+    id: 'v5',
+    text: '"El Señor es mi luz y mi salvación; ¿a quién temeré? El Señor es el baluarte de mi vida; ¿quién podrá amedrentarme?"',
+    reference: 'Salmos 27:1'
   }
 ];

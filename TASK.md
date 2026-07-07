@@ -87,3 +87,12 @@
   - Agregar a **Nuestra Señora del Perpetuo Socorro** (y otros beatos/santos si corresponde) en `/data/content.ts`.
   - Asegurar que el componente `SaintsGrid.tsx` o el contenedor de tarjetas se adapte correctamente al nuevo número de elementos (ajustando el grid o layout para que no se desestabilice visualmente).
   - Incluir su descripción, iconografía/imagen y su relevancia para la congregación en el Modal.
+- [x] **Tarea 22: Sección de Versículo Diario y Footer**
+  - Actualizar `types/content.ts` y `data/content.ts` para soportar un arreglo de versículos.
+  - Crear componente `DailyVerse.tsx` que rote el versículo automáticamente según el día del año.
+  - Integrar el componente en `app/page.tsx`.
+  - Añadir enlace discreto a GitHub (usuario `sandobaitt`) en `components/Footer.tsx`.
+- [x] **Tarea 23: Barra de Horarios (Ticker)**
+  - Implementar componente `LogoLoop` en React/TypeScript con soporte para Nodos.
+  - Crear `ScheduleTicker.tsx` con los horarios de misas y adoración.
+  - Ubicar en la parte superior del `layout.tsx` (Announcement Bar).

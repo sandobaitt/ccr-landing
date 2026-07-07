@@ -6,7 +6,6 @@ interface SectionTitleProps {
   subtitle?: string;
   children?: ReactNode;
   align?: 'left' | 'center' | 'right';
-  theme?: 'light' | 'dark';
   className?: string;
 }
 
@@ -15,7 +14,6 @@ export function SectionTitle({
   subtitle,
   children,
   align = 'center',
-  theme = 'light',
   className = '',
 }: SectionTitleProps) {
   const alignmentClasses = {

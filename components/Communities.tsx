@@ -42,7 +42,6 @@ export function Communities() {
         <SectionTitle
           title="El Camino CCR"
           subtitle="Así vivimos y compartimos nuestra fe, paso a paso."
-          theme="dark"
         />
 
         {/* Etapas del Retiro (Timeline) */}
@@ -93,14 +92,12 @@ export function Communities() {
                   transition={{ delay: idx * 0.1, duration: 0.4 }}
                   className="bg-gradient-to-br from-white to-rose-50 border-2 border-white/50 rounded-3xl p-6 shadow-md transition-all duration-300 group"
                 >
-                  <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }} className="flex flex-col h-full">
-                    <motion.div
-                      animate={{ rotate: [0, 10, -10, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  <div className="flex flex-col h-full">
+                    <div
                       className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-200 to-orange-200 text-rose-700 flex items-center justify-center mb-6 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300"
                     >
                       <Icon className="w-7 h-7 drop-shadow-sm" />
-                    </motion.div>
+                    </div>
                     <h4 className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 via-orange-500 to-fuchsia-600 bg-[length:200%_200%] animate-gradient mb-2 transition-all text-balance">
                       {comm.name}
                     </h4>
@@ -111,7 +108,7 @@ export function Communities() {
                       <ClockIcon className="w-4 h-4 mr-2" />
                       {comm.meetings}
                     </div>
-                  </motion.div>
+                  </div>
                 </motion.div>
               );
             })}
@@ -124,9 +121,9 @@ export function Communities() {
             transition={{ delay: 0.5, duration: 0.4 }}
             className="mt-8 bg-gradient-to-r from-violet-100 via-fuchsia-100 to-rose-100 border-2 border-dashed border-fuchsia-300 rounded-3xl p-8 text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all cursor-default"
           >
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
+            <div>
               <ArrowRight className="w-10 h-10 text-fuchsia-600 mb-4" />
-            </motion.div>
+            </div>
             <h4 className="text-xl font-black text-fuchsia-900 mb-2 text-balance">¡Siempre hay más por hacer!</h4>
             <p className="text-sm text-zinc-600 max-w-lg">
               El post-retiro es solo la puerta de entrada. Siempre estamos armando cosas nuevas en la Parroquia para que encuentres tu lugar y pongas tus dones en acción.

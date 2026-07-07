@@ -12,12 +12,14 @@
 
 | Ruta del Archivo | Propósito Principal | Dependencias / Props |
 | :--- | :--- | :--- |
-| `app/layout.tsx` | Layout principal y fuentes configurado para CCR | `next/font/google`, `globals.css` |
+| `app/layout.tsx` | Layout principal y fuentes configurado para CCR | `next/font/google`, `globals.css`, `ScheduleTicker` |
 | `app/page.tsx` | Landing page limpia con título inicial | - |
 | `app/globals.css` | Sistema de Diseño Base y Variables | Tailwind CSS |
 | `components/Button.tsx` | Componente botón modular y accesible | `variant`, `size`, `children` |
 | `components/SectionTitle.tsx` | Título modular animado con ScrollFloat | `title`, `subtitle`, `align`, `ScrollFloat` |
 | `components/ScrollFloat/` | Componente de animación de texto al scroll (React Bits) | `gsap`, `ScrollTrigger` |
+| `components/LogoLoop/` | Componente de carrusel/scroll infinito animado (React Bits) | CSS Keyframes |
+| `components/ScheduleTicker.tsx` | Barra superior (Ticker) de horarios de misas y adoración | `LogoLoop`, `lucide-react` |
 | `components/Navbar.tsx` | Navegación con menú tipo Sidebar deslizante desde la derecha | `lucide-react` |
 | `components/Footer.tsx` | Pie de página institucional Parroquia Asunción | - |
 | `components/BrandLoader.tsx` | Splash Screen Animado (Cruz Redentorista -> "T") | `framer-motion` |
@@ -33,6 +35,7 @@
 | `components/BlurText.tsx` | Animación de texto difuminado por palabras/letras | `framer-motion` |
 | `components/SaintsGrid.tsx` | Sección interactiva de Santos con modal flotante | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
 | `components/Communities.tsx` | Carrusel interactivo (horizontal-scroll/swipe) del Camino CCR | `framer-motion`, `lucide-react`, `SectionTitle` |
+| `components/DailyVerse.tsx` | Sección de versículo del día rotativo dinámicamente | `framer-motion`, `lucide-react`, `data/content` |
 | `components/StarryBackground.tsx` | Fondo global estrellado renderizado con HTML5 Canvas e interactividad | - |
 
 ## 🧪 Registro de Pruebas y Verificaciones

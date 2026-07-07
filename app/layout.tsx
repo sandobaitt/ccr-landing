@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BrandLoader } from "@/components/BrandLoader";
+import { ScheduleTicker } from "@/components/ScheduleTicker";
 import Image from "next/image";
 
 const dmSans = DM_Sans({
@@ -42,6 +43,7 @@ export default function RootLayout({
               />
             </div>
           </div>
+          <ScheduleTicker />
           <Navbar />
           <main className="flex-1 flex flex-col overflow-x-hidden">{children}</main>
           <Footer />

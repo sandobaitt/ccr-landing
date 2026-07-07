@@ -61,7 +61,6 @@ export function NextRetreat() {
           title={`Próximo Retiro: ${nextRetreat.name}`}
           subtitle="¡Animate a vivir un finde distinto! Un encuentro único con Cristo, con vos mismo y con otros jóvenes."
           align="center"
-          theme="dark"
         />
 
         <div className="mt-16 flex flex-col items-center">

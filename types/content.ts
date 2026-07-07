@@ -70,3 +70,10 @@ export interface CommunityInfo {
   meetings: string;
   icon: string;
 }
+
+/** Versículos o frases diarias */
+export interface Verse {
+  id: string;
+  text: string;
+  reference: string;
+}

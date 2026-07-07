@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🕊️ Crecer con Cristo Redentor (CCR) - Landing Page
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-f040b8?logo=framer)](https://www.framer.com/motion/)
 
-First, run the development server:
+> Una experiencia web inmersiva, de alto rendimiento y estilo "dopamina", diseñada para la comunidad juvenil de la Parroquia Asunción.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Sobre el Proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Este proyecto nació como una iniciativa para modernizar y profesionalizar la presencia digital del movimiento **Crecer con Cristo Redentor (CCR)**. Como estudiante de ingeniería, decidí aplicar paradigmas modernos de desarrollo web (arquitecturas basadas en componentes, renderizado estático híbrido, micro-interacciones fluidas y diseño de interfaces avanzadas) para construir una **Single Page Application (SPA)** de primer nivel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🤖 Desarrollo Asistido por Inteligencia Artificial (Agentic AI)
 
-## Learn More
+Este proyecto fue desarrollado en modalidad de *Pair Programming* junto a **Antigravity** (un agente avanzado de IA desarrollado por el equipo de Google Deepmind). A través de iteraciones conjuntas, ingeniería de prompts y planificación arquitectónica, logramos:
+- **Prototipado rápido** y escalable de componentes complejos.
+- **Refactorización de UI/UX** transitando hacia patrones de "Glassmorphism" y estéticas de colores pastel que aumentan la retención del usuario.
+- **Implementación de animaciones avanzadas** integrando librerías matemáticas y de hardware (WebGL vía `ogl`, animaciones SVG fluidas, físicas de resortes con `framer-motion`).
+- Mantenimiento estricto de **clean code**, eliminación de código inerte (ghost code) y buenas prácticas en la estructura del proyecto.
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Características Principales
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Estética "Dopamina" & Glassmorphism:** Interfaz vibrante con fondos borrosos (backdrop blur), mallas de gradientes animados (gradient meshes) y colores pastel de alto contraste.
+- **Micro-Interacciones:** Componentes como `ScheduleTicker` (cinta infinita de horarios), `CircularGallery` (galería WebGL rotativa en 3D), y tarjetas interactivas que reaccionan al scroll y al cursor del usuario.
+- **Rendimiento Óptimo:** Construido sobre **Next.js 16.2** (App Router) y Turbopack, garantizando tiempos de carga ultrarrápidos y una optimización SEO sobresaliente.
+- **Arquitectura Escalable:** Toda la información dinámica (fechas de retiros, cronogramas, datos bancarios y versículos bíblicos) está centralizada en `/data/content.ts` bajo tipado estricto, facilitando futuras actualizaciones por cualquier administrador.
+- **Mobile-First & Responsivo:** Menú lateral (Sidebar) nativo para móviles, adaptabilidad táctil en carruseles (`snap-scroll`) y grillas fluidas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Stack Tecnológico
 
-## Deploy on Vercel
+- **Framework Core:** [Next.js (App Router)](https://nextjs.org/)
+- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Iconografía:** [Lucide React](https://lucide.dev/)
+- **Animaciones UI/2D:** [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
+- **Gráficos 3D / WebGL:** [Ogl](https://github.com/oframe/ogl)
+- **Bloques UI Dinámicos:** [React Bits](https://reactbits.dev/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📂 Arquitectura del Repositorio
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El proyecto sigue una estructura modular dictada por Next.js:
+- `/app`: Configuración global, Layout principal (fuentes, Ticker de horarios, Navbar persistente, Footer) y el punto de entrada de la Landing Page (`page.tsx`).
+- `/components`: Componentes modulares y altamente reutilizables agrupados lógicamente (Hero, Novedades, Comunidades, Pilares, Donaciones).
+- `/data`: Modelos de datos estáticos (Mock Data) centralizados que actúan como un CMS local.
+- `/types`: Definiciones estrictas de interfaces de TypeScript para prevenir errores en tiempo de compilación.
+
+## 💻 Instalación y Uso Local
+
+Si querés aportar al proyecto o correrlo en tu máquina:
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/sandobaitt/ccr-landing.git
+   cd ccr-landing
+   ```
+
+2. **Instalar las dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Correr el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+4. Abrir [http://localhost:3000](http://localhost:3000) en el navegador web.
+
+## 👨‍💻 Autor
+
+Desarrollado con ❤️, mucha lógica y unas cuantas tazas de café por **[sandobaitt](https://github.com/sandobaitt)** (Estudiante de Ingeniería).  
+*Ad Maiorem Dei Gloriam.*

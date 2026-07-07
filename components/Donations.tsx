@@ -93,7 +93,6 @@ export function Donations() {
         <SectionTitle
           title="Acción Social: Recorridas Nocturnas"
           subtitle="¡Tu aporte transforma realidades! Salimos a la calle al encuentro de Cristo en el hermano que más nos necesita. ¡Sumate a dar una mano!"
-          theme="light"
         />
 
         {/* Banner Informativo Recorridas */}

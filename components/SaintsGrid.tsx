@@ -22,7 +22,6 @@ export function SaintsGrid() {
           <SectionTitle 
             title="Nuestras Raíces" 
             subtitle="Santos Redentoristas" 
-            theme="light" 
           />
           <p className="text-zinc-600 max-w-2xl mx-auto mt-4">
             Nuestra espiritualidad y servicio se inspiran en la vida de los grandes santos redentoristas. ¡Conocé a los referentes que nos marcan el camino!

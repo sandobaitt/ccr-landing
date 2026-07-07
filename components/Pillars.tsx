@@ -49,8 +49,7 @@ export function Pillars() {
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Nuestros Pilares"
-          subtitle="Son los tres motores que nos mueven todos los días en la Parroquia Asunción."
-          theme="dark"
+          subtitle="Nuestra espiritualidad se apoya en 4 columnas fundamentales que guían cada paso que damos:"
         />
 
         <div className="flex flex-col gap-6 mt-8">

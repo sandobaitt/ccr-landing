@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/Button';
 import { Calendar } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import BlurText from '@/components/BlurText';
 import { nextRetreat } from '@/data/content';
 
@@ -37,20 +36,20 @@ export function Hero() {
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-black font-display tracking-tighter leading-[1.05] flex flex-col items-center drop-shadow-sm">
             <BlurText
-              text="Crecer con"
+              text="CRECER CON"
               delay={150}
               initialDelay={4.8}
               animateBy="words"
               direction="top"
-              className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 pb-2"
+              className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 pb-2 pr-2"
             />
             <BlurText
-              text="Cristo Redentor"
+              text="CRISTO REDENTOR"
               delay={250}
               initialDelay={4.8}
               animateBy="words"
               direction="top"
-              className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-red-500 to-orange-500 inline-block pb-2"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-red-500 to-orange-500 inline-block pb-2 pr-2"
             />
           </div>
         </div>
