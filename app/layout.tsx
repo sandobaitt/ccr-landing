@@ -20,18 +20,18 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Crecer con Cristo Redentor | Parroquia Asunción",
-  description: "Movimiento juvenil católico de la Parroquia Nuestra Señora de la Asunción, Resistencia, Chaco. Sumate a vivir la fe, hacer amigos y ayudar a los demás.",
+  title: "CCR Parroquia Asunción",
+  description: "Movimiento juvenil. ¡Sumate a vivir en comunidad!",
   openGraph: {
     title: "Crecer con Cristo Redentor",
-    description: "Movimiento juvenil de la Parroquia Asunción. ¡Sumate a vivir la fe, hacer amigos y ayudar a los demás!",
-    siteName: "Crecer con Cristo Redentor",
+    description: "Movimiento juvenil. ¡Sumate a vivir en comunidad!",
+    siteName: "CCR",
     images: [
       {
-        url: "/Gemini_Generated_Image_fyu530fyu530fyu5.png", // Fallback to logo for now
-        width: 800,
-        height: 800,
-        alt: "Logo Crecer con Cristo Redentor",
+        url: "/og-small.png",
+        width: 256,
+        height: 256,
+        alt: "Logo CCR",
       },
     ],
     locale: "es_AR",
