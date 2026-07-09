@@ -37,6 +37,7 @@
 | `components/Communities.tsx` | Carrusel interactivo (horizontal-scroll/swipe) del Camino CCR | `framer-motion`, `lucide-react`, `SectionTitle` |
 | `components/DailyVerse.tsx` | Sección de versículo del día rotativo dinámicamente | `framer-motion`, `lucide-react`, `data/content` |
 | `components/StarryBackground.tsx` | Fondo global estrellado renderizado con HTML5 Canvas e interactividad | - |
+| `components/RoamingChrist.tsx` | Mascota virtual (Pixel Art) autónoma con máquina de estados finitos que recorre la pantalla de forma aleatoria | `framer-motion`, CSS Sprites |
 
 ## 🧪 Registro de Pruebas y Verificaciones
 *(El agente registrará cada build/test ejecutado)*
@@ -76,3 +77,4 @@
 * **[Optimización UI y Limpieza - Exitosa]**: `npm run build` sin errores. Se limpió el "Ghost Code" removiendo props sin usar (`theme`), se agregó el componente `ScheduleTicker` en la parte superior con un `LogoLoop` de React Bits, y se configuró un fondo animado pastel para el ticker. 
 * **[Correcciones Móviles - Exitosa]**: `npm run build` sin errores. Se corrigió el desbordamiento del Footer mediante `flex-wrap`, se redujo el padding vertical de las secciones en móviles (de `py-24` a `py-16`), se centraron correctamente las palabras largas en `BlurText`, y se mejoró la lógica táctil del `CircularGallery` añadiendo bloqueo direccional para evitar rebotes de scroll.
 * **[Preparación para Despliegue - Exitosa]**: `npm run build` exitoso. Se inyectó `@vercel/analytics` para monitoreo de tráfico, se añadieron metadatos SEO y etiquetas Open Graph en `layout.tsx` para generar tarjetas de vista previa en redes sociales, y se limpió el repositorio ignorando archivos internos en el `.gitignore`.
+* **[Roaming Christ (Mascota Virtual) - Exitosa]**: Se programó un motor de spritesheet en CSS y una máquina de estados finitos en `RoamingChrist.tsx` para simular una mascota autónoma que camina, saluda y se esconde a lo largo de toda la aplicación. Se integró exitosamente a nivel global en `app/layout.tsx`.

@@ -7,16 +7,25 @@ type State = 'IDLE' | 'WALK_RIGHT' | 'WALK_LEFT' | 'WAVE' | 'HIDE';
 export function RoamingChrist() {
   const [state, setState] = useState<State>('HIDE');
   const [isFlipped, setIsFlipped] = useState(false);
+  const [frame, setFrame] = useState(0); // Para controlar los cuadros de animación
   const controls = useAnimation();
   const currentX = useRef(-100);
   const isMounted = useRef(true);
+
+  // Timer independiente para la animación de los pies/saludo (10 FPS)
+  useEffect(() => {
+    const frameTimer = setInterval(() => {
+      setFrame((prev) => (prev + 1) % 6);
+    }, 100);
+    return () => clearInterval(frameTimer);
+  }, []);
 
   useEffect(() => {
     isMounted.current = true;
     
     if (typeof window === 'undefined') return;
-    const winWidth = window.innerWidth;
-    currentX.current = -100; // Empieza escondido a la izquierda
+    // Empieza escondido a la izquierda o derecha aleatoriamente
+    currentX.current = Math.random() > 0.5 ? -100 : window.innerWidth + 100; 
     controls.set({ x: currentX.current });
 
     const performAction = async () => {
@@ -72,11 +81,18 @@ export function RoamingChrist() {
         
         // Se queda escondido entre 5 y 10 segundos
         await new Promise(res => setTimeout(res, Math.random() * 5000 + 5000));
+
+        // Mientras está escondido, decidimos aleatoriamente de qué lado va a reaparecer
+        const spawnLeft = Math.random() > 0.5;
+        currentX.current = spawnLeft ? -100 : window.innerWidth + 100;
+        controls.set({ x: currentX.current }); // Teletransportación silenciosa
       } 
       else {
-        // IDLE o WAVE: Se queda quieto
-        // Si está muy cerca del borde derecho, se voltea para mirar hacia el centro
+        // IDLE o WAVE: Frena en seco y se queda quieto
+        controls.stop(); // Aseguramos que no haya inercia residual
+        
         if (nextState === 'WAVE' || nextState === 'IDLE') {
+           // Si está muy cerca del borde derecho, se voltea para mirar hacia el centro
            if (currentX.current > window.innerWidth - 100) {
              setIsFlipped(true);
            } else if (currentX.current < 100) {
@@ -101,12 +117,21 @@ export function RoamingChrist() {
     };
   }, [controls]);
 
-  // Selección de la fila de animación del spritesheet según el estado actual
-  let rowClass = 'sprite-row-idle';
+  // Lógica de cálculo de frames
+  let bgPositionY = '0%'; // Fila 1 (IDLE)
+  let bgPositionX = '0%'; // Columna 1 (Por defecto)
+
   if (state === 'WALK_RIGHT' || state === 'WALK_LEFT' || state === 'HIDE') {
-    rowClass = 'sprite-row-walk';
+    bgPositionY = '50%'; // Fila 2 (WALK)
+    bgPositionX = `${frame * 20}%`; // Ciclo de caminata: 0 a 5
   } else if (state === 'WAVE') {
-    rowClass = 'sprite-row-wave';
+    bgPositionY = '100%'; // Fila 3 (WAVE)
+    // El sprite sheet tiene los fotogramas de saludo solo en las primeras 2 columnas. 
+    // Usamos Math.floor(frame / 3) para ralentizar el saludo (cambia cada 300ms)
+    bgPositionX = `${(Math.floor(frame / 3) % 2) * 20}%`;
+  } else if (state === 'IDLE') {
+    bgPositionY = '0%'; // Fila 1 (IDLE)
+    bgPositionX = '0%'; // Se queda completamente estático en el primer cuadro
   }
 
   return (
@@ -116,11 +141,12 @@ export function RoamingChrist() {
       initial={{ x: -100 }}
     >
       <div 
-        className={`w-14 h-14 md:w-16 md:h-16 bg-[url('/jesus-sprite.png')] bg-[length:600%_300%] ${rowClass} animate-sprite`}
+        className="w-14 h-14 md:w-16 md:h-16 bg-[url('/jesus-sprite.png')] bg-[length:600%_300%]"
         style={{
+          backgroundPosition: `${bgPositionX} ${bgPositionY}`,
           transform: isFlipped ? 'scaleX(-1)' : 'scaleX(1)',
           transition: 'transform 0.2s',
-          imageRendering: 'pixelated', // ¡Importante para que el Pixel Art no se vea borroso!
+          imageRendering: 'pixelated',
         }}
       />
     </motion.div>
