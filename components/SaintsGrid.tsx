@@ -48,7 +48,7 @@ export function SaintsGrid() {
                 onDragStart={(e) => e.preventDefault()}
               >
                 <Image 
-                  src={saint.imageUrl} 
+                  src={saint.imageUrl || ''} 
                   alt={saint.name} 
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
