@@ -64,14 +64,12 @@ export function Pillars() {
               viewport={{ once: true, amount: 0.3 }}
               custom={i}
             >
-              {/* Icono con animación infinita */}
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.1, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              {/* Icono estático (solo se anima en hover) */}
+              <div
                 className={`flex-shrink-0 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${pillar.iconBg} mr-6 sm:mr-8 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300`}
               >
                 <pillar.icon className="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm" strokeWidth={2.5} />
-              </motion.div>
+              </div>
 
               <div>
                 {/* Título animado continuamente */}
