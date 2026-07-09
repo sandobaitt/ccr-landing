@@ -56,6 +56,7 @@ export default function RootLayout({
                 alt="Fondo fijo"
                 fill
                 sizes="100vw"
+                priority
                 className="object-contain object-center"
               />
             </div>
