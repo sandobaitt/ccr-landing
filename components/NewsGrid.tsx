@@ -92,13 +92,11 @@ export function NewsGrid() {
                 viewport={{ once: true, amount: 0.2 }}
                 custom={i}
               >
-                <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }} className="flex flex-col h-full">
+                <div className="flex flex-col h-full">
                 {/* Etiqueta de categoría */}
                 <div className="flex items-center justify-between mb-4">
                   <span className={`inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/60 shadow-sm ${cat.color}`}>
-                    <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
-                      <CatIcon className="w-3.5 h-3.5" />
-                    </motion.div>
+                    <CatIcon className="w-3.5 h-3.5" />
                     {cat.label}
                   </span>
                 </div>
@@ -116,7 +114,7 @@ export function NewsGrid() {
                   <Calendar className="w-3.5 h-3.5" />
                   {formatDate(item.date)}
                 </div>
-                </motion.div>
+                </div>
               </motion.article>
             );
           })}
