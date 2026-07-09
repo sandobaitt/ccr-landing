@@ -7,10 +7,10 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Le damos 800ms al navegador para que parsee la página pesada (fuentes, imágenes, DOM)
-    // antes de inyectar el SVG, así la animación arranca con el procesador libre y se ve súper fluida.
-    const readyTimer = setTimeout(() => setIsReady(true), 800);
-    const timer = setTimeout(() => setLoading(false), 5600);
+    // Aumentamos el tiempo inicial a 1500ms para asegurar la carga completa
+    const readyTimer = setTimeout(() => setIsReady(true), 1500);
+    // Aumentamos el tiempo total de la pantalla de carga para acomodar el retraso
+    const timer = setTimeout(() => setLoading(false), 6500);
     
     return () => {
       clearTimeout(readyTimer);
@@ -29,6 +29,20 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
             transition={{ duration: 0.7, ease: 'easeInOut' }}
           >
             <div className="relative flex flex-col items-center justify-center w-full max-w-xl px-4 mx-auto" style={{ willChange: 'transform' }}>
+
+              {/* Animación de carga simple mientras esperamos */}
+              <AnimatePresence>
+                {!isReady && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <div className="w-10 h-10 border-4 border-zinc-200 border-t-red-600 rounded-full animate-spin"></div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {isReady && (
                 <>

@@ -59,7 +59,7 @@ export function NextRetreat() {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <SectionTitle
           title={`Próximo Retiro: ${nextRetreat.name}`}
-          subtitle="¡Animate a vivir un finde distinto! Un encuentro único con Cristo, con vos mismo y con otros jóvenes."
+          subtitle="Animate a vivir un finde totalmente distinto. Cristo, los cordis y los jovenes te esperamos !!"
           align="center"
         />
 
@@ -88,13 +88,13 @@ export function NextRetreat() {
                   <div>
                     <Clock className="w-6 h-6 text-red-500 mr-2 drop-shadow-sm" />
                   </div>
-                  ¡Falta cada vez menos, prepará el corazón!
+                  Falta cada vez mas pocoooo
                 </h3>
 
                 <div className="flex gap-4 sm:gap-6 justify-center">
                   {isClient ? timeBlocks.map((block, idx) => (
-                    <div 
-                      key={idx} 
+                    <div
+                      key={idx}
                       className="flex flex-col items-center"
                     >
                       <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-sky-100 to-violet-100 rounded-2xl shadow-lg border-2 border-white/60 flex items-center justify-center text-2xl sm:text-3xl font-black text-violet-900">
@@ -113,12 +113,12 @@ export function NextRetreat() {
 
                 <div className="mt-8 pt-6 border-t border-zinc-200 w-full flex items-center justify-center text-zinc-600">
                   <Users className="w-5 h-5 text-ccr-accent mr-2" />
-                  <span className="font-medium">¡Si tenés entre {nextRetreat.minAge} y {nextRetreat.maxAge} años, este retiro es para vos!</span>
+                  <span className="font-medium">¡Si tenés entre {nextRetreat.minAge} y {nextRetreat.maxAge} años, si o si es para vos!</span>
                 </div>
               </div>
             </BorderGlow>
 
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.02 }}
               className="bg-gradient-to-br from-white via-rose-50/50 to-orange-50/30 rounded-3xl p-8 shadow-[0_20px_40px_rgba(244,63,94,0.1)] border border-rose-100 flex flex-col space-y-6"
             >
