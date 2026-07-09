@@ -13,9 +13,9 @@ export function SaintsGrid() {
 
   return (
     <section className="py-16 md:py-24 bg-transparent text-zinc-900 relative overflow-hidden" id="santos">
-      {/* Background Decorativo */}
+      {/* Background Decorativo - Simplificado para rendimiento en móviles (sin mix-blend ni blur masivo) */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none flex justify-center items-center">
-        <div className="w-[800px] h-[800px] bg-red-600 rounded-full blur-[150px] mix-blend-screen" />
+        <div className="w-[800px] h-[800px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(220,38,38,1) 0%, rgba(220,38,38,0) 70%)' }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -35,7 +35,7 @@ export function SaintsGrid() {
             randomRotation={true}
             sensitivity={180}
             sendToBackOnClick={false} // El click no lo envía atrás, abre el modal
-            cards={useMemo(() => saints.map((saint) => (
+            cards={useMemo(() => [...saints].reverse().map((saint) => (
               <div 
                 key={saint.id} 
                 className="w-full h-full relative group cursor-pointer select-none"

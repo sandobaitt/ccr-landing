@@ -19,7 +19,8 @@
 }
 
 body {
-  background: var(--background);
+  /* Truco para evitar que Samsung Internet invierta el fondo a modo oscuro: usar linear-gradient en lugar de un color sólido */
+  background: linear-gradient(var(--background), var(--background));
   color: var(--foreground);
 }
 
