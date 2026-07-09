@@ -1,4 +1,4 @@
-import { MapPin, Clock, AtSign, Code2 } from 'lucide-react';
+import { MapPin, Clock, AtSign, Code2, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 
 export function Footer() {
@@ -33,7 +33,7 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 justify-center md:justify-end text-zinc-600">
               <div className="text-center md:text-right order-2 md:order-1">
                 <p className="font-bold text-zinc-900">Dirección</p>
-                <p className="text-sm mt-1">Asunción 55</p>
+                <p className="text-sm mt-1">Asunción 685</p>
                 <p className="text-sm text-zinc-500">Resistencia, Chaco</p>
               </div>
               <MapPin className="w-5 h-5 text-ccr-accent shrink-0 mt-0 md:mt-0.5 order-1 md:order-2" />
@@ -42,8 +42,11 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 justify-center md:justify-end text-zinc-600">
               <div className="text-center md:text-right order-2 md:order-1">
                 <p className="font-bold text-zinc-900">Horarios de Atención</p>
-                <p className="text-sm mt-1">Lunes a Viernes</p>
-                <p className="text-sm text-zinc-500">08:30 a 12:00 hs · 16:30 a 20:00 hs</p>
+                <div className="text-sm mt-1 space-y-0.5 text-zinc-500">
+                  <p><span className="text-zinc-700 font-medium">Mar a Jue:</span> 10 a 12 hs · 17 a 20 hs</p>
+                  <p><span className="text-zinc-700 font-medium">Vie:</span> 09 a 12 hs</p>
+                  <p><span className="text-zinc-700 font-medium">Sáb:</span> 08 a 12 hs · 17 a 20 hs</p>
+                </div>
               </div>
               <Clock className="w-5 h-5 text-ccr-accent shrink-0 mt-0 md:mt-0.5 order-1 md:order-2" />
             </div>
@@ -56,14 +59,24 @@ export function Footer() {
           <span>© {new Date().getFullYear()} CCR. Todos los derechos reservados.</span>
           <div className="flex items-center gap-1">
             <span className="md:ml-1">By</span>
-            <Link 
-              href="https://github.com/sandobaitt" 
-              target="_blank" 
+            <Link
+              href="https://github.com/sandobaitt"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1 hover:text-zinc-800 transition-colors opacity-70 hover:opacity-100"
             >
               <Code2 className="w-3 h-3" />
               <span>sandobaitt</span>
+            </Link>
+            <span className="text-zinc-300 mx-0.5">•</span>
+            <Link
+              href="https://www.linkedin.com/in/lautarosandoval"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center hover:text-zinc-800 transition-colors opacity-70 hover:opacity-100"
+              title="LinkedIn de Lautaro Sandoval"
+            >
+              <Linkedin className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
