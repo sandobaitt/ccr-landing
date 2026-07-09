@@ -36,7 +36,6 @@
 | `components/SaintsGrid.tsx` | Sección interactiva de Santos con modal flotante | `framer-motion`, `lucide-react`, `SectionTitle`, `data/content` |
 | `components/Communities.tsx` | Carrusel interactivo (horizontal-scroll/swipe) del Camino CCR | `framer-motion`, `lucide-react`, `SectionTitle` |
 | `components/DailyVerse.tsx` | Sección de versículo del día rotativo dinámicamente | `framer-motion`, `lucide-react`, `data/content` |
-| `components/StarryBackground.tsx` | Fondo global estrellado renderizado con HTML5 Canvas e interactividad | - |
 | `components/RoamingChrist.tsx` | Mascota virtual (Pixel Art) autónoma con máquina de estados finitos que recorre la pantalla de forma aleatoria | `framer-motion`, CSS Sprites |
 
 ## 🧪 Registro de Pruebas y Verificaciones
