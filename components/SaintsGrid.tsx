@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { saints } from '@/data/content';
 import { SaintInfo } from '@/types/content';
@@ -34,7 +34,7 @@ export function SaintsGrid() {
             randomRotation={true}
             sensitivity={180}
             sendToBackOnClick={false} // El click no lo envía atrás, abre el modal
-            cards={saints.map((saint) => (
+            cards={useMemo(() => saints.map((saint) => (
               <div 
                 key={saint.id} 
                 className="w-full h-full relative group cursor-pointer select-none"
@@ -75,7 +75,7 @@ export function SaintsGrid() {
                   </div>
                 </div>
               </div>
-            ))}
+            )), [])}
           />
         </div>
       </div>

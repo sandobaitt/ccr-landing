@@ -49,27 +49,27 @@ export const supplyItems: SupplyItem[] = [
   {
     id: 'abrigo',
     name: 'Abrigo y Mantas',
-    description: 'Camperas, buzos, frazadas o mantas. ¡Todo lo que sirva para ganarle al frío!',
+    description: 'Camperas, buzos, frazadas o mantas. Todo lo que sirva para ganarle al frío!',
     urgent: true,
     icon: 'Shirt',
   },
   {
     id: 'cafe',
     name: 'Bebidas Calientes',
-    description: 'Café, yerba, té, azúcar y vasitos térmicos para compartir algo calentito.',
+    description: 'Café, yerba, té, azúcar y vasitos térmicos para compartir algo caliente.',
     urgent: true,
     icon: 'Coffee',
   },
   {
     id: 'higiene',
     name: 'Artículos de Higiene',
-    description: 'Jabón, toallas, pañales o alcohol en gel. ¡Siempre vienen al pelo!',
+    description: 'Jabón, toallas, pañales o alcohol en gel. Nunca vienen mal!',
     urgent: false,
     icon: 'Droplets',
   },
 ];
 
-/* Oculto temporalmente
+/* Oculto temporalmente, no son cuentas reales
 /** Información bancaria para donaciones monetarias * /
 export const donationInfo = {
   bankName: 'Banco Nación',
@@ -104,7 +104,7 @@ export const nextRetreat: RetreatInfo = {
   open: false,
   targetDate: '2026-10-15T18:00:00-03:00',
   formsLink: 'https://docs.google.com/forms/d/e/ejemplo/viewform',
-  dateDescription: 'Arrancamos el viernes a la tarde y le damos hasta el domingo.',
+  dateDescription: 'Arrancamos el viernes por la tarde y le mandamos hasta el domingo.',
   locationDescription: 'En la Casa de Retiros, Parroquia Nuestra Señora de la Asunción.',
   minAge: 18,
   maxAge: 30,
