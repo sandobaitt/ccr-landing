@@ -48,6 +48,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
+      <head>
+        <meta name="color-scheme" content="light only" />
+      </head>
       <body className={`${dmSans.variable} ${outfit.variable} antialiased min-h-screen bg-ccr-primary text-ccr-foreground flex flex-col font-sans`}>
         <BrandLoader>
           {/* Fondo Fijo Global - Tipo Marca de Agua Centrada */}

@@ -6,12 +6,10 @@ import { SaintsGrid } from "@/components/SaintsGrid";
 import { NewsGrid } from "@/components/NewsGrid";
 import { DailyVerse } from "@/components/DailyVerse";
 import { Donations } from "@/components/Donations";
-import { StarryBackground } from "@/components/StarryBackground";
 
 export default function Home() {
   return (
     <>
-      <StarryBackground />
       <Hero />
       <NextRetreat />
       <Pillars />

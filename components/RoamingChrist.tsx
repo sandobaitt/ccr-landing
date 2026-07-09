@@ -25,7 +25,9 @@ export function RoamingChrist() {
     
     if (typeof window === 'undefined') return;
     // Empieza escondido a la izquierda o derecha aleatoriamente
-    currentX.current = Math.random() > 0.5 ? -100 : window.innerWidth + 100; 
+    const spawnLeft = Math.random() > 0.5;
+    currentX.current = spawnLeft ? -100 : window.innerWidth + 100; 
+    setIsFlipped(!spawnLeft); // Lo pre-volteamos para que ya mire hacia adentro
     controls.set({ x: currentX.current });
 
     const performAction = async () => {
@@ -52,17 +54,17 @@ export function RoamingChrist() {
 
       if (nextState === 'WALK_RIGHT') {
         setIsFlipped(false);
-        const distance = Math.random() * 200 + 100;
+        const distance = Math.random() * 200 + 150; // Aumentado para que entre bien
         let targetX = currentX.current + distance;
         if (targetX > maxWidth) targetX = maxWidth; 
         
-        const duration = Math.abs(targetX - currentX.current) / 45; // Velocidad de caminata
+        const duration = Math.abs(targetX - currentX.current) / 45;
         await controls.start({ x: targetX, transition: { duration, ease: 'linear' } });
         currentX.current = targetX;
       } 
       else if (nextState === 'WALK_LEFT') {
         setIsFlipped(true);
-        const distance = Math.random() * 200 + 100;
+        const distance = Math.random() * 200 + 150; // Aumentado para que entre bien
         let targetX = currentX.current - distance;
         if (targetX < 0) targetX = 0; 
         
@@ -85,6 +87,7 @@ export function RoamingChrist() {
         // Mientras está escondido, decidimos aleatoriamente de qué lado va a reaparecer
         const spawnLeft = Math.random() > 0.5;
         currentX.current = spawnLeft ? -100 : window.innerWidth + 100;
+        setIsFlipped(!spawnLeft); // Lo pre-volteamos para que ya mire hacia adentro
         controls.set({ x: currentX.current }); // Teletransportación silenciosa
       } 
       else {
@@ -145,7 +148,6 @@ export function RoamingChrist() {
         style={{
           backgroundPosition: `${bgPositionX} ${bgPositionY}`,
           transform: isFlipped ? 'scaleX(-1)' : 'scaleX(1)',
-          transition: 'transform 0.2s',
           imageRendering: 'pixelated',
         }}
       />
