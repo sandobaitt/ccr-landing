@@ -17,7 +17,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
           <motion.div
             className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ccr-primary text-zinc-900 select-none overflow-hidden"
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 1.05, filter: 'blur(8px)' }}
+            exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 0.7, ease: 'easeInOut' }}
           >
             <div className="relative flex flex-col items-center justify-center w-full max-w-xl px-4 mx-auto">
@@ -25,8 +25,8 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
               {/* Texto Superior: CRECER CON */}
               <motion.div
                 className="text-sm sm:text-base md:text-lg font-bold tracking-[0.3em] text-zinc-600 mb-2 sm:mb-4 uppercase"
-                initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.8, duration: 0.9, ease: 'easeOut' }}
               >
                 Crecer con
@@ -38,8 +38,8 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                 {/* Texto CRIS */}
                 <motion.span
                   className="font-black tracking-widest text-zinc-900 leading-none z-20"
-                  initial={{ opacity: 0, filter: 'blur(8px)', x: -20 }}
-                  animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 2.3, duration: 0.8, ease: 'easeOut' }}
                 >
                   CRIS
@@ -259,8 +259,8 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                 <div className="flex items-center">
                   <motion.span
                     className="font-black tracking-widest text-zinc-900 leading-none z-20"
-                    initial={{ opacity: 0, filter: 'blur(8px)', x: 20 }}
-                    animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 2.3, duration: 0.8, ease: 'easeOut' }}
                   >
                     O
@@ -277,8 +277,8 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
               {/* Texto Inferior: REDENTOR */}
               <motion.div
                 className="text-lg sm:text-xl md:text-2xl font-bold tracking-[0.4em] sm:tracking-[0.5em] text-red-600 mt-0 sm:mt-2 text-center uppercase ml-2"
-                initial={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.8, duration: 0.9, ease: 'easeOut' }}
               >
                 Redentor
@@ -287,8 +287,8 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
               {/* Pilares de la Comunidad */}
               <motion.div
                 className="absolute bottom-[-50px] sm:bottom-[-60px] text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] text-zinc-500 text-center uppercase w-full"
-                initial={{ opacity: 0, filter: 'blur(4px)' }}
-                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 3.2, duration: 0.9, ease: 'easeOut' }}
               >
                 Comunidad • Espiritualidad • Servicio
