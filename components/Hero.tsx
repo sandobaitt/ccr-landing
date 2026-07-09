@@ -38,7 +38,7 @@ export function Hero() {
             <BlurText
               text="CRECER CON"
               delay={150}
-              initialDelay={4.8}
+              initialDelay={6.5}
               animateBy="words"
               direction="top"
               className="flex justify-center text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 pb-2 pr-2"
@@ -46,7 +46,7 @@ export function Hero() {
             <BlurText
               text="CRISTO REDENTOR"
               delay={250}
-              initialDelay={4.8}
+              initialDelay={6.5}
               animateBy="words"
               direction="top"
               className="flex justify-center text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-red-500 to-orange-500 pb-2 pr-2"
@@ -58,7 +58,7 @@ export function Hero() {
           className="max-w-2xl text-lg sm:text-xl md:text-2xl text-zinc-700 leading-relaxed font-medium"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 6.8 }}
         >
           ¡Sumate a la mejor comunidad, crecer en espiritualidad y a ponerte en acción para llevar el amor de Cristo a todos lados!
         </motion.p>
@@ -67,7 +67,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row flex-wrap w-full sm:w-auto items-center justify-center gap-4 pt-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 7.0 }}
         >
           {nextRetreat.open ? (
             <Link href={nextRetreat.formsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">

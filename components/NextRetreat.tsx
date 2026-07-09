@@ -143,7 +143,7 @@ export function NextRetreat() {
               <div className="flex items-start bg-ccr-pastel-lavender/50 p-4 rounded-xl border border-ccr-pastel-lavender">
                 <Info className="w-5 h-5 text-ccr-accent mt-0.5 mr-3 flex-shrink-0" />
                 <p className="text-sm text-zinc-700">
-                  ¿Tenés alguna duda o querés saber más? ¡No dudes en escribirles a los <span className="text-zinc-900 font-bold">coordinadores</span> al final de la página, te están esperando!
+                  ¿Tenés alguna duda o querés saber más? ¡No dudes en escribirles a los <span className="text-zinc-900 font-bold">coordis</span> al final de la página, te están esperando!
                 </p>
               </div>
 
