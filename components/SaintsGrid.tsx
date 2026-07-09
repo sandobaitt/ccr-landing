@@ -6,6 +6,7 @@ import { SaintInfo } from '@/types/content';
 import { X } from 'lucide-react';
 import { SectionTitle } from './SectionTitle';
 import Stack from './Stack';
+import Image from 'next/image';
 
 export function SaintsGrid() {
   const [selectedSaint, setSelectedSaint] = useState<SaintInfo | null>(null);
@@ -46,11 +47,13 @@ export function SaintsGrid() {
                 }}
                 onDragStart={(e) => e.preventDefault()}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
+                <Image 
                   src={saint.imageUrl} 
                   alt={saint.name} 
-                  className="w-full h-full object-cover pointer-events-none select-none"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  priority={saint.id === 'perpetuo-socorro' || saint.id === 'alfonso'}
+                  className="object-cover pointer-events-none select-none"
                   draggable={false}
                   style={{ WebkitUserDrag: 'none', userSelect: 'none' } as any}
                   onDragStart={(e) => e.preventDefault()}

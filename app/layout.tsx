@@ -55,7 +55,8 @@ export default function RootLayout({
         <BrandLoader>
           {/* Fondo Fijo Global - Tipo Marca de Agua Centrada */}
           <div className="fixed inset-0 z-[-1] w-full h-full pointer-events-none flex items-center justify-center">
-            <div className="relative w-[300vw] max-w-none h-[300vw] sm:h-[1200px] md:h-[1200px] opacity-15 mix-blend-multiply">
+            {/* Se removió mix-blend-multiply porque consume excesivos recursos de GPU en móviles al hacer scroll */}
+            <div className="relative w-[300vw] max-w-none h-[300vw] sm:h-[1200px] md:h-[1200px] opacity-10">
               <Image
                 src="/Gemini_Generated_Image_fyu530fyu530fyu5.png"
                 alt="Fondo fijo"
