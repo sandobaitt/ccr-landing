@@ -8,7 +8,7 @@ const pillars = [
     icon: Church,
     title: 'Espiritualidad',
     description:
-      'Hacemos crecer nuestra fe con retiros, rezando juntos y formándonos con la chispa redentorista.',
+      'De cada encuentro, retiro, comision u oracion hacemos que crezca en nosotros el amor al Padre',
     gradient: 'from-rose-100 via-orange-100 to-rose-100',
     iconBg: 'bg-rose-200 text-rose-700'
   },
@@ -16,7 +16,7 @@ const pillars = [
     icon: Users,
     title: 'Comunidad',
     description:
-      'Armamos lazos de amistad verdaderos. Nos bancamos mutuamente porque somos una gran familia en Cristo.',
+      'Compartir como Jesus con sus discipulos nos lleva a encontrarnos por dentro y fuera de la parro',
     gradient: 'from-fuchsia-100 via-purple-100 to-fuchsia-100',
     iconBg: 'bg-fuchsia-200 text-fuchsia-700'
   },
@@ -24,7 +24,7 @@ const pillars = [
     icon: HandHeart,
     title: 'Acción Social',
     description:
-      'Salimos a la calle a llevar el amor de Jesús a los barrios de Resistencia que más nos necesitan. ¡Manos a la obra!',
+      'Ese amor recibido nos lleva a salir al encuentro del projimo y darle la mano',
     gradient: 'from-blue-100 via-cyan-100 to-blue-100',
     iconBg: 'bg-cyan-200 text-cyan-700'
   },
@@ -49,7 +49,7 @@ export function Pillars() {
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Nuestros Pilares"
-          subtitle="Nuestra espiritualidad se apoya en 3 columnas fundamentales que guían cada paso que damos:"
+          subtitle="Nuestra camino de fe se apoya en 3 columnas fundamentales:"
         />
 
         <div className="flex flex-col gap-6 mt-8">

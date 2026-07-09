@@ -21,3 +21,18 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* Animaciones del Cristo Pixelado (Spritesheet 6x3) */
+@keyframes sprite-play {
+  from { background-position-x: 0%; }
+  to { background-position-x: 120%; }
+}
+
+.animate-sprite {
+  animation: sprite-play 0.8s steps(6, end) infinite;
+}
+
+/* Fila 1: Quieto (Idle), Fila 2: Caminando (Walk), Fila 3: Saludando (Wave) */
+.sprite-row-idle { background-position-y: 0%; }
+.sprite-row-walk { background-position-y: 50%; }
+.sprite-row-wave { background-position-y: 100%; }

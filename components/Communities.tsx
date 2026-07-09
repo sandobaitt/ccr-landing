@@ -14,21 +14,21 @@ const iconMap: Record<string, React.ElementType> = {
 const stages = [
   {
     title: 'Pre-Crecer',
-    description: '¡El primer llamado! Nos preparamos a full y salimos a buscar a otros jóvenes para invitarlos a vivir algo único.',
+    description: '¡El primer llamado! Nos preparamos a full y salimos a buscar a mas jóvenes para invitarlos a vivir algo único',
     icon: UserPlus,
     color: 'text-zinc-700',
     bg: 'bg-ccr-pastel-mint'
   },
   {
     title: 'Crecer',
-    description: 'Tres días para desconectarte de todo y conectar en serio con Cristo. ¡Dejate sorprender por su amor redentor!',
+    description: 'Tres días para desconectarte de todo y conectarte en serio con Cristo y con vos. Que el Crecer te sorprenda...',
     icon: Flame,
     color: 'text-ccr-accent',
     bg: 'bg-ccr-pastel-rose'
   },
   {
     title: 'Post-Crecer',
-    description: 'El retiro no termina, ¡recién arranca! Nos sumamos a la parroquia para seguir formándonos, sirviendo y creciendo en grupo.',
+    description: 'El famoso cuarto dia. Nos sumamos a la parro para seguir formándonos, sirviendo y creciendo en grupo',
     icon: Users,
     color: 'text-zinc-800',
     bg: 'bg-ccr-pastel-blue'
@@ -41,7 +41,7 @@ export function Communities() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <SectionTitle
           title="El Camino CCR"
-          subtitle="Así vivimos y compartimos nuestra fe, paso a paso."
+          subtitle="De esta manera vivimos y compartimos nuestra fe, PASO a PASO"
         />
 
         {/* Etapas del Retiro (Timeline) */}
@@ -71,7 +71,7 @@ export function Communities() {
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 mb-4 drop-shadow-sm text-balance">Comunidades de Perseverancia</h3>
             <p className="text-zinc-600 max-w-2xl mx-auto text-balance">
-              Después del retiro nos sumamos a distintos espacios de la parroquia. ¡Hay lugar para todos los talentos y ganas de hacer lío!
+              Despues del cre la variedad de espacios para compartir son tremendos. Siempre abiertos a todo tipo de talentos y ganas de perseverar. Siempre hay lugar para uno mas...
             </p>
           </div>
 
@@ -122,7 +122,7 @@ export function Communities() {
             </div>
             <h4 className="text-xl font-black text-fuchsia-900 mb-2 text-balance">¡Siempre hay más por hacer!</h4>
             <p className="text-sm text-zinc-600 max-w-lg">
-              El post-retiro es solo la puerta de entrada. Siempre estamos armando cosas nuevas en la Parroquia para que encuentres tu lugar y pongas tus dones en acción.
+              El post-crecer es solo el pequeño comienzo. SIEMPRE estamos armando cosas nuevas en la parro para que encuentres tu lugar y pongas tus dones en acción
             </p>
           </motion.div>
         </div>

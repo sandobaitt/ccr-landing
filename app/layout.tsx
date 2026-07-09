@@ -39,6 +39,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { RoamingChrist } from "@/components/RoamingChrist";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,6 +67,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1 flex flex-col overflow-x-hidden">{children}</main>
           <Footer />
+          <RoamingChrist />
         </BrandLoader>
         <Analytics />
       </body>
