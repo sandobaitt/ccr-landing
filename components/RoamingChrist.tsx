@@ -1,21 +1,22 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useMotionValue } from 'framer-motion';
 
-type State = 'IDLE' | 'WALK_RIGHT' | 'WALK_LEFT' | 'WAVE' | 'HIDE';
+type State = 'IDLE' | 'WALK_RIGHT' | 'WALK_LEFT' | 'WAVE' | 'HIDE'; // | 'SIT' | 'MATE' | 'BLESS';
 
 export function RoamingChrist() {
   const [state, setState] = useState<State>('HIDE');
   const [isFlipped, setIsFlipped] = useState(false);
-  const [frame, setFrame] = useState(0); // Para controlar los cuadros de animación
+  const [frame, setFrame] = useState(0);
   const controls = useAnimation();
-  const currentX = useRef(-100);
+  const x = useMotionValue(-100);
   const isMounted = useRef(true);
+  const loopVersion = useRef(0);
+  const restartLoop = useRef<(() => void) | null>(null);
 
-  // Timer independiente para la animación de los pies/saludo (10 FPS)
   useEffect(() => {
     const frameTimer = setInterval(() => {
-      setFrame((prev) => (prev + 1) % 6);
+      setFrame((prev) => prev + 1); 
     }, 100);
     return () => clearInterval(frameTimer);
   }, []);
@@ -24,23 +25,21 @@ export function RoamingChrist() {
     isMounted.current = true;
     
     if (typeof window === 'undefined') return;
-    // Empieza escondido a la izquierda o derecha aleatoriamente
     const spawnLeft = Math.random() > 0.5;
-    currentX.current = spawnLeft ? -100 : window.innerWidth + 100; 
-    setIsFlipped(!spawnLeft); // Lo pre-volteamos para que ya mire hacia adentro
-    controls.set({ x: currentX.current });
+    const startX = spawnLeft ? -100 : window.innerWidth + 100;
+    setIsFlipped(!spawnLeft);
+    x.set(startX);
+    controls.set({ x: startX });
 
-    const performAction = async () => {
-      if (!isMounted.current) return;
+    const performAction = async (version: number) => {
+      if (!isMounted.current || version !== loopVersion.current) return;
 
       const rand = Math.random();
       let nextState: State;
       
-      // Si está fuera de la pantalla, que vuelva a entrar
-      if (currentX.current < -50 || currentX.current > window.innerWidth + 50) {
-        nextState = currentX.current <= 0 ? 'WALK_RIGHT' : 'WALK_LEFT';
+      if (x.get() < -50 || x.get() > window.innerWidth + 50) {
+        nextState = x.get() <= 0 ? 'WALK_RIGHT' : 'WALK_LEFT';
       } else {
-        // Probabilidades de comportamiento autónomo
         if (rand < 0.45) nextState = Math.random() > 0.5 ? 'WALK_RIGHT' : 'WALK_LEFT';
         else if (rand < 0.75) nextState = 'IDLE';
         else if (rand < 0.90) nextState = 'WAVE';
@@ -52,100 +51,137 @@ export function RoamingChrist() {
       const charWidth = 64; 
       const maxWidth = window.innerWidth - charWidth;
 
-      if (nextState === 'WALK_RIGHT') {
-        setIsFlipped(false);
-        const distance = Math.random() * 200 + 150; // Aumentado para que entre bien
-        let targetX = currentX.current + distance;
-        if (targetX > maxWidth) targetX = maxWidth; 
-        
-        const duration = Math.abs(targetX - currentX.current) / 45;
-        await controls.start({ x: targetX, transition: { duration, ease: 'linear' } });
-        currentX.current = targetX;
-      } 
-      else if (nextState === 'WALK_LEFT') {
-        setIsFlipped(true);
-        const distance = Math.random() * 200 + 150; // Aumentado para que entre bien
-        let targetX = currentX.current - distance;
-        if (targetX < 0) targetX = 0; 
-        
-        const duration = Math.abs(targetX - currentX.current) / 45;
-        await controls.start({ x: targetX, transition: { duration, ease: 'linear' } });
-        currentX.current = targetX;
-      } 
-      else if (nextState === 'HIDE') {
-        // Corre hacia el borde más cercano para salir de la pantalla
-        const goRight = currentX.current > window.innerWidth / 2;
-        setIsFlipped(!goRight);
-        const targetX = goRight ? window.innerWidth + 100 : -100;
-        const duration = Math.abs(targetX - currentX.current) / 80; // Corre más rápido cuando se esconde
-        await controls.start({ x: targetX, transition: { duration, ease: 'linear' } });
-        currentX.current = targetX;
-        
-        // Se queda escondido entre 5 y 10 segundos
-        await new Promise(res => setTimeout(res, Math.random() * 5000 + 5000));
+      try {
+        if (nextState === 'WALK_RIGHT') {
+          setIsFlipped(false);
+          const distance = Math.random() * 200 + 150;
+          let targetX = x.get() + distance;
+          if (targetX > maxWidth) targetX = maxWidth; 
+          
+          const duration = Math.abs(targetX - x.get()) / 45;
+          await controls.start({ x: targetX, transition: { duration, ease: 'linear' } });
+        } 
+        else if (nextState === 'WALK_LEFT') {
+          setIsFlipped(true);
+          const distance = Math.random() * 200 + 150;
+          let targetX = x.get() - distance;
+          if (targetX < 0) targetX = 0; 
+          
+          const duration = Math.abs(targetX - x.get()) / 45;
+          await controls.start({ x: targetX, transition: { duration, ease: 'linear' } });
+        } 
+        else if (nextState === 'HIDE') {
+          const goRight = x.get() > window.innerWidth / 2;
+          setIsFlipped(!goRight);
+          const targetX = goRight ? window.innerWidth + 100 : -100;
+          const duration = Math.abs(targetX - x.get()) / 80;
+          await controls.start({ x: targetX, transition: { duration, ease: 'linear' } });
+          
+          if (version !== loopVersion.current) return;
+          await new Promise(res => setTimeout(res, Math.random() * 5000 + 5000));
+          if (version !== loopVersion.current) return;
 
-        // Mientras está escondido, decidimos aleatoriamente de qué lado va a reaparecer
-        const spawnLeft = Math.random() > 0.5;
-        currentX.current = spawnLeft ? -100 : window.innerWidth + 100;
-        setIsFlipped(!spawnLeft); // Lo pre-volteamos para que ya mire hacia adentro
-        controls.set({ x: currentX.current }); // Teletransportación silenciosa
-      } 
-      else {
-        // IDLE o WAVE: Frena en seco y se queda quieto
-        controls.stop(); // Aseguramos que no haya inercia residual
-        
-        if (nextState === 'WAVE' || nextState === 'IDLE') {
-           // Si está muy cerca del borde derecho, se voltea para mirar hacia el centro
-           if (currentX.current > window.innerWidth - 100) {
-             setIsFlipped(true);
-           } else if (currentX.current < 100) {
-             setIsFlipped(false);
-           }
+          const spawnLeft = Math.random() > 0.5;
+          const newStartX = spawnLeft ? -100 : window.innerWidth + 100;
+          setIsFlipped(!spawnLeft);
+          x.set(newStartX);
+          controls.set({ x: newStartX });
+        } 
+        else {
+          controls.stop();
+          
+          if (['WAVE', 'IDLE'].includes(nextState)) { 
+             if (x.get() > window.innerWidth - 100) {
+               setIsFlipped(true);
+             } else if (x.get() < 100) {
+               setIsFlipped(false);
+             }
+          }
+          await new Promise(res => setTimeout(res, Math.random() * 3000 + 2000));
         }
-        await new Promise(res => setTimeout(res, Math.random() * 2500 + 1500));
+      } catch (error) {
+        // Ignorar errores de framer motion
       }
 
-      // Bucle infinito: llamar la próxima acción tras una pequeñísima pausa
-      if (isMounted.current) {
-        setTimeout(performAction, 200);
+      // Si la versión sigue siendo la misma, continuamos el bucle
+      if (isMounted.current && version === loopVersion.current) {
+        setTimeout(() => performAction(version), 200);
       }
     };
 
-    // Empieza recién a los 7 segundos (para darle tiempo a la pantalla de carga principal)
-    const initTimer = setTimeout(performAction, 7000);
+    // Función expuesta para reiniciar el ciclo de decisiones desde afuera (el click)
+    restartLoop.current = () => {
+      loopVersion.current++; // Invalida el bucle anterior, matándolo silenciosamente
+      const newVersion = loopVersion.current;
+      setTimeout(() => {
+        if (isMounted.current) performAction(newVersion);
+      }, 3000); // Retoma la toma de decisiones después de 3 segundos de saludar
+    };
+
+    const initTimer = setTimeout(() => performAction(loopVersion.current), 7000);
 
     return () => {
       isMounted.current = false;
+      loopVersion.current++; 
       clearTimeout(initTimer);
     };
   }, [controls]);
 
-  // Lógica de cálculo de frames
-  let bgPositionY = '0%'; // Fila 1 (IDLE)
-  let bgPositionX = '0%'; // Columna 1 (Por defecto)
+  let bgPositionY = '0%';
+  let bgPositionX = '0%';
+  let spriteUrl = "url('/jesus-sprite.png')";
 
   if (state === 'WALK_RIGHT' || state === 'WALK_LEFT' || state === 'HIDE') {
-    bgPositionY = '50%'; // Fila 2 (WALK)
-    bgPositionX = `${frame * 20}%`; // Ciclo de caminata: 0 a 5
+    spriteUrl = "url('/jesus-sprite.png')";
+    bgPositionY = '50%';
+    bgPositionX = `${(frame % 6) * 20}%`;
   } else if (state === 'WAVE') {
-    bgPositionY = '100%'; // Fila 3 (WAVE)
-    // El sprite sheet tiene los fotogramas de saludo solo en las primeras 2 columnas. 
-    // Usamos Math.floor(frame / 3) para ralentizar el saludo (cambia cada 300ms)
+    spriteUrl = "url('/jesus-sprite.png')";
+    bgPositionY = '100%';
     bgPositionX = `${(Math.floor(frame / 3) % 2) * 20}%`;
   } else if (state === 'IDLE') {
-    bgPositionY = '0%'; // Fila 1 (IDLE)
-    bgPositionX = '0%'; // Se queda completamente estático en el primer cuadro
+    spriteUrl = "url('/jesus-sprite.png')";
+    bgPositionY = '0%';
+    bgPositionX = '0%';
   }
+  /*
+  else if (state === 'SIT') {
+    spriteUrl = "url('/jesus-nuevo-sprite.png')";
+    bgPositionY = '0%'; 
+    bgPositionX = `${(Math.floor(frame / 4) % 6) * 20}%`; 
+  } else if (state === 'BLESS') {
+    spriteUrl = "url('/jesus-nuevo-sprite.png')";
+    bgPositionY = '50%'; 
+    bgPositionX = `${(Math.floor(frame / 6) % 6) * 20}%`;
+  } else if (state === 'MATE') {
+    spriteUrl = "url('/jesus-nuevo-sprite.png')";
+    bgPositionY = '100%'; 
+    bgPositionX = `${(Math.floor(frame / 4) % 6) * 20}%`;
+  }
+  */
+
+  const handleTap = () => {
+    if (state === 'WAVE') return;
+
+    controls.stop();
+    setState('WAVE');
+
+    if (restartLoop.current) {
+      restartLoop.current();
+    }
+  };
 
   return (
     <motion.div
-      className="fixed bottom-0 z-50 pointer-events-none drop-shadow-md pb-2"
+      className="fixed bottom-0 z-50 drop-shadow-md pb-2 cursor-pointer"
+      style={{ x }}
       animate={controls}
-      initial={{ x: -100 }}
+      onClick={handleTap}
     >
       <div 
-        className="w-14 h-14 md:w-16 md:h-16 bg-[url('/jesus-sprite.png')] bg-[length:600%_300%]"
+        className="w-14 h-14 md:w-16 md:h-16 bg-[length:600%_300%]"
         style={{
+          backgroundImage: spriteUrl,
           backgroundPosition: `${bgPositionX} ${bgPositionY}`,
           transform: isFlipped ? 'scaleX(-1)' : 'scaleX(1)',
           imageRendering: 'pixelated',
