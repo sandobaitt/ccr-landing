@@ -1,33 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
-import { verses } from '@/data/content';
+import { BookOpen } from 'lucide-react';
+import type { GospelData } from '@/lib/gospel';
 
-export function DailyVerse() {
-  const [verseIndex, setVerseIndex] = useState(0);
-  const [isClient, setIsClient] = useState(false);
+interface DailyGospelProps {
+  gospel: GospelData;
+}
 
-  useEffect(() => {
-    // Calcular el día del año actual para rotar el versículo
-    const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0);
-    const diff = now.getTime() - start.getTime();
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
-    
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setVerseIndex(dayOfYear % verses.length);
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null; // O un skeleton loader simple
-  }
-
-  const verse = verses[verseIndex];
-
+export function DailyGospel({ gospel }: DailyGospelProps) {
   return (
     <section className="py-16 bg-transparent relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -44,17 +25,21 @@ export function DailyVerse() {
 
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-12 h-12 bg-white/50 rounded-2xl flex items-center justify-center mb-6 shadow-sm text-ccr-accent backdrop-blur-sm border border-white/50">
-              <Quote className="w-6 h-6" />
+              <BookOpen className="w-6 h-6" />
             </div>
             
-            <p className="text-xl sm:text-2xl md:text-3xl font-medium text-zinc-800 leading-relaxed text-balance mb-6">
-              {verse.text}
+            <h3 className="text-sm font-bold text-ccr-accent tracking-widest uppercase mb-4">
+              Evangelio del Día
+            </h3>
+
+            <p className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-800 leading-relaxed text-balance mb-6 max-h-96 overflow-y-auto custom-scrollbar pr-2">
+              {gospel.text}
             </p>
             
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 mt-4">
               <div className="h-px w-8 bg-zinc-300"></div>
               <span className="font-bold text-zinc-600 tracking-wide uppercase text-sm">
-                {verse.reference}
+                {gospel.reference}
               </span>
               <div className="h-px w-8 bg-zinc-300"></div>
             </div>

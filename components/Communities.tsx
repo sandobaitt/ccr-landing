@@ -28,7 +28,7 @@ const stages = [
   },
   {
     title: 'Post-Crecer',
-    description: 'El famoso cuarto dia. Nos sumamos a la parro para seguir formándonos, sirviendo y creciendo en grupo',
+    description: 'El famoso cuarto dia. Seguimos yendo a la parro para seguir formándonos, sirviendo y creciendo en grupo',
     icon: Users,
     color: 'text-zinc-800',
     bg: 'bg-ccr-pastel-blue'

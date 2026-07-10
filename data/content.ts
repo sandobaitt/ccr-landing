@@ -223,142 +223,17 @@ export const verses = [
   },
   {
     id: 'v3',
-    text: '"No se inquieten por nada; más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias."',
-    reference: 'Filipenses 4:6'
-  },
-  {
-    id: 'v4',
-    text: '"Confiad en el Señor de todo corazón, y no en vuestra propia inteligencia."',
-    reference: 'Proverbios 3:5'
-  },
-  {
-    id: 'v5',
     text: '"El Señor es mi luz y mi salvación; ¿a quién temeré? El Señor es el baluarte de mi vida; ¿quién podrá amedrentarme?"',
     reference: 'Salmos 27:1'
   },
   {
-    id: 'v6',
-    text: '"Porque yo sé muy bien los planes que tengo para ustedes —afirma el Señor—, planes de bienestar y no de calamidad, a fin de darles un futuro y una esperanza."',
-    reference: 'Jeremías 29:11'
-  },
-  {
-    id: 'v7',
-    text: '"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados."',
-    reference: 'Romanos 8:28'
-  },
-  {
-    id: 'v8',
-    text: '"No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te esfuerzo; siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia."',
-    reference: 'Isaías 41:10'
-  },
-  {
-    id: 'v9',
-    text: '"El Señor es mi pastor, nada me falta; en verdes pastos me hace descansar. Junto a tranquilas aguas me conduce."',
-    reference: 'Salmos 23:1-2'
-  },
-  {
-    id: 'v10',
+    id: 'v4',
     text: '"Vengan a mí todos ustedes que están cansados y agobiados, y yo les daré descanso."',
     reference: 'Mateo 11:28'
   },
   {
-    id: 'v11',
+    id: 'v5',
     text: '"Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí."',
     reference: 'Juan 14:6'
-  },
-  {
-    id: 'v12',
-    text: '"Hagan todo con amor."',
-    reference: '1 Corintios 16:14'
-  },
-  {
-    id: 'v13',
-    text: '"Lámpara es a mis pies tu palabra, y lumbrera a mi camino."',
-    reference: 'Salmos 119:105'
-  },
-  {
-    id: 'v14',
-    text: '"Sobre toda cosa guardada, guarda tu corazón; porque de él mana la vida."',
-    reference: 'Proverbios 4:23'
-  },
-  {
-    id: 'v15',
-    text: '"No se amolden al mundo actual, sino sean transformados mediante la renovación de su mente. Así podrán comprobar cuál es la voluntad de Dios, buena, agradable y perfecta."',
-    reference: 'Romanos 12:2'
-  },
-  {
-    id: 'v16',
-    text: '"Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve."',
-    reference: 'Hebreos 11:1'
-  },
-  {
-    id: 'v17',
-    text: '"Nosotros amamos a Dios porque él nos amó primero."',
-    reference: '1 Juan 4:19'
-  },
-  {
-    id: 'v18',
-    text: '"Y enseñándoles que guarden todas las cosas que os he mandado; y he aquí yo estoy con vosotros todos los días, hasta el fin del mundo. Amén."',
-    reference: 'Mateo 28:20'
-  },
-  {
-    id: 'v19',
-    text: '"Porque por gracia ustedes han sido salvados mediante la fe; esto no procede de ustedes, sino que es el regalo de Dios."',
-    reference: 'Efesios 2:8'
-  },
-  {
-    id: 'v20',
-    text: '"Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio."',
-    reference: '2 Timoteo 1:7'
-  },
-  {
-    id: 'v21',
-    text: '"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres."',
-    reference: 'Colosenses 3:23'
-  },
-  {
-    id: 'v22',
-    text: '"Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones."',
-    reference: 'Salmos 46:1'
-  },
-  {
-    id: 'v23',
-    text: '"Pero los que confían en el Señor renovarán sus fuerzas; volarán como las águilas: correrán y no se fatigarán, caminarán y no se cansarán."',
-    reference: 'Isaías 40:31'
-  },
-  {
-    id: 'v24',
-    text: '"Estas cosas os he hablado para que en mí tengáis paz. En el mundo tendréis aflicción; pero confiad, yo he vencido al mundo."',
-    reference: 'Juan 16:33'
-  },
-  {
-    id: 'v25',
-    text: '"Por lo cual estoy seguro de que ni la muerte, ni la vida, ni ángeles, ni principados, ni potestades, ni lo presente, ni lo por venir... nos podrá separar del amor de Dios, que es en Cristo Jesús Señor nuestro."',
-    reference: 'Romanos 8:38-39'
-  },
-  {
-    id: 'v26',
-    text: '"El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor."',
-    reference: '1 Corintios 13:4-5'
-  },
-  {
-    id: 'v27',
-    text: '"Busquen primeramente el reino de Dios y su justicia, y todas estas cosas les serán añadidas."',
-    reference: 'Mateo 6:33'
-  },
-  {
-    id: 'v28',
-    text: '"Crea en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí."',
-    reference: 'Salmos 51:10'
-  },
-  {
-    id: 'v29',
-    text: '"Estad siempre gozosos. Orad sin cesar. Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús."',
-    reference: '1 Tesalonicenses 5:16-18'
-  },
-  {
-    id: 'v30',
-    text: '"Encomienda a Jehová tu camino, y confía en él; y él hará."',
-    reference: 'Salmos 37:5'
   }
 ];

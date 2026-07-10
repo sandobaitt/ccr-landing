@@ -92,7 +92,7 @@ export function Donations() {
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Acción Social: Recorridas Nocturnas"
-          subtitle="¡Tu aporte transforma realidades! Salimos a la calle al encuentro de Cristo en el hermano que más nos necesita. ¡Sumate a dar una mano!"
+          subtitle="Tu aporte transforma realidades! Salimos al encuentro del hermano que más nos necesita"
         />
 
         {/* Banner Informativo Recorridas */}
@@ -122,11 +122,10 @@ export function Donations() {
             return (
               <motion.div
                 key={item.id}
-                className={`relative flex items-start gap-4 p-5 rounded-2xl border transition-shadow duration-300 ${
-                  item.urgent
-                    ? 'border-red-200 bg-red-50 hover:shadow-md'
-                    : 'border-zinc-200 bg-white hover:shadow-md'
-                }`}
+                className={`relative flex items-start gap-4 p-5 rounded-2xl border transition-shadow duration-300 ${item.urgent
+                  ? 'border-red-200 bg-red-50 hover:shadow-md'
+                  : 'border-zinc-200 bg-white hover:shadow-md'
+                  }`}
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -135,11 +134,10 @@ export function Donations() {
               >
                 {/* Icono */}
                 <div
-                  className={`flex items-center justify-center w-11 h-11 rounded-xl shrink-0 ${
-                    item.urgent
-                      ? 'bg-red-100 text-ccr-accent'
-                      : 'bg-zinc-100 text-zinc-600'
-                  }`}
+                  className={`flex items-center justify-center w-11 h-11 rounded-xl shrink-0 ${item.urgent
+                    ? 'bg-red-100 text-ccr-accent'
+                    : 'bg-zinc-100 text-zinc-600'
+                    }`}
                 >
                   <Icon className="w-5 h-5" strokeWidth={1.8} />
                 </div>
@@ -180,7 +178,7 @@ export function Donations() {
             </div>
             <div>
               <h3 className="text-lg font-bold text-zinc-900 tracking-tight">
-                ¡Escribile a los coordinadores!
+                ¡Escribile a los coordis!
               </h3>
               <p className="text-sm text-zinc-600">
                 Mandales un WhatsApp para sumarte a las recorridas, hacer una consulta o coordinar donaciones.
