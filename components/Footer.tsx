@@ -1,4 +1,4 @@
-import { MapPin, Clock, AtSign, Code2 } from 'lucide-react';
+import { MapPin, Clock, AtSign, Globe } from 'lucide-react';
 import Link from 'next/link';
 
 function LinkedinIcon({ className }: { className?: string }) {
@@ -39,7 +39,54 @@ function SpotifyIcon({ className }: { className?: string }) {
   );
 }
 
-export function Footer() {
+function YoutubeIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.16 1 12 1 12s0 3.84.54 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.84 23 12 23 12s0-3.84-.54-5.58z" />
+      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+    </svg>
+  );
+}
+
+function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.81l.39-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
+
+const platformIcons: Record<string, any> = {
+  Instagram: AtSign,
+  Spotify: SpotifyIcon,
+  TikTok: TiktokIcon,
+  YouTube: YoutubeIcon,
+  Facebook: FacebookIcon,
+  Otro: Globe,
+};
+
+interface SocialLink {
+  _key: string;
+  platform: string;
+  url: string;
+  title: string;
+  subtitle: string;
+}
+
+interface FooterProps {
+  settings?: {
+    socialLinks?: SocialLink[];
+  };
+}
+
+export function Footer({ settings }: FooterProps) {
+  // En caso de que no haya links o el panel esté vacío, usamos los predeterminados.
+  const links = settings?.socialLinks || [
+    { _key: '1', platform: 'Instagram', url: 'https://www.instagram.com/crecerconcristoredentor', title: 'Instagram', subtitle: 'crecerconcristoredentor' },
+    { _key: '2', platform: 'Spotify', url: 'https://open.spotify.com/artist/7hB763FwQo4hSIs2gT3d5U', title: 'Spotify', subtitle: 'Playlist Minis' },
+    { _key: '3', platform: 'TikTok', url: 'https://www.tiktok.com/@somoscristoredentor', title: 'TikTok CCR', subtitle: 'Misas y Adoraciones' },
+  ];
+
   return (
     <footer className="border-t border-zinc-200 bg-transparent py-16">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-start gap-12 text-center md:text-left">
@@ -49,44 +96,25 @@ export function Footer() {
             Comunidad juvenil de la Parroquia Nuestra Señora de la Asunción. ¡Sumate a vivir la fe, hacer amigos y ayudar a los demás!
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-3">
-            <Link
-              href="https://www.instagram.com/crecerconcristoredentor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-4 py-2 bg-white rounded-full text-zinc-600 hover:text-red-600 hover:bg-red-50 transition-colors border border-zinc-200 shadow-sm"
-            >
-              <AtSign className="w-5 h-5" />
-              <div className="text-left">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 leading-none mb-0.5">Instagram</p>
-                <p className="text-sm font-bold leading-none text-zinc-900">crecerconcristoredentor</p>
-              </div>
-            </Link>
-
-            <Link
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-4 py-2 bg-white rounded-full text-zinc-600 hover:text-green-600 hover:bg-green-50 transition-colors border border-zinc-200 shadow-sm"
-            >
-              <SpotifyIcon className="w-5 h-5" />
-              <div className="text-left">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 leading-none mb-0.5">Spotify</p>
-                <p className="text-sm font-bold leading-none text-zinc-900">Playlist Minis</p>
-              </div>
-            </Link>
-
-            <Link
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-4 py-2 bg-white rounded-full text-zinc-600 hover:text-black hover:bg-zinc-100 transition-colors border border-zinc-200 shadow-sm"
-            >
-              <TiktokIcon className="w-5 h-5" />
-              <div className="text-left">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 leading-none mb-0.5">TikTok CCR</p>
-                <p className="text-sm font-bold leading-none text-zinc-900">Misas y Adoraciones</p>
-              </div>
-            </Link>
+            {links.map((link) => {
+              if (!link.url || !link.platform) return null; // Prevents Next.js crash when adding empty items in Sanity
+              const Icon = platformIcons[link.platform] || Globe;
+              return (
+                <Link
+                  key={link._key || Math.random().toString()}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-2 bg-white rounded-full text-zinc-600 hover:text-ccr-accent hover:bg-rose-50 transition-colors border border-zinc-200 shadow-sm"
+                >
+                  <Icon className="w-5 h-5" />
+                  <div className="text-left">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 leading-none mb-0.5">{link.title}</p>
+                    <p className="text-sm font-bold leading-none text-zinc-900">{link.subtitle}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
 

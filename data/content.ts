@@ -10,6 +10,7 @@ export const newsItems: NewsItem[] = [
       '¡Un finde a pleno! Silencio, oración y un encuentro cara a cara con Cristo. Si tenés entre 18 y 30 años, ¡asegurá tu lugar!',
     category: 'retiro',
     date: '2025-07-19',
+    imageUrl: '/gallery/campamento.JPG',
   },
   {
     id: 'recorrida-barrio-toba',

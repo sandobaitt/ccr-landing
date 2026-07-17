@@ -5,10 +5,13 @@ import { SectionTitle } from '@/components/SectionTitle';
 import { Button } from '@/components/Button';
 import BorderGlow from '@/components/BorderGlow/BorderGlow';
 import { Calendar, Clock, MapPin, Users, Ticket, Info } from 'lucide-react';
+import type { RetreatInfo } from '@/types/content';
 
-import { nextRetreat } from '@/data/content';
+interface NextRetreatProps {
+  retreatInfo: RetreatInfo;
+}
 
-export function NextRetreat() {
+export function NextRetreat({ retreatInfo: nextRetreat }: NextRetreatProps) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,

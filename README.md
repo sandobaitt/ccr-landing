@@ -5,6 +5,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-f040b8?logo=framer)](https://www.framer.com/motion/)
+[![Sanity CMS](https://img.shields.io/badge/Sanity-CMS-F03E2F?logo=sanity)](https://www.sanity.io/)
 
 > Una experiencia web inmersiva, de alto rendimiento y estilo vibrante, diseñada para la comunidad juvenil de la Parroquia Asunción.
 
@@ -26,8 +27,8 @@ Este proyecto fue desarrollado en modalidad de *Pair Programming* junto a **Anti
 
 - **Estética "Vibrante" & Glassmorphism:** Interfaz vibrante con fondos borrosos (backdrop blur), mallas de gradientes animados (gradient meshes) y colores pastel de alto contraste.
 - **Micro-Interacciones:** Componentes como `ScheduleTicker` (cinta infinita de horarios), `CircularGallery` (galería WebGL rotativa en 3D), y tarjetas interactivas que reaccionan al scroll y al cursor del usuario.
-- **Rendimiento Óptimo:** Construido sobre **Next.js 16.2** (App Router) y Turbopack, garantizando tiempos de carga ultrarrápidos y una optimización SEO sobresaliente.
-- **Arquitectura Escalable:** Toda la información dinámica (fechas de retiros, cronogramas, datos bancarios y versículos bíblicos) está centralizada en `/data/content.ts` bajo tipado estricto, facilitando futuras actualizaciones por cualquier administrador.
+- **Rendimiento Óptimo:** Construido sobre **Next.js 16.2** (App Router) y Turbopack, garantizando tiempos de carga ultrarrápidos mediante generación estática e ISR.
+- **Arquitectura Dinámica (Headless CMS):** Toda la información del sitio (fechas de retiros, cronogramas, santos, novedades y redes sociales) se gestiona de forma intuitiva a través de **Sanity CMS**, permitiendo a cualquier voluntario actualizar la página web sin tocar una sola línea de código.
 - **Mobile-First & Responsivo:** Menú lateral (Sidebar) nativo para móviles, adaptabilidad táctil en carruseles (`snap-scroll`) y grillas fluidas.
 
 ## 🛠️ Stack Tecnológico
@@ -36,6 +37,7 @@ Este proyecto fue desarrollado en modalidad de *Pair Programming* junto a **Anti
 - **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
 - **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
 - **Iconografía:** [Lucide React](https://lucide.dev/)
+- **Gestor de Contenido (CMS):** [Sanity.io](https://www.sanity.io/)
 - **Animaciones UI/2D:** [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
 - **Gráficos 3D / WebGL:** [Ogl](https://github.com/oframe/ogl)
 - **Bloques UI Dinámicos:** [React Bits](https://reactbits.dev/)
@@ -45,7 +47,8 @@ Este proyecto fue desarrollado en modalidad de *Pair Programming* junto a **Anti
 El proyecto sigue una estructura modular dictada por Next.js:
 - `/app`: Configuración global, Layout principal (fuentes, Ticker de horarios, Navbar persistente, Footer) y el punto de entrada de la Landing Page (`page.tsx`).
 - `/components`: Componentes modulares y altamente reutilizables agrupados lógicamente (Hero, Novedades, Comunidades, Pilares, Donaciones).
-- `/data`: Modelos de datos estáticos (Mock Data) centralizados que actúan como un CMS local.
+- `/sanity`: Configuración y esquemas de base de datos del panel administrativo local e integrado de Sanity Studio.
+- `/data`: Modelos de datos estáticos de respaldo (*fallback*) y herramientas útiles.
 - `/types`: Definiciones estrictas de interfaces de TypeScript para prevenir errores en tiempo de compilación.
 
 ## 💻 Instalación y Uso Local
@@ -63,12 +66,18 @@ Si querés aportar al proyecto o correrlo en tu máquina:
    npm install
    ```
 
-3. **Correr el servidor de desarrollo:**
+3. **Configurar variables de entorno:**
+   Copiá el archivo `.env.example` a `.env.local` y completá con los IDs de Sanity:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+4. **Correr el servidor de desarrollo:**
    ```bash
    npm run dev
    ```
 
-4. Abrir [http://localhost:3000](http://localhost:3000) en el navegador web.
+5. Abrir [http://localhost:3000](http://localhost:3000) para ver la web y [http://localhost:3000/admin](http://localhost:3000/admin) para acceder al panel de control de Sanity CMS.
 
 ## 👨‍💻 Autor
 

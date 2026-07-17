@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Outfit } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BrandLoader } from "@/components/BrandLoader";
@@ -40,12 +40,16 @@ export const metadata: Metadata = {
 };
 
 import { RoamingChrist } from "@/components/RoamingChrist";
+import { client } from '@/sanity/lib/client';
+import { socialLinksQuery } from '@/sanity/lib/queries';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const sanitySocialLinks = await client.fetch(socialLinksQuery);
+
   return (
     <html lang="es" className="scroll-smooth">
       <head>
@@ -70,7 +74,7 @@ export default function RootLayout({
           <ScheduleTicker />
           <Navbar />
           <main className="flex-1 flex flex-col overflow-x-hidden">{children}</main>
-          <Footer />
+          <Footer settings={{ socialLinks: sanitySocialLinks }} />
           <RoamingChrist />
         </BrandLoader>
         <Analytics />

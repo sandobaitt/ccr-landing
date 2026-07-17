@@ -1,16 +1,21 @@
 'use client';
 import { motion } from 'framer-motion';
 import { SectionTitle } from './SectionTitle';
-import { communities } from '@/data/content';
-import { Music, CalendarDays, HeartHandshake, BookOpenText, UserPlus, Flame, Users, ArrowRight } from 'lucide-react';
+import type { CommunityInfo } from '@/types/content';
+import { UserPlus, Flame, Users, ArrowRight, Music, CalendarDays, HeartHandshake, BookOpenText, Church, Megaphone, Palette, Coffee, Tent } from 'lucide-react';
 
 const iconMap: Record<string, React.ElementType> = {
   Music,
   CalendarDays,
   HeartHandshake,
   BookOpenText,
+  Church,
+  Megaphone,
+  Palette,
+  Users,
+  Coffee,
+  Tent,
 };
-
 const stages = [
   {
     title: 'Pre-Crecer',
@@ -35,7 +40,11 @@ const stages = [
   }
 ];
 
-export function Communities() {
+interface CommunitiesProps {
+  communities: CommunityInfo[];
+}
+
+export function Communities({ communities }: CommunitiesProps) {
   return (
     <section id="comunidades" className="py-16 md:py-24 bg-transparent relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -80,7 +89,7 @@ export function Communities() {
               const Icon = iconMap[comm.icon] || Users;
               return (
                 <motion.div
-                  key={comm.id}
+                  key={comm._id || comm.name}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   whileTap={{ scale: 0.95 }}

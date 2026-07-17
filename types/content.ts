@@ -3,6 +3,7 @@ export type NewsCategory = 'retiro' | 'recorrida' | 'evento' | 'general';
 
 /** Novedad o publicación del movimiento */
 export interface NewsItem {
+  _id?: string;
   id: string;
   title: string;
   summary: string;
@@ -40,6 +41,7 @@ export interface CoordinatorInfo {
 }
 /** Información del próximo retiro */
 export interface RetreatInfo {
+  _id?: string;
   id: string;
   name: string;
   open: boolean;
@@ -53,6 +55,7 @@ export interface RetreatInfo {
 
 /** Información sobre Santos Redentoristas */
 export interface SaintInfo {
+  _id?: string;
   id: string;
   name: string;
   title: string;
@@ -64,6 +67,7 @@ export interface SaintInfo {
 
 /** Información sobre Comunidades Post-Retiro */
 export interface CommunityInfo {
+  _id?: string;
   id: string;
   name: string;
   description: string;

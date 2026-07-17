@@ -1,14 +1,17 @@
 'use client';
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { saints } from '@/data/content';
 import { SaintInfo } from '@/types/content';
 import { X } from 'lucide-react';
 import { SectionTitle } from './SectionTitle';
 import Stack from './Stack';
 import Image from 'next/image';
 
-export function SaintsGrid() {
+interface SaintsGridProps {
+  saints: SaintInfo[];
+}
+
+export function SaintsGrid({ saints }: SaintsGridProps) {
   const [selectedSaint, setSelectedSaint] = useState<SaintInfo | null>(null);
 
   return (
@@ -37,7 +40,7 @@ export function SaintsGrid() {
             sendToBackOnClick={false} // El click no lo envía atrás, abre el modal
             cards={useMemo(() => [...saints].reverse().map((saint) => (
               <div 
-                key={saint.id} 
+                key={saint._id || saint.id || saint.name} 
                 className="w-full h-full relative group cursor-pointer select-none"
                 draggable={false}
                 style={{ WebkitUserDrag: 'none', userSelect: 'none' } as any}
@@ -52,7 +55,7 @@ export function SaintsGrid() {
                   alt={saint.name} 
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
-                  priority={saint.id === 'perpetuo-socorro' || saint.id === 'alfonso'}
+                  priority={saint.name.includes('Perpetuo Socorro') || saint.name.includes('Alfonso')}
                   className="object-cover pointer-events-none select-none"
                   draggable={false}
                   style={{ WebkitUserDrag: 'none', userSelect: 'none' } as any}
@@ -100,7 +103,7 @@ export function SaintsGrid() {
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
               <motion.div
                 className="bg-white border border-zinc-200 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl pointer-events-auto relative max-h-[90vh] flex flex-col"
-                layoutId={`saint-modal-${selectedSaint.id}`}
+                layoutId={`saint-modal-${selectedSaint._id || selectedSaint.id || selectedSaint.name}`}
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
