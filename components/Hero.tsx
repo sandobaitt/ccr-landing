@@ -4,9 +4,13 @@ import { Button } from '@/components/Button';
 import { Calendar } from 'lucide-react';
 import Link from 'next/link';
 import BlurText from '@/components/BlurText';
-import { nextRetreat } from '@/data/content';
+import { RetreatInfo } from '@/types/content';
 
-export function Hero() {
+interface HeroProps {
+  retreatInfo: RetreatInfo;
+}
+
+export function Hero({ retreatInfo }: HeroProps) {
   return (
     <section className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-6 pt-10 pb-32 bg-transparent">
 
@@ -69,12 +73,12 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 7.0 }}
         >
-          {nextRetreat.open ? (
-            <Link href={nextRetreat.formsLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+          {retreatInfo.open ? (
+            <Link href={retreatInfo.formsLink || '#'} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <motion.div animate={{ scale: [1, 1.05, 1], boxShadow: ["0px 0px 0px rgba(244,63,94,0)", "0px 0px 20px rgba(244,63,94,0.6)", "0px 0px 0px rgba(244,63,94,0)"] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} className="rounded-full">
                 <Button size="lg" className="w-full sm:w-auto group shadow-lg shadow-red-200 text-base bg-gradient-to-r from-red-500 to-rose-500 hover:from-red-600 hover:to-rose-600 border-none">
                   <Calendar className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  ¡Sumate al {nextRetreat.name}!
+                  ¡Sumate al {retreatInfo.name}!
                 </Button>
               </motion.div>
             </Link>

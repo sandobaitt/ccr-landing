@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 import { RoamingChrist } from "@/components/RoamingChrist";
 import { client } from '@/sanity/lib/client';
-import { socialLinksQuery } from '@/sanity/lib/queries';
+import { socialLinksQuery, scheduleQuery } from '@/sanity/lib/queries';
 
 export default async function RootLayout({
   children,
@@ -49,6 +49,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const sanitySocialLinks = await client.fetch(socialLinksQuery);
+  const sanitySchedule = await client.fetch(scheduleQuery);
 
   return (
     <html lang="es" className="scroll-smooth">
@@ -71,7 +72,7 @@ export default async function RootLayout({
               />
             </div>
           </div>
-          <ScheduleTicker />
+          <ScheduleTicker scheduleItems={sanitySchedule} />
           <Navbar />
           <main className="flex-1 flex flex-col overflow-x-hidden">{children}</main>
           <Footer settings={{ socialLinks: sanitySocialLinks }} />

@@ -2,26 +2,16 @@
 
 import { motion } from 'framer-motion';
 import { SectionTitle } from '@/components/SectionTitle';
-import { supplyItems, coordinators } from '@/data/content';
-import {
-  UtensilsCrossed,
-  Shirt,
-  Coffee,
-  Droplets,
-  AlertTriangle,
-  // Banknote,
-  HeartHandshake,
-  MapPin,
-  MessageCircle
-} from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { HeartHandshake, MapPin, AlertTriangle, MessageCircle, Droplets } from 'lucide-react';
+import type { SupplyItem, CoordinatorInfo } from '@/types/content';
 
-const iconMap: Record<string, LucideIcon> = {
-  UtensilsCrossed,
-  Shirt,
-  Coffee,
-  Droplets,
-};
+interface DonationsProps {
+  supplies: SupplyItem[];
+  coordinators: CoordinatorInfo[];
+}
+
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -86,7 +76,7 @@ function CopyButton({ label, value }: { label: string; value: string }) {
 }
 */
 
-export function Donations() {
+export function Donations({ supplies, coordinators }: DonationsProps) {
   return (
     <section id="ayudar" className="relative w-full py-16 md:py-24 px-6 bg-transparent">
       <div className="max-w-5xl mx-auto">
@@ -116,12 +106,13 @@ export function Donations() {
 
         {/* Grid de Insumos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
-          {supplyItems.map((item, i) => {
-            const Icon = iconMap[item.icon] || Droplets;
+          {supplies.map((item, i) => {
+            // @ts-expect-error LucideIcons mapping
+            const Icon: LucideIcon = LucideIcons[item.icon] || Droplets;
 
             return (
               <motion.div
-                key={item.id}
+                key={item._id || item.id || item.name}
                 className={`relative flex items-start gap-4 p-5 rounded-2xl border transition-shadow duration-300 ${item.urgent
                   ? 'border-red-200 bg-red-50 hover:shadow-md'
                   : 'border-zinc-200 bg-white hover:shadow-md'
@@ -188,7 +179,7 @@ export function Donations() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {coordinators.map((coord) => (
-              <div key={coord.id} className="flex flex-col gap-1.5">
+              <div key={coord._id || coord.id || coord.name} className="flex flex-col gap-1.5">
                 <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
                   {coord.role}
                 </span>

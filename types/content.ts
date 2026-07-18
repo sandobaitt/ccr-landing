@@ -14,7 +14,8 @@ export interface NewsItem {
 
 /** Insumo solicitado para las recorridas */
 export interface SupplyItem {
-  id: string;
+  _id?: string;
+  id?: string;
   name: string;
   description: string;
   urgent: boolean;
@@ -33,7 +34,8 @@ export interface DonationInfo {
 
 /** Información de contacto de los coordinadores */
 export interface CoordinatorInfo {
-  id: string;
+  _id?: string;
+  id?: string;
   name: string;
   role: string;
   phone: string;

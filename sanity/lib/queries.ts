@@ -46,3 +46,39 @@ export const saintsQuery = groq`*[_type == "saint"] | order(_createdAt asc) {
   connectionToCharism,
   "imageUrl": image.asset->url
 }`;
+
+export const scheduleQuery = groq`*[_type == "scheduleItem"] | order(order asc) {
+  _id,
+  text,
+  icon,
+  color,
+  order
+}`;
+
+export const pillarsQuery = groq`*[_type == "pillar"] | order(order asc) {
+  _id,
+  title,
+  description,
+  icon,
+  gradient,
+  iconBg,
+  order
+}`;
+
+export const suppliesQuery = groq`*[_type == "supplyItem"] | order(order asc) {
+  _id,
+  name,
+  description,
+  urgent,
+  icon,
+  order
+}`;
+
+export const coordinatorsQuery = groq`*[_type == "coordinator"] | order(order asc) {
+  _id,
+  name,
+  role,
+  phone,
+  whatsappMsg,
+  order
+}`;

@@ -1,10 +1,14 @@
-import { type SchemaTypeDefinition } from 'sanity';
-import { newsType } from './news';
-import { communityType } from './community';
-import { retreatType } from './retreat';
-import { socialType } from './social';
-import { saintType } from './saint';
+import { type SchemaTypeDefinition } from 'sanity'
+import { communityType } from './community'
+import { newsType } from './news'
+import { retreatType } from './retreat'
+import { saintType } from './saint'
+import { socialType } from './social'
+import scheduleItem from './scheduleItem'
+import pillar from './pillar'
+import supplyItem from './supplyItem'
+import coordinator from './coordinator'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [newsType, communityType, retreatType, socialType, saintType],
-};
+  types: [communityType, newsType, retreatType, saintType, socialType, scheduleItem, pillar, supplyItem, coordinator],
+}

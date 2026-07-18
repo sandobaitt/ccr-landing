@@ -1,34 +1,21 @@
 'use client';
 import { motion } from 'framer-motion';
 import { SectionTitle } from '@/components/SectionTitle';
-import { Church, Users, HandHeart } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
-const pillars = [
-  {
-    icon: Church,
-    title: 'Espiritualidad',
-    description:
-      'De cada encuentro, retiro, comision u oracion hacemos que crezca en nosotros el amor al Padre',
-    gradient: 'from-rose-100 via-orange-100 to-rose-100',
-    iconBg: 'bg-rose-200 text-rose-700'
-  },
-  {
-    icon: Users,
-    title: 'Comunidad',
-    description:
-      'Compartir como Jesus con sus discipulos nos lleva a encontrarnos por dentro y fuera de la parro',
-    gradient: 'from-fuchsia-100 via-purple-100 to-fuchsia-100',
-    iconBg: 'bg-fuchsia-200 text-fuchsia-700'
-  },
-  {
-    icon: HandHeart,
-    title: 'Acción Social',
-    description:
-      'Ese amor recibido nos lleva a salir al encuentro del projimo y darle la mano',
-    gradient: 'from-blue-100 via-cyan-100 to-blue-100',
-    iconBg: 'bg-cyan-200 text-cyan-700'
-  },
-];
+export interface Pillar {
+  _id?: string;
+  title: string;
+  description: string;
+  icon: string;
+  gradient: string;
+  iconBg: string;
+}
+
+interface PillarsProps {
+  pillars: Pillar[];
+}
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -43,7 +30,7 @@ const cardVariants = {
   }),
 };
 
-export function Pillars() {
+export function Pillars({ pillars }: PillarsProps) {
   return (
     <section id="pilares" className="relative w-full py-16 md:py-24 px-6 bg-transparent">
       <div className="max-w-5xl mx-auto">
@@ -53,37 +40,42 @@ export function Pillars() {
         />
 
         <div className="flex flex-col gap-6 mt-8">
-          {pillars.map((pillar, i) => (
-            <motion.div
-              key={pillar.title}
-              className={`group relative flex flex-row items-center text-left p-6 sm:p-8 rounded-3xl border-2 border-white/50 bg-gradient-to-r bg-[length:200%_200%] animate-gradient ${pillar.gradient} shadow-lg transition-all duration-300`}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              whileTap={{ scale: 0.95 }}
-              viewport={{ once: true, amount: 0.3 }}
-              custom={i}
-            >
-              {/* Icono estático (solo se anima en hover) */}
-              <div
-                className={`flex-shrink-0 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${pillar.iconBg} mr-6 sm:mr-8 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300`}
+          {pillars.map((pillar, i) => {
+            // @ts-expect-error LucideIcons mapping
+            const Icon: LucideIcon = LucideIcons[pillar.icon] || LucideIcons.Church;
+            
+            return (
+              <motion.div
+                key={pillar._id || pillar.title}
+                className={`group relative flex flex-row items-center text-left p-6 sm:p-8 rounded-3xl border-2 border-white/50 bg-gradient-to-r bg-[length:200%_200%] animate-gradient ${pillar.gradient} shadow-lg transition-all duration-300`}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileTap={{ scale: 0.95 }}
+                viewport={{ once: true, amount: 0.3 }}
+                custom={i}
               >
-                <pillar.icon className="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm" strokeWidth={2.5} />
-              </div>
+                {/* Icono estático (solo se anima en hover) */}
+                <div
+                  className={`flex-shrink-0 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${pillar.iconBg} mr-6 sm:mr-8 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300`}
+                >
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm" strokeWidth={2.5} />
+                </div>
 
-              <div>
-                {/* Título animado continuamente */}
-                <h3 className="text-xl sm:text-2xl font-black mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-violet-600 bg-[length:200%_200%] animate-gradient text-balance">
-                  {pillar.title}
-                </h3>
+                <div>
+                  {/* Título animado continuamente */}
+                  <h3 className="text-xl sm:text-2xl font-black mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-violet-600 bg-[length:200%_200%] animate-gradient text-balance">
+                    {pillar.title}
+                  </h3>
 
-                {/* Descripción */}
-                <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                  {/* Descripción */}
+                  <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
