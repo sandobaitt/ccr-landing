@@ -5,7 +5,7 @@ import { SectionTitle } from '@/components/SectionTitle';
 import type { NewsCategory, NewsItem } from '@/types/content';
 import { Calendar, Tag, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 // Carga dinámica sin SSR (WebGL requiere el DOM del navegador)
 const CircularGallery = dynamic(
@@ -55,6 +55,20 @@ interface NewsGridProps {
 
 export function NewsGrid({ newsItems }: NewsGridProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    
+    // Check initially
+    checkDesktop();
+    
+    // Add event listener
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -71,18 +85,20 @@ export function NewsGrid({ newsItems }: NewsGridProps) {
           subtitle="¡No te pierdas de nada! Enterate de todos nuestros retiros, recorridas y eventos."
         />
 
-        {/* Galería Circular WebGL */}
-        <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] -mx-6 sm:mx-0 mt-2 mb-12" style={{ width: 'calc(100% + 3rem)' }}>
-          <CircularGallery
-            items={galleryItems}
-            bend={3}
-            textColor="#1f2937"
-            borderRadius={0.05}
-            scrollEase={0.03}
-            font="bold 24px sans-serif"
-            fontUrl=""
-          />
-        </div>
+        {/* Galería Circular WebGL - Deshabilitada en móviles para evitar colapsos de GPU */}
+        {isDesktop && (
+          <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] -mx-6 sm:mx-0 mt-2 mb-12" style={{ width: 'calc(100% + 3rem)' }}>
+            <CircularGallery
+              items={galleryItems}
+              bend={3}
+              textColor="#1f2937"
+              borderRadius={0.05}
+              scrollEase={0.03}
+              font="bold 24px sans-serif"
+              fontUrl=""
+            />
+          </div>
+        )}
 
         {/* Tarjetas de novedades (Carrusel deslizable) */}
         <div className="relative mt-8 group/carousel">
