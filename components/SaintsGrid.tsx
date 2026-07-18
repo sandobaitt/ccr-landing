@@ -36,7 +36,7 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
         <div className="flex justify-center items-center h-[500px] w-full max-w-sm mx-auto">
           <Stack
             randomRotation={true}
-            sensitivity={180}
+            sensitivity={80} // Reducido de 180 a 80 para facilitar el "swipe" en celulares
             sendToBackOnClick={false} // El click no lo envía atrás, abre el modal
             cards={useMemo(() => [...saints].reverse().map((saint) => (
               <div 
