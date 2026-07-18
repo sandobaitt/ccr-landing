@@ -81,5 +81,5 @@ Si querés aportar al proyecto o correrlo en tu máquina:
 
 ## 👨‍💻 Autor
 
-Desarrollado con ❤️, mucha lógica y unas cuantas tazas de café por **[sandobaitt](https://github.com/sandobaitt)** (Estudiante de Ingeniería).  
+Desarrollado por **[sandobaitt](https://github.com/sandobaitt)** (Estudiante de Ingeniería en Sistemas de Informacion en la UTN).  
 *Ad Maiorem Dei Gloriam.*
