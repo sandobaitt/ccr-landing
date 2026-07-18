@@ -59,7 +59,7 @@ export default async function RootLayout({
       <body className={`${dmSans.variable} ${outfit.variable} antialiased min-h-screen bg-ccr-primary text-ccr-foreground flex flex-col font-sans`}>
         <BrandLoader>
           {/* Fondo Fijo Global - Tipo Marca de Agua Centrada */}
-          <div className="fixed inset-0 z-[-1] w-full h-[100dvh] pointer-events-none flex items-center justify-center transform-gpu">
+          <div className="fixed inset-0 z-[-1] w-full h-[100dvh] pointer-events-none flex items-center justify-center">
             {/* Se removió mix-blend-multiply porque consume excesivos recursos de GPU en móviles al hacer scroll */}
             <div className="relative w-[300vw] max-w-none h-[300vw] sm:h-[1200px] md:h-[1200px] opacity-10">
               <Image
