@@ -41,7 +41,7 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
             cards={useMemo(() => [...saints].reverse().map((saint) => (
               <div 
                 key={saint._id || saint.id || saint.name} 
-                className="w-full h-full relative group cursor-pointer select-none"
+                className="w-full h-full relative group cursor-pointer select-none will-change-transform"
                 draggable={false}
                 style={{ WebkitUserDrag: 'none', userSelect: 'none' } as any}
                 onClick={(e) => {
@@ -62,10 +62,16 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
                   onDragStart={(e) => e.preventDefault()}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/40 to-transparent flex flex-col justify-end p-6 pointer-events-none">
-                  <h3 className="font-bold text-2xl text-white mb-1 shadow-black drop-shadow-md">
+                  <h3 
+                    className="font-bold text-2xl text-white mb-1" 
+                    style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.8)' }}
+                  >
                     {saint.name}
                   </h3>
-                  <p className="text-red-400 font-semibold shadow-black drop-shadow-md">
+                  <p 
+                    className="text-red-400 font-semibold"
+                    style={{ textShadow: '0px 1px 3px rgba(0,0,0,0.8)' }}
+                  >
                     {saint.title}
                   </p>
                   
@@ -73,15 +79,15 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
                     <span className="text-xs text-zinc-400 font-medium tracking-wider uppercase">
                       Deslizá para descartar
                     </span>
-                    <span className="text-xs text-white bg-red-600/80 px-3 py-1.5 rounded-full font-bold backdrop-blur-sm shadow-lg pointer-events-auto cursor-pointer"
-                          style={{ pointerEvents: 'auto' }} // Permitimos click directo aquí también
+                    <span className="text-xs text-white bg-red-600/80 px-3 py-1.5 rounded-full font-bold shadow-lg pointer-events-auto cursor-pointer"
+                          style={{ pointerEvents: 'auto' }}
                     >
                       Conocelo →
                     </span>
                   </div>
                 </div>
               </div>
-            )), [])}
+            )), [saints])}
           />
         </div>
       </div>
