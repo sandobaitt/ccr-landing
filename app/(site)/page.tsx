@@ -31,23 +31,23 @@ export const revalidate = 60; // Revalidate every minute for Sanity data
 // Fallback pillars for when Sanity is empty during initial load
 const fallbackPillars = [
   {
-    icon: 'Church',
-    title: 'Espiritualidad',
-    description: 'De cada encuentro, retiro, comision u oracion hacemos que crezca en nosotros el amor al Padre',
+    icon: 'Heart',
+    title: 'Piedad',
+    description: 'Orientar toda nuestra vida a Dios. Es la verdadera vida de la Gracia consciente, creciente y compartida con amor.',
     gradient: 'from-rose-100 via-orange-100 to-rose-100',
     iconBg: 'bg-rose-200 text-rose-700'
   },
   {
-    icon: 'Users',
-    title: 'Comunidad',
-    description: 'Compartir como Jesus con sus discipulos nos lleva a encontrarnos por dentro y fuera de la parro',
+    icon: 'BookOpen',
+    title: 'Estudio',
+    description: 'Nadie ama lo que no conoce. Es la formación constante para conocer, entender y acercarnos cada vez más a Dios.',
     gradient: 'from-fuchsia-100 via-purple-100 to-fuchsia-100',
     iconBg: 'bg-fuchsia-200 text-fuchsia-700'
   },
   {
-    icon: 'HandHeart',
-    title: 'Acción Social',
-    description: 'Ese amor recibido nos lleva a salir al encuentro del projimo y darle la mano',
+    icon: 'Handshake',
+    title: 'Acción',
+    description: 'Basada en la piedad y orientada por el estudio. Es salir al encuentro del prójimo y ser testimonios vivos del amor de Dios.',
     gradient: 'from-blue-100 via-cyan-100 to-blue-100',
     iconBg: 'bg-cyan-200 text-cyan-700'
   },
