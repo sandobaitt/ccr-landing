@@ -1,4 +1,4 @@
-import { MapPin, Clock, AtSign, Globe } from 'lucide-react';
+import { MapPin, Clock, AtSign, Globe, Bird } from 'lucide-react';
 import Link from 'next/link';
 
 function LinkedinIcon({ className }: { className?: string }) {
@@ -170,6 +170,13 @@ export function Footer({ settings }: FooterProps) {
             >
               <LinkedinIcon className="w-4 h-4" />
             </Link>
+            <span className="text-zinc-400 mx-1 font-medium">&amp;</span>
+            <span 
+              className="flex items-center text-zinc-500 hover:text-zinc-800 transition-colors opacity-80 hover:opacity-100 cursor-default"
+              title="Paloma"
+            >
+              <Bird className="w-4 h-4" />
+            </span>
           </div>
         </div>
         <p className="text-xs font-semibold uppercase tracking-widest text-zinc-600">Parroquia Nuestra Señora de la Asunción</p>
