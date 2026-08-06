@@ -120,18 +120,17 @@ export function Communities({ communities }: CommunitiesProps) {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.4 }}
-            className="mt-8 bg-gradient-to-r from-violet-100 via-fuchsia-100 to-rose-100 border-2 border-dashed border-fuchsia-300 rounded-3xl p-8 text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all cursor-default"
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mt-12 text-center"
           >
-            <div>
-              <ArrowRight className="w-10 h-10 text-fuchsia-600 mb-4" />
-            </div>
-            <h4 className="text-xl font-black text-fuchsia-900 mb-2 text-balance">¡Siempre hay más por hacer!</h4>
-            <p className="text-sm text-zinc-600 max-w-lg">
-              El post-crecer es solo el pequeño comienzo. SIEMPRE estamos armando cosas nuevas en la parro para que encuentres tu lugar y pongas tus dones en acción
+            <p className="text-sm font-medium text-zinc-500 mb-1">
+              ¡Y esto es solo el comienzo!
+            </p>
+            <p className="text-xs text-zinc-400 max-w-md mx-auto text-balance">
+              Siempre estamos armando espacios nuevos en la parroquia para que encuentres tu lugar y pongas tus dones en acción.
             </p>
           </motion.div>
         </div>
