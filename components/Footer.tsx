@@ -107,10 +107,10 @@ export function Footer({ settings }: FooterProps) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-2 bg-white rounded-full text-zinc-600 hover:text-ccr-accent hover:bg-rose-50 transition-colors border border-zinc-200 shadow-sm"
                 >
-                  <Icon className="w-5 h-5" />
-                  <div className="text-left">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 leading-none mb-0.5">{link.title}</p>
-                    <p className="text-sm font-bold leading-none text-zinc-900">{link.subtitle}</p>
+                  <Icon className="w-5 h-5 shrink-0" />
+                  <div className="text-left min-w-0">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 leading-none mb-0.5 truncate">{link.title}</p>
+                    <p className="text-sm font-bold leading-none text-zinc-900 truncate max-w-[120px] sm:max-w-none">{link.subtitle}</p>
                   </div>
                 </Link>
               );
