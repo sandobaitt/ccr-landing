@@ -76,7 +76,7 @@ export function Communities({ communities }: CommunitiesProps) {
         </div>
 
         {/* Áreas de Perseverancia */}
-        <div className="mt-24 pt-16 border-t border-zinc-800/50">
+        <div className="mt-24 pt-8">
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 mb-4 drop-shadow-sm text-balance">Comunidades de Perseverancia</h3>
             <p className="text-zinc-600 max-w-2xl mx-auto text-balance">
@@ -84,7 +84,7 @@ export function Communities({ communities }: CommunitiesProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-row md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto snap-x snap-mandatory pb-8 md:pb-0 px-4 -mx-4 md:px-0 md:mx-0 hide-scrollbar scroll-smooth">
             {communities.map((comm, idx) => {
               const Icon = iconMap[comm.icon] || Users;
               return (
@@ -95,7 +95,7 @@ export function Communities({ communities }: CommunitiesProps) {
                   whileTap={{ scale: 0.95 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.4 }}
-                  className="bg-gradient-to-br from-white to-rose-50 border-2 border-white/50 rounded-3xl p-6 shadow-md transition-all duration-300 group"
+                  className="bg-gradient-to-br from-white to-rose-50 border-2 border-white/50 rounded-3xl p-6 shadow-md transition-all duration-300 group w-[80vw] max-w-[300px] shrink-0 snap-center md:w-auto md:max-w-none md:shrink-1"
                 >
                   <div className="flex flex-col h-full">
                     <div
