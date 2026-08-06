@@ -93,8 +93,8 @@ export function Communities({ communities }: CommunitiesProps) {
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   whileTap={{ scale: 0.95 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1, duration: 0.4 }}
+                  viewport={{ once: true, margin: "50px" }}
+                  transition={{ duration: 0.3 }}
                   className="bg-gradient-to-br from-white to-rose-50 border-2 border-white/50 rounded-3xl p-6 shadow-md transition-all duration-300 group w-[80vw] max-w-[300px] shrink-0 snap-center md:w-auto md:max-w-none md:shrink-1"
                 >
                   <div className="flex flex-col h-full">

@@ -26,15 +26,14 @@ function formatDate(isoDate: string): string {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.12 * i,
-      duration: 0.6,
+      duration: 0.4,
       ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
     },
-  }),
+  },
 };
 
 // Imágenes representativas para la galería circular
@@ -135,8 +134,7 @@ export function NewsGrid({ newsItems }: NewsGridProps) {
                   initial="hidden"
                   whileInView="visible"
                   whileTap={{ scale: 0.95 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  custom={i}
+                  viewport={{ once: true, margin: "50px" }}
                 >
                   {/* Imagen de fondo condicional */}
                   {item.imageUrl && (
