@@ -7,14 +7,26 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    // Bloquear scroll durante la animación de carga
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+
     // tiempo inicial a 1500ms para asegurar la carga completa
     const readyTimer = setTimeout(() => setIsReady(true), 1500);
     // Aumento el tiempo total de la pantalla de carga para acomodar el retraso
-    const timer = setTimeout(() => setLoading(false), 6500);
+    const timer = setTimeout(() => {
+      setLoading(false);
+      // Restaurar scroll cuando termina la animación
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }, 6500);
 
     return () => {
       clearTimeout(readyTimer);
       clearTimeout(timer);
+      // Asegurar que se restaure si el componente se desmonta antes
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
     };
   }, []);
 

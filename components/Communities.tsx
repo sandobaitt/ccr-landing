@@ -83,7 +83,7 @@ export function Communities({ communities }: CommunitiesProps) {
               animationDuration={1}
               ease="back.inOut(2)"
               scrollStart="top bottom"
-              scrollEnd="bottom bottom-=20%"
+              scrollEnd="top bottom-=30%"
               stagger={0.03}
               containerClassName="text-2xl sm:text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 mb-4 drop-shadow-sm text-balance"
             >

@@ -31,7 +31,7 @@ export function SectionTitle({
         animationDuration={1}
         ease="back.inOut(2)"
         scrollStart="top bottom"
-        scrollEnd="bottom bottom-=20%"
+        scrollEnd="top bottom-=30%"
         stagger={0.03}
         containerClassName={`text-2xl sm:text-3xl md:text-5xl font-black tracking-tight ${titleColor} drop-shadow-sm text-balance`}
       >
