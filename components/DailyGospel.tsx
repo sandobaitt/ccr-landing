@@ -17,31 +17,31 @@ export function DailyGospel({ gospel }: DailyGospelProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative bg-gradient-to-br from-white/60 to-white/30 backdrop-blur-md border border-white/40 rounded-3xl p-8 sm:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.05)] text-center group overflow-hidden"
+          className="relative bg-gradient-to-br from-white/60 to-white/30 dark:from-zinc-900/80 dark:to-zinc-950/80 backdrop-blur-md border border-white/40 dark:border-zinc-800/50 rounded-3xl p-8 sm:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.05)] text-center group overflow-hidden"
         >
           {/* Fondo decorativo */}
-          <div className="absolute -top-12 -right-12 w-32 h-32 bg-ccr-pastel-lavender/30 rounded-full blur-3xl group-hover:bg-ccr-pastel-lavender/50 transition-colors duration-700"></div>
-          <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-ccr-pastel-rose/30 rounded-full blur-3xl group-hover:bg-ccr-pastel-rose/50 transition-colors duration-700"></div>
+          <div className="absolute -top-12 -right-12 w-32 h-32 bg-ccr-pastel-lavender/30 dark:bg-violet-900/20 rounded-full blur-3xl group-hover:bg-ccr-pastel-lavender/50 dark:group-hover:bg-violet-900/40 transition-colors duration-700"></div>
+          <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-ccr-pastel-rose/30 dark:bg-rose-900/20 rounded-full blur-3xl group-hover:bg-ccr-pastel-rose/50 dark:group-hover:bg-rose-900/40 transition-colors duration-700"></div>
 
           <div className="relative z-10 flex flex-col items-center">
-            <div className="w-12 h-12 bg-white/50 rounded-2xl flex items-center justify-center mb-6 shadow-sm text-ccr-accent backdrop-blur-sm border border-white/50">
+            <div className="w-12 h-12 bg-white/50 dark:bg-zinc-800/50 rounded-2xl flex items-center justify-center mb-6 shadow-sm text-ccr-accent dark:text-rose-400 backdrop-blur-sm border border-white/50 dark:border-zinc-700/50">
               <BookOpen className="w-6 h-6" />
             </div>
             
-            <h3 className="text-sm font-bold text-ccr-accent tracking-widest uppercase mb-4">
+            <h3 className="text-sm font-bold text-ccr-accent dark:text-rose-400 tracking-widest uppercase mb-4">
               Evangelio del Día
             </h3>
 
-            <p className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-800 leading-relaxed text-balance mb-6 max-h-96 overflow-y-auto custom-scrollbar pr-2">
+            <p className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-800 dark:text-zinc-200 leading-relaxed text-balance mb-6 max-h-96 overflow-y-auto custom-scrollbar pr-2">
               {gospel.text}
             </p>
             
             <div className="flex items-center space-x-3 mt-4">
-              <div className="h-px w-8 bg-zinc-300"></div>
-              <span className="font-bold text-zinc-600 tracking-wide uppercase text-sm">
+              <div className="h-px w-8 bg-zinc-300 dark:bg-zinc-700"></div>
+              <span className="font-bold text-zinc-600 dark:text-zinc-400 tracking-wide uppercase text-sm">
                 {gospel.reference}
               </span>
-              <div className="h-px w-8 bg-zinc-300"></div>
+              <div className="h-px w-8 bg-zinc-300 dark:bg-zinc-700"></div>
             </div>
           </div>
         </motion.div>

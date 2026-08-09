@@ -8,27 +8,27 @@ import { DailyGospel } from "@/components/DailyGospel";
 import { Donations } from "@/components/Donations";
 import { getDailyGospel } from "@/lib/gospel";
 import { client } from '@/sanity/lib/client';
-import { 
-  newsQuery, 
-  communitiesQuery, 
-  retreatQuery, 
+import {
+  newsQuery,
+  communitiesQuery,
+  retreatQuery,
   saintsQuery,
   pillarsQuery,
   suppliesQuery,
   coordinatorsQuery
 } from '@/sanity/lib/queries';
-import { 
-  newsItems as fallbackNews, 
-  communities as fallbackCommunities, 
+import {
+  newsItems as fallbackNews,
+  communities as fallbackCommunities,
   nextRetreat as fallbackRetreat,
   saints as fallbackSaints,
   supplyItems as fallbackSupplies,
   coordinators as fallbackCoordinators
 } from '@/data/content';
 
-export const revalidate = 60; // Revalidate every minute for Sanity data
+export const revalidate = 60; // Revalida cada minuto en los datos de Sanity
 
-// Fallback pillars for when Sanity is empty during initial load
+// Pilares de respaldo para cuando la Sanity esté vacía durante la carga inicial
 const fallbackPillars = [
   {
     icon: 'Heart',
@@ -55,8 +55,8 @@ const fallbackPillars = [
 
 export default async function Home() {
   const dailyGospel = await getDailyGospel();
-  
-  // Fetch Sanity Data
+
+  // Buscar datos de Sanity
   const sanityNews = await client.fetch(newsQuery);
   const sanityCommunities = await client.fetch(communitiesQuery);
   const sanityRetreat = await client.fetch(retreatQuery);
@@ -65,7 +65,7 @@ export default async function Home() {
   const sanitySupplies = await client.fetch(suppliesQuery);
   const sanityCoordinators = await client.fetch(coordinatorsQuery);
 
-  // Fallback to static data if Sanity is empty
+  // Volver a datos estaticos si Sanity esta vacio
   const activeNews = sanityNews?.length > 0 ? sanityNews : fallbackNews;
   const activeCommunities = sanityCommunities?.length > 0 ? sanityCommunities : fallbackCommunities;
   const activeRetreat = sanityRetreat || fallbackRetreat;

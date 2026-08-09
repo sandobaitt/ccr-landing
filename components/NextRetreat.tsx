@@ -77,14 +77,14 @@ export function NextRetreat({ retreatInfo: nextRetreat }: NextRetreatProps) {
             <BorderGlow
               edgeSensitivity={30}
               glowColor="0 100 50"
-              backgroundColor="#ffffff"
+              backgroundColor="var(--bg-glow-card)"
               borderRadius={24}
               glowRadius={40}
               glowIntensity={0.8}
               coneSpread={25}
               animated={false}
               colors={['#ef4444', '#f87171', '#dc2626']}
-              className="w-full shadow-sm"
+              className="w-full shadow-sm bg-white dark:bg-zinc-950 transition-colors duration-300"
             >
               <div className="p-8 flex flex-col items-center text-center">
                 <h3 className="text-xl font-bold mb-6 flex items-center justify-center text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-500 to-orange-500 animate-gradient bg-[length:200%_auto]">
@@ -100,10 +100,10 @@ export function NextRetreat({ retreatInfo: nextRetreat }: NextRetreatProps) {
                       key={idx}
                       className="flex flex-col items-center"
                     >
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-sky-100 to-violet-100 rounded-2xl shadow-lg border-2 border-white/60 flex items-center justify-center text-2xl sm:text-3xl font-black text-violet-900">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-sky-100 to-violet-100 dark:from-sky-900/40 dark:to-violet-900/40 rounded-2xl shadow-lg border-2 border-white/60 dark:border-white/10 flex items-center justify-center text-2xl sm:text-3xl font-black text-violet-900 dark:text-violet-300">
                         {block.value.toString().padStart(2, '0')}
                       </div>
-                      <span className="text-xs sm:text-sm font-black text-violet-600 mt-3 uppercase tracking-widest drop-shadow-sm">
+                      <span className="text-xs sm:text-sm font-black text-violet-600 dark:text-violet-400 mt-3 uppercase tracking-widest drop-shadow-sm">
                         {block.label}
                       </span>
                     </div>
@@ -114,7 +114,7 @@ export function NextRetreat({ retreatInfo: nextRetreat }: NextRetreatProps) {
                   )}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-zinc-200 w-full flex items-center justify-center text-zinc-600">
+                <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800 w-full flex items-center justify-center text-zinc-600 dark:text-zinc-400">
                   <Users className="w-5 h-5 text-ccr-accent mr-2" />
                   <span className="font-medium">¡Si tenés entre {nextRetreat.minAge} y {nextRetreat.maxAge} años, si o si es para vos!</span>
                 </div>
@@ -123,30 +123,30 @@ export function NextRetreat({ retreatInfo: nextRetreat }: NextRetreatProps) {
 
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-white via-rose-50/50 to-orange-50/30 rounded-3xl p-8 shadow-[0_20px_40px_rgba(244,63,94,0.1)] border border-rose-100 flex flex-col space-y-6"
+              className="bg-gradient-to-br from-white via-rose-50/50 to-orange-50/30 dark:from-zinc-900/80 dark:via-zinc-900/60 dark:to-zinc-900/40 rounded-3xl p-8 shadow-[0_20px_40px_rgba(244,63,94,0.1)] border border-rose-100 dark:border-rose-900/30 flex flex-col space-y-6"
             >
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex items-start">
                   <Calendar className="w-5 h-5 text-ccr-accent mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-zinc-900">¿Cuándo es?</h4>
-                    <p className="text-zinc-600 text-sm mt-1">{nextRetreat.dateDescription}</p>
+                    <h4 className="font-bold text-zinc-900 dark:text-zinc-100">¿Cuándo es?</h4>
+                    <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-1">{nextRetreat.dateDescription}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-ccr-accent mt-1 mr-3 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-zinc-900">¿Dónde?</h4>
-                    <p className="text-zinc-600 text-sm mt-1">{nextRetreat.locationDescription}</p>
+                    <h4 className="font-bold text-zinc-900 dark:text-zinc-100">¿Dónde?</h4>
+                    <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-1">{nextRetreat.locationDescription}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-start bg-ccr-pastel-lavender/50 p-4 rounded-xl border border-ccr-pastel-lavender">
+              <div className="flex items-start bg-ccr-pastel-lavender/50 dark:bg-violet-900/20 p-4 rounded-xl border border-ccr-pastel-lavender dark:border-violet-900/30">
                 <Info className="w-5 h-5 text-ccr-accent mt-0.5 mr-3 flex-shrink-0" />
-                <p className="text-sm text-zinc-700">
-                  ¿Tenés alguna duda o querés saber más? ¡No dudes en escribirles a los <span className="text-zinc-900 font-bold">coordis</span> al final de la página, te están esperando!
+                <p className="text-sm text-zinc-700 dark:text-zinc-300">
+                  ¿Tenés alguna duda o querés saber más? ¡No dudes en escribirles a los <span className="text-zinc-900 dark:text-zinc-100 font-bold">coordis</span> al final de la página, te están esperando!
                 </p>
               </div>
 

@@ -23,15 +23,15 @@ export function SectionTitle({
   };
 
   const titleColor = 'text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 bg-[length:200%_200%] animate-gradient';
-  const subtitleColor = 'text-zinc-600 font-medium';
+  const subtitleColor = 'text-zinc-600 dark:text-zinc-400 font-medium';
 
   return (
     <div className={`flex flex-col space-y-4 mb-6 md:mb-10 ${alignmentClasses[align]} ${className}`}>
       <ScrollFloat
         animationDuration={1}
         ease="back.inOut(2)"
-        scrollStart="center bottom+=50%"
-        scrollEnd="bottom bottom-=40%"
+        scrollStart="top bottom"
+        scrollEnd="bottom center"
         stagger={0.03}
         containerClassName={`text-2xl sm:text-3xl md:text-5xl font-black tracking-tight ${titleColor} drop-shadow-sm text-balance`}
       >

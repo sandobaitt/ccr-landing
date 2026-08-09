@@ -21,17 +21,19 @@ export function ScheduleTicker({ scheduleItems }: ScheduleTickerProps) {
     // @ts-expect-error LucideIcons mapping
     const Icon: LucideIcon = LucideIcons[item.icon] || Flame;
     const colorClasses = {
-      rose: 'text-rose-500 text-rose-600',
-      orange: 'text-orange-500 text-orange-600',
-      violet: 'text-violet-500 text-violet-600',
-      blue: 'text-blue-500 text-blue-600',
-      emerald: 'text-emerald-500 text-emerald-600',
+      rose: 'text-rose-500 dark:text-rose-400 text-rose-600 dark:text-rose-300',
+      orange: 'text-orange-500 dark:text-orange-400 text-orange-600 dark:text-orange-300',
+      violet: 'text-violet-500 dark:text-violet-400 text-violet-600 dark:text-violet-300',
+      blue: 'text-blue-500 dark:text-blue-400 text-blue-600 dark:text-blue-300',
+      emerald: 'text-emerald-500 dark:text-emerald-400 text-emerald-600 dark:text-emerald-300',
     };
     
     // Split the color string to get the specific icon and text colors
     // Default to orange if not found
     const classStr = colorClasses[item.color] || colorClasses.orange;
-    const [iconClass, textClass] = classStr.split(' ');
+    const [iconClassLight, iconClassDark, textClassLight, textClassDark] = classStr.split(' ');
+    const iconClass = `${iconClassLight} ${iconClassDark}`;
+    const textClass = `${textClassLight} ${textClassDark}`;
 
     return {
       node: (
@@ -49,7 +51,7 @@ export function ScheduleTicker({ scheduleItems }: ScheduleTickerProps) {
   }
 
   return (
-    <div className="w-full bg-white/90 backdrop-blur-md relative z-50 text-sm overflow-hidden flex items-center justify-center">
+    <div className="w-full bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md relative z-50 text-sm overflow-hidden flex items-center justify-center border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
       <LogoLoop
         logos={mappedItems}
         speed={40}

@@ -7,11 +7,11 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Aumentamos el tiempo inicial a 1500ms para asegurar la carga completa
+    // tiempo inicial a 1500ms para asegurar la carga completa
     const readyTimer = setTimeout(() => setIsReady(true), 1500);
-    // Aumentamos el tiempo total de la pantalla de carga para acomodar el retraso
+    // Aumento el tiempo total de la pantalla de carga para acomodar el retraso
     const timer = setTimeout(() => setLoading(false), 6500);
-    
+
     return () => {
       clearTimeout(readyTimer);
       clearTimeout(timer);
@@ -30,7 +30,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
           >
             <div className="relative flex flex-col items-center justify-center w-full max-w-xl px-4 mx-auto" style={{ willChange: 'transform' }}>
 
-              {/* Animación de carga simple mientras esperamos */}
+              {/* Animación de carga simple mientras carga */}
               <AnimatePresence>
                 {!isReady && (
                   <motion.div
@@ -58,10 +58,10 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
 
                   {/* Contenedor Principal: CRIS + [Cruz] + O */}
                   <div className="flex items-center justify-center w-full max-w-full text-4xl sm:text-5xl md:text-[56px]">
-                    
+
                     {/* Texto CRIS */}
                     <motion.span
-                      className="font-black tracking-widest text-zinc-900 leading-none z-20"
+                      className="font-black tracking-widest text-zinc-900 dark:text-zinc-100 leading-none z-20"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 2.3, duration: 0.8, ease: 'easeOut' }}
@@ -82,7 +82,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         viewBox="0 0 140 200"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="overflow-visible absolute"
+                        className="overflow-visible absolute text-zinc-900 dark:text-zinc-100"
                         style={{ willChange: 'transform, opacity' }}
                       >
                         {/* ============================================= */}
@@ -91,8 +91,8 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* ============================================= */}
                         <motion.path
                           d="M 70 8 C 60 8, 52 12, 50 17 C 48 12, 52 6, 60 5 C 66 4, 72 6, 76 10 C 82 8, 90 8, 96 12 C 88 10, 82 12, 78 16 C 76 12, 73 9, 70 8 Z"
-                          fill="#18181b"
-                          stroke="#18181b" strokeWidth="1" strokeLinejoin="round"
+                          fill="currentColor"
+                          stroke="currentColor" strokeWidth="1" strokeLinejoin="round"
                           initial={{ opacity: 0, scale: 0.5, y: -5 }}
                           animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 1] }}
                           transition={{ duration: 3.1, times: [0, 0.15, 0.7, 1], ease: 'easeInOut', delay: 0.1 }}
@@ -100,7 +100,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Cabeza de la paloma */}
                         <motion.circle
                           cx="50" cy="16" r="5"
-                          fill="#18181b"
+                          fill="currentColor"
                           initial={{ opacity: 0, scale: 0.5 }}
                           animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 1] }}
                           transition={{ duration: 3.1, times: [0, 0.15, 0.7, 1], ease: 'easeInOut', delay: 0.1 }}
@@ -108,7 +108,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Ojo de la paloma */}
                         <motion.circle
                           cx="47" cy="14" r="1.2"
-                          fill="#18181b"
+                          fill="currentColor"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: [0, 1, 1, 0] }}
                           transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeInOut', delay: 0.2 }}
@@ -116,7 +116,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Pico de la paloma */}
                         <motion.path
                           d="M 44 16 L 40 17 L 44 18 Z"
-                          fill="#18181b"
+                          fill="currentColor"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: [0, 1, 1, 0] }}
                           transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeInOut', delay: 0.2 }}
@@ -124,8 +124,8 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Ala extendida hacia arriba */}
                         <motion.path
                           d="M 58 10 C 64 2, 80 0, 95 4 C 82 3, 70 6, 65 12 Z"
-                          fill="#18181b"
-                          stroke="#18181b" strokeWidth="0.5"
+                          fill="currentColor"
+                          stroke="currentColor" strokeWidth="0.5"
                           initial={{ opacity: 0, rotate: -10, originX: '58px', originY: '10px' }}
                           animate={{ opacity: [0, 1, 1, 0], rotate: [-10, 0, 0, 0] }}
                           transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeOut', delay: 0.15 }}
@@ -133,7 +133,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Cola de la paloma */}
                         <motion.path
                           d="M 76 16 L 84 10 L 82 16 L 88 12 L 84 18 Z"
-                          fill="#18181b"
+                          fill="currentColor"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: [0, 1, 1, 0] }}
                           transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeInOut', delay: 0.15 }}
@@ -144,7 +144,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* ============================================= */}
                         <motion.path
                           d="M 40 165 L 48 90"
-                          stroke="#18181b" strokeWidth="3" strokeLinecap="round"
+                          stroke="currentColor" strokeWidth="3" strokeLinecap="round"
                           initial={{ pathLength: 0, opacity: 0 }}
                           animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
                           transition={{
@@ -155,7 +155,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Punta de lanza izquierda (flecha hacia arriba) */}
                         <motion.path
                           d="M 43 90 L 50 74 L 53 91 Z"
-                          fill="#18181b" stroke="#18181b" strokeWidth="1" strokeLinejoin="round"
+                          fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinejoin="round"
                           initial={{ opacity: 0, scale: 0 }}
                           animate={{ opacity: [0, 1, 1, 0], scale: [0, 1, 1, 1] }}
                           transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeOut', delay: 0.3 }}
@@ -166,7 +166,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* ============================================= */}
                         <motion.path
                           d="M 100 165 L 92 90"
-                          stroke="#18181b" strokeWidth="3" strokeLinecap="round"
+                          stroke="currentColor" strokeWidth="3" strokeLinecap="round"
                           initial={{ pathLength: 0, opacity: 0 }}
                           animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
                           transition={{
@@ -177,7 +177,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Esponja (pequeño rectángulo vacío en la punta derecha) */}
                         <motion.rect
                           x="84" y="76" width="16" height="14" rx="3"
-                          fill="transparent" stroke="#18181b" strokeWidth="2.5"
+                          fill="transparent" stroke="currentColor" strokeWidth="2.5"
                           initial={{ opacity: 0, scale: 0 }}
                           animate={{ opacity: [0, 1, 1, 0], scale: [0, 1, 1, 1] }}
                           transition={{ duration: 3.1, times: [0, 0.2, 0.7, 1], ease: 'easeOut', delay: 0.35 }}
@@ -189,7 +189,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* IS - izquierda */}
                         <motion.text
                           x="8" y="118"
-                          fontSize="14" fontFamily="serif" fill="#18181b"
+                          fontSize="14" fontFamily="serif" fill="currentColor"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: [0, 1, 1, 0] }}
                           transition={{ duration: 3.1, times: [0, 0.3, 0.7, 1], ease: 'easeInOut', delay: 0.4 }}
@@ -199,7 +199,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Barra sobre IS */}
                         <motion.line
                           x1="6" y1="103" x2="28" y2="103"
-                          stroke="#18181b" strokeWidth="1.5" strokeLinecap="round"
+                          stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
                           initial={{ pathLength: 0, opacity: 0 }}
                           animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
                           transition={{ duration: 3.1, times: [0, 0.3, 0.7, 1], ease: 'easeInOut', delay: 0.45 }}
@@ -208,7 +208,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* XC - derecha */}
                         <motion.text
                           x="104" y="118"
-                          fontSize="14" fontFamily="serif" fill="#18181b"
+                          fontSize="14" fontFamily="serif" fill="currentColor"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: [0, 1, 1, 0] }}
                           transition={{ duration: 3.1, times: [0, 0.3, 0.7, 1], ease: 'easeInOut', delay: 0.4 }}
@@ -218,7 +218,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Barra sobre XC */}
                         <motion.line
                           x1="102" y1="103" x2="126" y2="103"
-                          stroke="#18181b" strokeWidth="1.5" strokeLinecap="round"
+                          stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
                           initial={{ pathLength: 0, opacity: 0 }}
                           animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
                           transition={{ duration: 3.1, times: [0, 0.3, 0.7, 1], ease: 'easeInOut', delay: 0.45 }}
@@ -229,7 +229,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* ============================================= */}
                         <motion.path
                           d="M 38 178 L 102 178 M 46 170 L 94 170 M 55 162 L 85 162"
-                          stroke="#18181b" strokeWidth="4" strokeLinecap="round"
+                          stroke="currentColor" strokeWidth="4" strokeLinecap="round"
                           initial={{ pathLength: 0, opacity: 0 }}
                           animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
                           transition={{
@@ -245,7 +245,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Barra diagonal inferior (apoyo del pie) */}
                         <motion.line
                           x1="50" y1="150" x2="90" y2="138"
-                          stroke="#18181b" strokeWidth="10" strokeLinecap="square"
+                          stroke="currentColor" strokeWidth="10" strokeLinecap="square"
                           initial={{ pathLength: 0, opacity: 0 }}
                           animate={{ pathLength: 1, opacity: 1 }}
                           transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.65 }}
@@ -254,7 +254,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Palo vertical principal */}
                         <motion.path
                           d="M 70 30 L 70 160"
-                          stroke="#18181b" strokeWidth="14" strokeLinecap="square"
+                          stroke="currentColor" strokeWidth="14" strokeLinecap="square"
                           initial={{ pathLength: 0 }}
                           animate={{ pathLength: 1 }}
                           transition={{ duration: 1.0, ease: 'easeInOut', delay: 0.7 }}
@@ -263,7 +263,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Brazo horizontal principal (central) */}
                         <motion.line
                           x1="28" y1="75" x2="112" y2="75"
-                          stroke="#18181b" strokeWidth="14" strokeLinecap="square"
+                          stroke="currentColor" strokeWidth="14" strokeLinecap="square"
                           initial={{ pathLength: 0 }}
                           animate={{ pathLength: 1 }}
                           transition={{ duration: 0.8, ease: 'easeInOut', delay: 1.1 }}
@@ -272,7 +272,7 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                         {/* Brazo horizontal superior (del título INRI) */}
                         <motion.line
                           x1="46" y1="47" x2="94" y2="47"
-                          stroke="#18181b" strokeWidth="9" strokeLinecap="square"
+                          stroke="currentColor" strokeWidth="9" strokeLinecap="square"
                           initial={{ pathLength: 0 }}
                           animate={{ pathLength: 1 }}
                           transition={{ duration: 0.6, ease: 'easeInOut', delay: 1.3 }}
@@ -283,14 +283,14 @@ export function BrandLoader({ children }: { children: React.ReactNode }) {
                     {/* Texto O con Espaciador de Balance */}
                     <div className="flex items-center">
                       <motion.span
-                        className="font-black tracking-widest text-zinc-900 leading-none z-20"
+                        className="font-black tracking-widest text-zinc-900 dark:text-zinc-100 leading-none z-20"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 2.3, duration: 0.8, ease: 'easeOut' }}
                       >
                         O
                       </motion.span>
-                      
+
                       <motion.div
                         initial={{ width: "1.8em" }}
                         animate={{ width: 0 }}

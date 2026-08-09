@@ -15,7 +15,7 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
   const [selectedSaint, setSelectedSaint] = useState<SaintInfo | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-transparent text-zinc-900 relative overflow-hidden" id="santos">
+    <section className="py-16 md:py-24 bg-transparent text-zinc-900 dark:text-zinc-100 relative overflow-hidden" id="santos">
       {/* Background Decorativo - Simplificado para rendimiento en móviles (sin mix-blend ni blur masivo) */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none flex justify-center items-center">
         <div className="w-[800px] h-[800px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(220,38,38,1) 0%, rgba(220,38,38,0) 70%)' }} />
@@ -27,7 +27,7 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
             title="Nuestras Raíces" 
             subtitle="Santos Redentoristas" 
           />
-          <p className="text-zinc-600 max-w-2xl mx-auto mt-4">
+          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-4">
             Nuestra espiritualidad y servicio se inspiran en la vida de los grandes santos redentoristas. ¡Conocé a los referentes que nos marcan el camino!
           </p>
         </div>
@@ -108,7 +108,7 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
             {/* Modal Content */}
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
               <motion.div
-                className="bg-white border border-zinc-200 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl pointer-events-auto relative max-h-[90vh] flex flex-col"
+                className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl pointer-events-auto relative max-h-[90vh] flex flex-col"
                 layoutId={`saint-modal-${selectedSaint._id || selectedSaint.id || selectedSaint.name}`}
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -118,14 +118,14 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
                 {/* Botón Cerrar */}
                 <button 
                   onClick={() => setSelectedSaint(null)}
-                  className="absolute top-4 right-4 p-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-500 hover:text-zinc-800 rounded-full transition-colors z-10"
+                  className="absolute top-4 right-4 p-2 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 rounded-full transition-colors z-10"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
-                <div className="p-8 sm:p-10 overflow-y-auto custom-scrollbar">
+                <div className="p-6 sm:p-10 overflow-y-auto custom-scrollbar">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-black text-zinc-900 mb-2">
+                    <h2 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-2">
                       {selectedSaint.name}
                     </h2>
                     <p className="text-red-500 font-bold uppercase tracking-wider text-sm">
@@ -135,21 +135,21 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
                   
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-zinc-900 font-semibold mb-2 flex items-center">
+                      <h4 className="text-zinc-900 dark:text-zinc-100 font-semibold mb-2 flex items-center">
                         <span className="w-8 h-[2px] bg-red-600 mr-3"></span>
                         ¿Quién fue?
                       </h4>
-                      <p className="text-zinc-700 leading-relaxed text-sm sm:text-base">
+                      <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base">
                         {selectedSaint.fullBiography}
                       </p>
                     </div>
                     
-                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200">
-                      <h4 className="text-zinc-900 font-semibold mb-2 flex items-center">
+                    <div className="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+                      <h4 className="text-zinc-900 dark:text-zinc-100 font-semibold mb-2 flex items-center">
                         <span className="w-2 h-2 rounded-full bg-red-600 mr-3"></span>
                         Su huella en el CCR
                       </h4>
-                      <p className="text-zinc-700 leading-relaxed text-sm sm:text-base">
+                      <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base">
                         {selectedSaint.connectionToCharism}
                       </p>
                     </div>
@@ -157,7 +157,7 @@ export function SaintsGrid({ saints }: SaintsGridProps) {
                 </div>
                 
                 {/* Bottom Gradient Fade for Scroll */}
-                <div className="h-8 bg-gradient-to-t from-white to-transparent absolute bottom-0 left-0 w-full pointer-events-none" />
+                <div className="h-8 bg-gradient-to-t from-white dark:from-zinc-950 to-transparent absolute bottom-0 left-0 w-full pointer-events-none" />
               </motion.div>
             </div>
           </>

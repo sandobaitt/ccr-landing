@@ -70,16 +70,6 @@ export const supplyItems: SupplyItem[] = [
   },
 ];
 
-/* Oculto temporalmente, no son cuentas reales
-/** Información bancaria para donaciones monetarias * /
-export const donationInfo = {
-  bankName: 'Banco Nación',
-  accountHolder: 'Parroquia Ntra. Sra. de la Asunción',
-  cbu: '0110012340012345678901',
-  alias: 'CRECER.CCR.REDENTOR',
-};
-*/
-
 /** Contactos de coordinadores generales */
 export const coordinators: CoordinatorInfo[] = [
   {

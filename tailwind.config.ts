@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -28,7 +29,6 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-dm-sans)', 'sans-serif'],
         display: ['var(--font-outfit)', 'sans-serif'],
-        serif: ['var(--font-outfit)', 'serif'], // Fallback for components using font-serif
       },
       animation: {
         'gradient': 'gradient 4s ease infinite',

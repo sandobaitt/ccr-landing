@@ -47,7 +47,7 @@ export function Pillars({ pillars }: PillarsProps) {
             return (
               <motion.div
                 key={pillar._id || pillar.title}
-                className={`group relative flex flex-row items-center text-left p-6 sm:p-8 rounded-3xl border-2 border-white/50 bg-gradient-to-r bg-[length:200%_200%] animate-gradient ${pillar.gradient} shadow-lg transition-all duration-300`}
+                className={`group relative flex flex-row items-center text-left p-6 sm:p-8 rounded-3xl border-2 border-white/50 dark:border-white/5 dark:opacity-100 bg-gradient-to-r bg-[length:200%_200%] animate-gradient ${pillar.gradient} dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-950 shadow-lg transition-all duration-300`}
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -64,12 +64,12 @@ export function Pillars({ pillars }: PillarsProps) {
 
                 <div>
                   {/* Título animado continuamente */}
-                  <h3 className="text-xl sm:text-2xl font-black mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-violet-600 bg-[length:200%_200%] animate-gradient text-balance">
+                  <h3 className="text-xl sm:text-2xl font-black mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-violet-600 dark:from-violet-400 dark:via-pink-400 dark:to-violet-400 bg-[length:200%_200%] animate-gradient text-balance">
                     {pillar.title}
                   </h3>
 
                   {/* Descripción */}
-                  <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>

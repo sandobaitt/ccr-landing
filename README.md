@@ -26,6 +26,7 @@ Este proyecto fue desarrollado en modalidad de *Pair Programming* junto a **Anti
 ## ✨ Características Principales
 
 - **Estética "Vibrante" & Glassmorphism:** Interfaz vibrante con fondos borrosos (backdrop blur), mallas de gradientes animados (gradient meshes) y colores pastel de alto contraste.
+- **Modo Oscuro Dinámico (Dark Mode):** Soporte total y fluido entre temas claro y oscuro utilizando `next-themes` y variantes personalizadas de Tailwind v4, adaptando imágenes de fondo con `mix-blend-screen` y ajustando automáticamente jerarquías de color y legibilidad.
 - **Micro-Interacciones:** Componentes como `ScheduleTicker` (cinta infinita de horarios), `CircularGallery` (galería WebGL rotativa en 3D), y tarjetas interactivas que reaccionan al scroll y al cursor del usuario.
 - **Rendimiento Óptimo:** Construido sobre **Next.js 16.2** (App Router) y Turbopack, garantizando tiempos de carga ultrarrápidos mediante generación estática e ISR.
 - **Arquitectura Dinámica (Headless CMS):** Toda la información del sitio (fechas de retiros, cronogramas, santos, novedades y redes sociales) se gestiona de forma intuitiva a través de **Sanity CMS**, permitiendo a cualquier voluntario actualizar la página web sin tocar una sola línea de código.
@@ -35,7 +36,7 @@ Este proyecto fue desarrollado en modalidad de *Pair Programming* junto a **Anti
 
 - **Framework Core:** [Next.js (App Router)](https://nextjs.org/)
 - **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
-- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Estilos y Temas:** [Tailwind CSS](https://tailwindcss.com/) & [next-themes](https://github.com/pacocoursey/next-themes)
 - **Iconografía:** [Lucide React](https://lucide.dev/)
 - **Gestor de Contenido (CMS):** [Sanity.io](https://www.sanity.io/)
 - **Animaciones UI/2D:** [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)

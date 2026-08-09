@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BrandLoader } from "@/components/BrandLoader";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { ScheduleTicker } from "@/components/ScheduleTicker";
 import Image from "next/image";
 
@@ -18,6 +19,8 @@ const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
 });
+
+
 
 export const metadata: Metadata = {
   title: "CCR Parroquia Asunción",
@@ -52,23 +55,34 @@ export default async function RootLayout({
   const sanitySchedule = await client.fetch(scheduleQuery);
 
   return (
-    <html lang="es" className="scroll-smooth">
-      <head>
-        <meta name="color-scheme" content="light only" />
-      </head>
-      <body className={`${dmSans.variable} ${outfit.variable} antialiased min-h-screen bg-ccr-primary text-ccr-foreground flex flex-col font-sans`}>
-        <BrandLoader>
-          {/* Fondo Fijo Global - Tipo Marca de Agua Centrada */}
-          <div className="fixed inset-0 z-[-1] w-full h-[100dvh] pointer-events-none flex items-center justify-center">
-            {/* Se removió mix-blend-multiply porque consume excesivos recursos de GPU en móviles al hacer scroll */}
-            <div className="relative w-[300vw] max-w-none h-[300vw] sm:h-[1200px] md:h-[1200px] opacity-10">
+    <html lang="es" className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${dmSans.variable} ${outfit.variable} antialiased min-h-screen bg-ccr-primary text-ccr-foreground flex flex-col font-sans transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+          <BrandLoader>
+          {/* Fondo Fijo Global - Tipo Marca de Agua Centrada (Modo Claro) */}
+          <div className="fixed inset-0 z-[-1] w-full h-[100dvh] pointer-events-none flex items-center justify-center dark:opacity-0 transition-opacity duration-500">
+            <div className="relative w-[300vw] max-w-none h-[300vw] sm:h-[1200px] md:h-[1200px] opacity-15">
               <Image
                 src="/Gemini_Generated_Image_fyu530fyu530fyu5.png"
-                alt="Fondo fijo"
+                alt="Fondo fijo claro"
                 fill
                 sizes="100vw"
                 priority
                 className="object-contain object-center"
+              />
+            </div>
+          </div>
+
+          {/* Fondo Fijo Global - Tipo Marca de Agua Centrada (Modo Oscuro) */}
+          <div className="fixed inset-0 z-[-1] w-full h-[100dvh] pointer-events-none flex items-center justify-center opacity-0 dark:opacity-100 transition-opacity duration-500">
+            <div className="relative w-[300vw] max-w-none h-[300vw] sm:h-[1200px] md:h-[1200px] opacity-10">
+              <Image
+                src="/bg-dark.jpg"
+                alt="Fondo fijo oscuro"
+                fill
+                sizes="100vw"
+                priority
+                className="object-contain object-center mix-blend-screen"
               />
             </div>
           </div>
@@ -78,6 +92,7 @@ export default async function RootLayout({
           <Footer settings={{ socialLinks: sanitySocialLinks }} />
           <RoamingChrist />
         </BrandLoader>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

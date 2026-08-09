@@ -14,10 +14,10 @@ export function Hero({ retreatInfo }: HeroProps) {
   return (
     <section className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-6 pt-10 pb-32 bg-transparent">
 
-      {/* Fondo estético - Removido completamente para evitar cortes en el fondo fijo */}
+      {/* Fondo fijo */}
 
-      {/* Orbes dopaminérgicos animados */}
-      <div className="absolute inset-0 z-0 pointer-events-none mix-blend-multiply opacity-50">
+      {/* Orbes detras del titulo principal animados */}
+      <div className="absolute inset-0 z-0 pointer-events-none dark:mix-blend-screen opacity-50 dark:opacity-[0.15]">
         <motion.div
           animate={{ scale: [1, 1.2, 1], x: [0, 100, 0], y: [0, -50, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -38,9 +38,9 @@ export function Hero({ retreatInfo }: HeroProps) {
       <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-8">
 
         <div className="flex flex-col items-center justify-center space-y-4">
-          <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-black font-display tracking-tighter leading-[1.05] flex flex-col items-center drop-shadow-sm">
+          <div className="text-5xl sm:text-6xl md:text-[5.5rem] font-bold font-serif tracking-tight leading-[1.05] flex flex-col items-center drop-shadow-sm">
             <BlurText
-              text="CRECER CON"
+              text="Crecer con"
               delay={150}
               initialDelay={6.5}
               animateBy="words"
@@ -48,7 +48,7 @@ export function Hero({ retreatInfo }: HeroProps) {
               className="flex justify-center text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 pb-2 pr-2"
             />
             <BlurText
-              text="CRISTO REDENTOR"
+              text="Cristo Redentor"
               delay={250}
               initialDelay={6.5}
               animateBy="words"
@@ -59,7 +59,7 @@ export function Hero({ retreatInfo }: HeroProps) {
         </div>
 
         <motion.p
-          className="max-w-2xl text-lg sm:text-xl md:text-2xl text-zinc-700 leading-relaxed font-medium"
+          className="max-w-2xl text-lg sm:text-xl md:text-2xl text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 6.8 }}
