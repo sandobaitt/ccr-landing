@@ -78,14 +78,14 @@ export function Communities({ communities }: CommunitiesProps) {
 
         {/* Áreas de Perseverancia */}
         <div className="mt-24 pt-8">
-          <div className="text-center mb-12">
+          <div className="flex flex-col items-center text-center mb-12">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
               scrollStart="top bottom"
               scrollEnd="top bottom-=30%"
               stagger={0.03}
-              containerClassName="justify-center text-2xl sm:text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 mb-4 drop-shadow-sm text-balance"
+              containerClassName="text-2xl sm:text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 mb-4 drop-shadow-sm text-balance"
             >
               Comunidades de Perseverancia
             </ScrollFloat>
