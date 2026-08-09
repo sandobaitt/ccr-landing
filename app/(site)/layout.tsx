@@ -56,6 +56,16 @@ export default async function RootLayout({
 
   return (
     <html lang="es" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        {/* Previene que Samsung Internet y otros navegadores fuercen su propio modo oscuro */}
+        <meta name="color-scheme" content="light dark" />
+        <meta name="supported-color-schemes" content="light dark" />
+        {/* Forzar scroll al inicio en cada carga/recarga */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+          window.scrollTo(0, 0);
+        `}} />
+      </head>
       <body className={`${dmSans.variable} ${outfit.variable} antialiased min-h-screen bg-ccr-primary text-ccr-foreground flex flex-col font-sans transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <BrandLoader>

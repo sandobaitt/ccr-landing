@@ -88,11 +88,11 @@ export function Footer({ settings }: FooterProps) {
   ];
 
   return (
-    <footer className="border-t border-zinc-200 bg-transparent py-16">
+    <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-transparent py-16">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-start gap-12 text-center md:text-left">
         <div className="flex-1">
-          <h3 className="font-black text-2xl text-zinc-900 mb-3 tracking-tight">Crecer con Cristo Redentor</h3>
-          <p className="text-zinc-600 text-sm max-w-sm mx-auto md:mx-0 leading-relaxed">
+          <h3 className="font-black text-2xl text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight">Crecer con Cristo Redentor</h3>
+          <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-sm mx-auto md:mx-0 leading-relaxed">
             Comunidad juvenil de la Parroquia Nuestra Señora de la Asunción. ¡Sumate a vivir la fe, hacer amigos y ayudar a los demás!
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-3">
@@ -105,12 +105,12 @@ export function Footer({ settings }: FooterProps) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-2 bg-white rounded-full text-zinc-600 hover:text-ccr-accent hover:bg-rose-50 transition-colors border border-zinc-200 shadow-sm"
+                  className="flex items-center gap-3 px-4 py-2 bg-white dark:bg-zinc-900 rounded-full text-zinc-600 dark:text-zinc-400 hover:text-ccr-accent dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors border border-zinc-200 dark:border-zinc-800 shadow-sm"
                 >
                   <Icon className="w-5 h-5 shrink-0" />
                   <div className="text-left min-w-0">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 leading-none mb-0.5 truncate">{link.title}</p>
-                    <p className="text-sm font-bold leading-none text-zinc-900 truncate max-w-[120px] sm:max-w-none">{link.subtitle}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-500 leading-none mb-0.5 truncate">{link.title}</p>
+                    <p className="text-sm font-bold leading-none text-zinc-900 dark:text-zinc-100 truncate max-w-[120px] sm:max-w-none">{link.subtitle}</p>
                   </div>
                 </Link>
               );
@@ -119,25 +119,25 @@ export function Footer({ settings }: FooterProps) {
         </div>
 
         <div className="flex-1 flex flex-col items-center md:items-end">
-          <h4 className="font-bold text-lg text-zinc-900 mb-6 uppercase tracking-wider text-sm">Secretaría Parroquial</h4>
+          <h4 className="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-6 uppercase tracking-wider text-sm">Secretaría Parroquial</h4>
 
           <div className="space-y-6">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 justify-center md:justify-end text-zinc-600">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 justify-center md:justify-end text-zinc-600 dark:text-zinc-400">
               <div className="text-center md:text-right order-2 md:order-1">
-                <p className="font-bold text-zinc-900">Dirección</p>
+                <p className="font-bold text-zinc-900 dark:text-zinc-100">Dirección</p>
                 <p className="text-sm mt-1">Asunción 685</p>
-                <p className="text-sm text-zinc-500">Resistencia, Chaco</p>
+                <p className="text-sm text-zinc-500 dark:text-zinc-500">Resistencia, Chaco</p>
               </div>
               <MapPin className="w-5 h-5 text-ccr-accent shrink-0 mt-0 md:mt-0.5 order-1 md:order-2" />
             </div>
 
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 justify-center md:justify-end text-zinc-600">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 justify-center md:justify-end text-zinc-600 dark:text-zinc-400">
               <div className="text-center md:text-right order-2 md:order-1">
-                <p className="font-bold text-zinc-900">Horarios de Atención</p>
-                <div className="text-sm mt-1 space-y-0.5 text-zinc-500">
-                  <p><span className="text-zinc-700 font-medium">Mar a Jue:</span> 10 a 12 hs · 17 a 20 hs</p>
-                  <p><span className="text-zinc-700 font-medium">Vie:</span> 09 a 12 hs</p>
-                  <p><span className="text-zinc-700 font-medium">Sáb:</span> 08 a 12 hs · 17 a 20 hs</p>
+                <p className="font-bold text-zinc-900 dark:text-zinc-100">Horarios de Atención</p>
+                <div className="text-sm mt-1 space-y-0.5 text-zinc-500 dark:text-zinc-500">
+                  <p><span className="text-zinc-700 dark:text-zinc-300 font-medium">Mar a Jue:</span> 10 a 12 hs · 17 a 20 hs</p>
+                  <p><span className="text-zinc-700 dark:text-zinc-300 font-medium">Vie:</span> 09 a 12 hs</p>
+                  <p><span className="text-zinc-700 dark:text-zinc-300 font-medium">Sáb:</span> 08 a 12 hs · 17 a 20 hs</p>
                 </div>
               </div>
               <Clock className="w-5 h-5 text-ccr-accent shrink-0 mt-0 md:mt-0.5 order-1 md:order-2" />
@@ -146,7 +146,7 @@ export function Footer({ settings }: FooterProps) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-zinc-200 text-center text-sm text-zinc-500 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm text-zinc-500 dark:text-zinc-400 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-1">
           <span>© {new Date().getFullYear()} CCR. Todos los derechos reservados.</span>
           <div className="flex items-center gap-1.5">
@@ -155,31 +155,31 @@ export function Footer({ settings }: FooterProps) {
               href="https://github.com/sandobaitt"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center hover:text-zinc-800 transition-colors opacity-70 hover:opacity-100"
+              className="flex items-center hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors opacity-70 hover:opacity-100"
               title="GitHub de Lautaro Sandoval"
             >
               <GithubIcon className="w-4 h-4" />
             </Link>
-            <span className="text-zinc-300 mx-0.5">•</span>
+            <span className="text-zinc-300 dark:text-zinc-600 mx-0.5">•</span>
             <Link
               href="https://www.linkedin.com/in/lautarosandoval"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center hover:text-zinc-800 transition-colors opacity-70 hover:opacity-100"
+              className="flex items-center hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors opacity-70 hover:opacity-100"
               title="LinkedIn de Lautaro Sandoval"
             >
               <LinkedinIcon className="w-4 h-4" />
             </Link>
-            <span className="text-zinc-400 mx-1 font-medium">&amp;</span>
+            <span className="text-zinc-400 dark:text-zinc-600 mx-1 font-medium">&amp;</span>
             <span 
-              className="flex items-center text-zinc-500 hover:text-zinc-800 transition-colors opacity-80 hover:opacity-100 cursor-default"
+              className="flex items-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors opacity-80 hover:opacity-100 cursor-default"
               title="Paloma"
             >
               <Bird className="w-4 h-4" />
             </span>
           </div>
         </div>
-        <p className="text-xs font-semibold uppercase tracking-widest text-zinc-600">Parroquia Nuestra Señora de la Asunción</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">Parroquia Nuestra Señora de la Asunción</p>
       </div>
     </footer>
   );

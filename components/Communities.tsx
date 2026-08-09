@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { SectionTitle } from './SectionTitle';
+import ScrollFloat from './ScrollFloat/ScrollFloat';
 import type { CommunityInfo } from '@/types/content';
 import { UserPlus, Flame, Users, ArrowRight, Music, CalendarDays, HeartHandshake, BookOpenText, Church, Megaphone, Palette, Coffee, Tent } from 'lucide-react';
 
@@ -78,7 +79,16 @@ export function Communities({ communities }: CommunitiesProps) {
         {/* Áreas de Perseverancia */}
         <div className="mt-24 pt-8">
           <div className="text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 mb-4 drop-shadow-sm text-balance">Comunidades de Perseverancia</h3>
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="top bottom"
+              scrollEnd="bottom bottom-=20%"
+              stagger={0.03}
+              containerClassName="text-2xl sm:text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 mb-4 drop-shadow-sm text-balance"
+            >
+              Comunidades de Perseverancia
+            </ScrollFloat>
             <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto text-balance">
               Despues del Crecer la variedad de espacios para compartir son tremendos. Siempre abiertos a todo tipo de talentos y ganas de perseverar. Siempre hay lugar para uno mas...
             </p>
