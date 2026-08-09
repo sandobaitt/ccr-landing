@@ -28,7 +28,7 @@ const cardVariants = {
 
 export function Donations({ supplies, coordinators }: DonationsProps) {
   return (
-    <section id="ayudar" className="relative w-full py-16 md:py-24 px-6 bg-transparent">
+    <section id="ayudar" className="relative w-full pt-8 pb-16 md:py-24 px-6 bg-transparent">
       <div className="max-w-5xl mx-auto">
         <SectionTitle
           title="Acción Social: Recorridas Nocturnas"

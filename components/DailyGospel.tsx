@@ -10,7 +10,7 @@ interface DailyGospelProps {
 
 export function DailyGospel({ gospel }: DailyGospelProps) {
   return (
-    <section className="py-16 bg-transparent relative overflow-hidden">
+    <section className="pt-16 pb-8 md:py-16 bg-transparent relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
