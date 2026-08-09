@@ -76,9 +76,8 @@ const ScrollFloat = ({
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: scrollStart,
-          end: scrollEnd,
-          scrub: true
+          start: 'top bottom-=15%',
+          toggleActions: 'play none none none',
         }
       }
     );
