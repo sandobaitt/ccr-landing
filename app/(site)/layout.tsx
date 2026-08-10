@@ -7,6 +7,7 @@ import { BrandLoader } from "@/components/BrandLoader";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ScheduleTicker } from "@/components/ScheduleTicker";
 import Image from "next/image";
+import Script from "next/script";
 
 import { Analytics } from "@vercel/analytics/react";
 
@@ -25,6 +26,15 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "CCR Parroquia Asunción",
   description: "Movimiento juvenil. ¡Sumate a vivir en comunidad!",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "CCR",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/og-small.png",
+  },
   openGraph: {
     title: "Crecer con Cristo Redentor",
     description: "Movimiento juvenil. ¡Sumate a vivir en comunidad!",
@@ -61,10 +71,10 @@ export default async function RootLayout({
         <meta name="color-scheme" content="light dark" />
         <meta name="supported-color-schemes" content="light dark" />
         {/* Forzar scroll al inicio en cada carga/recarga */}
-        <script dangerouslySetInnerHTML={{ __html: `
-          if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-          window.scrollTo(0, 0);
-        `}} />
+        <Script id="scroll-restoration" strategy="beforeInteractive">
+          {`if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+          window.scrollTo(0, 0);`}
+        </Script>
       </head>
       <body className={`${dmSans.variable} ${outfit.variable} antialiased min-h-screen bg-ccr-primary text-ccr-foreground flex flex-col font-sans transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
