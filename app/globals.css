@@ -2,6 +2,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  color-scheme: light dark;
   --background: #fdfbf7;
   --foreground: #18181b;
   --ccr-primary: #fff9f2;
