@@ -24,7 +24,7 @@ const outfit = Outfit({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://crecerconcristoredentor.com"), // Asumimos un dominio o localhost, se puede ajustar
+  metadataBase: new URL("https://ccr-landing.vercel.app"),
   title: {
     default: "Crecer con Cristo Redentor | Comunidad Juvenil",
     template: "%s | CCR",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Crecer con Cristo Redentor",
     description: "Movimiento juvenil. ¡Sumate a vivir en comunidad!",
-    url: "https://crecerconcristoredentor.com",
+    url: "https://ccr-landing.vercel.app",
     siteName: "Crecer con Cristo Redentor",
     images: [
       {

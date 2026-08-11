@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/studio/'], // Ignora el CMS de Sanity en los resultados
     },
-    sitemap: 'https://crecerconcristoredentor.com/sitemap.xml',
+    sitemap: 'https://ccr-landing.vercel.app/sitemap.xml',
   };
 }
