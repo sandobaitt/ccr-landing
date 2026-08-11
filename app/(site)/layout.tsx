@@ -24,31 +24,58 @@ const outfit = Outfit({
 
 
 export const metadata: Metadata = {
-  title: "CCR Parroquia Asunción",
-  description: "Movimiento juvenil. ¡Sumate a vivir en comunidad!",
+  metadataBase: new URL("https://crecerconcristoredentor.com"), // Asumimos un dominio o localhost, se puede ajustar
+  title: {
+    default: "Crecer con Cristo Redentor | Comunidad Juvenil",
+    template: "%s | CCR",
+  },
+  description: "Comunidad juvenil católica de la Parroquia Nuestra Señora de la Asunción en Resistencia, Chaco. Sumate a vivir la fe, hacer amigos y ayudar a los demás a través del retiro Crecer, comunidades de perseverancia y Acción Social.",
+  keywords: ["CCR", "Crecer con Cristo Redentor", "Juventud Católica", "Resistencia Chaco", "Retiro espiritual", "Comunidad juvenil", "Acción Social"],
+  authors: [{ name: "Comunidad CCR" }],
+  creator: "Comunidad CCR",
+  publisher: "Comunidad CCR",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "CCR",
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/og-small.png",
-  },
   openGraph: {
     title: "Crecer con Cristo Redentor",
     description: "Movimiento juvenil. ¡Sumate a vivir en comunidad!",
-    siteName: "CCR",
+    url: "https://crecerconcristoredentor.com",
+    siteName: "Crecer con Cristo Redentor",
     images: [
       {
         url: "/og-small.png",
-        width: 256,
-        height: 256,
-        alt: "Logo CCR",
+        width: 800,
+        height: 800,
+        alt: "Logo Crecer con Cristo Redentor",
       },
     ],
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crecer con Cristo Redentor",
+    description: "Movimiento juvenil en Resistencia. ¡Sumate a vivir en comunidad!",
+    images: ["/og-small.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
