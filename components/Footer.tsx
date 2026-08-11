@@ -88,7 +88,7 @@ export function Footer({ settings }: FooterProps) {
   ];
 
   return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-transparent py-16">
+    <footer id="contactos" className="border-t border-zinc-200 dark:border-zinc-800 bg-transparent py-16">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-start gap-12 text-center md:text-left">
         <div className="flex-1">
           <h3 className="font-black text-2xl text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight">Crecer con Cristo Redentor</h3>

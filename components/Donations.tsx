@@ -105,9 +105,10 @@ export function Donations({ supplies, coordinators }: DonationsProps) {
           })}
         </div>
 
-        {/* Bloque de Contacto a Coordinadores */}
+        {/* Contenedor de Coordinadores */}
         <motion.div
-          className="mt-12 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-sm"
+          id="coordis"
+          className="scroll-mt-28 mt-12 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-sm"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}

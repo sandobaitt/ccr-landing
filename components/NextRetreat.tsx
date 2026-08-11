@@ -146,7 +146,11 @@ export function NextRetreat({ retreatInfo: nextRetreat }: NextRetreatProps) {
               <div className="flex items-start bg-ccr-pastel-lavender/50 dark:bg-violet-900/20 p-4 rounded-xl border border-ccr-pastel-lavender dark:border-violet-900/30">
                 <Info className="w-5 h-5 text-ccr-accent mt-0.5 mr-3 flex-shrink-0" />
                 <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                  ¿Tenés alguna duda o querés saber más? ¡No dudes en escribirles a los <span className="text-zinc-900 dark:text-zinc-100 font-bold">coordis</span> al final de la página, te están esperando!
+                  ¿Tenés alguna duda o querés saber más? ¡No dudes en{' '}
+                  <a href="#coordis" className="text-zinc-900 dark:text-zinc-100 font-bold underline decoration-ccr-accent/50 hover:decoration-ccr-accent underline-offset-4 transition-all">
+                    escribirles a los coordis
+                  </a>
+                  , te están esperando!
                 </p>
               </div>
 
