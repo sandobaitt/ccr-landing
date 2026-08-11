@@ -44,6 +44,13 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: "CCR",
   },
+  icons: {
+    icon: [
+      { url: '/favicon-light.png', media: '(prefers-color-scheme: light)' },
+      { url: '/favicon-dark.png', media: '(prefers-color-scheme: dark)' },
+    ],
+    apple: '/og-small.png',
+  },
   openGraph: {
     title: "Crecer con Cristo Redentor",
     description: "Movimiento juvenil. ¡Sumate a vivir en comunidad!",
