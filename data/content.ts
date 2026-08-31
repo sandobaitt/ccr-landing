@@ -94,7 +94,7 @@ export const nextRetreat: RetreatInfo = {
   name: 'CCR 32',
   open: false,
   targetDate: '2026-10-15T18:00:00-03:00',
-  formsLink: 'https://docs.google.com/forms/d/e/ejemplo/viewform',
+
   dateDescription: 'Arrancamos el viernes por la tarde y le mandamos hasta el domingo.',
   locationDescription: 'En la Casa de Retiros, Parroquia Nuestra Señora de la Asunción.',
   minAge: 18,
