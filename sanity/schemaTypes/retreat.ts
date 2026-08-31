@@ -23,11 +23,7 @@ export const retreatType = defineType({
       type: 'datetime',
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'formsLink',
-      title: 'Link de Google Forms (Inscripción)',
-      type: 'url',
-    }),
+
     defineField({
       name: 'dateDescription',
       title: 'Descripción de Fecha (Ej: Arrancamos el viernes...)',

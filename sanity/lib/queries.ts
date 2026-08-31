@@ -22,7 +22,7 @@ export const retreatQuery = groq`*[_type == "retreat"] | order(_updatedAt desc)[
   name,
   open,
   targetDate,
-  formsLink,
+
   dateDescription,
   locationDescription,
   minAge,

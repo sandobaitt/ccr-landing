@@ -38,7 +38,7 @@ export interface RetreatInfo {
   name: string;
   open: boolean;
   targetDate: string;
-  formsLink: string;
+
   dateDescription: string;
   locationDescription: string;
   minAge: number;
