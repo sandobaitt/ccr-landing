@@ -1,10 +1,11 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { SectionTitle } from '@/components/SectionTitle';
 import { Button } from '@/components/Button';
 import BorderGlow from '@/components/BorderGlow/BorderGlow';
 import { Calendar, Clock, MapPin, Users, Ticket, Info } from 'lucide-react';
+import { InscriptionModal } from '@/components/InscriptionModal';
 import type { RetreatInfo } from '@/types/content';
 
 interface NextRetreatProps {
@@ -12,6 +13,7 @@ interface NextRetreatProps {
 }
 
 export function NextRetreat({ retreatInfo: nextRetreat }: NextRetreatProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -155,16 +157,24 @@ export function NextRetreat({ retreatInfo: nextRetreat }: NextRetreatProps) {
               </div>
 
               <div className="pt-2">
-                <Button size="lg" disabled className="w-full text-base opacity-70 cursor-not-allowed">
-                  <Ticket className="w-5 h-5 mr-2" />
-                  ¡Pronto abrimos inscripciones!
-                </Button>
+                {nextRetreat.open ? (
+                  <Button size="lg" onClick={() => setIsModalOpen(true)} className="w-full text-base bg-ccr-accent hover:bg-ccr-accent/90 text-white">
+                    <Ticket className="w-5 h-5 mr-2" />
+                    ¡Inscribirme ahora!
+                  </Button>
+                ) : (
+                  <Button size="lg" disabled className="w-full text-base opacity-70 cursor-not-allowed">
+                    <Ticket className="w-5 h-5 mr-2" />
+                    ¡Pronto abrimos inscripciones!
+                  </Button>
+                )}
               </div>
 
             </motion.div>
           </motion.div>
         </div>
       </div>
+      <InscriptionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
